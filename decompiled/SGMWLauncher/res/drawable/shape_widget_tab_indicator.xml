@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="@dimen/dp_136" android:right="@dimen/dp_136">
+        <shape>
+            <corners android:radius="@dimen/dp_5" />
+        </shape>
+    </item>
+</layer-list>

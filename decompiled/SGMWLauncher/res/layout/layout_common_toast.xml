@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/layout_common_toast_0" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:skin="http://schemas.android.com/android/skin">
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_main" android:background="@drawable/bg_common_toast" android:paddingLeft="@dimen/dp_40" android:paddingTop="@dimen/dp_21" android:paddingRight="@dimen/dp_40" android:paddingBottom="@dimen/dp_21" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@id/iv_toast_icon" android:layout_width="@dimen/dp_120" android:layout_height="@dimen/dp_120" />
+        <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_32" android:textColor="#fafcff" android:layout_gravity="center" android:id="@id/tv_toast_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" style="@style/CN.Regular" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

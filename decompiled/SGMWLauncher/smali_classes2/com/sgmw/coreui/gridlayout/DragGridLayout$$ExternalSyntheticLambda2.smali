@@ -1,0 +1,34 @@
+.class public final synthetic Lcom/sgmw/coreui/gridlayout/DragGridLayout$$ExternalSyntheticLambda2;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/sgmw/coreui/gridlayout/DragGridLayout;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/sgmw/coreui/gridlayout/DragGridLayout;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/sgmw/coreui/gridlayout/DragGridLayout$$ExternalSyntheticLambda2;->f$0:Lcom/sgmw/coreui/gridlayout/DragGridLayout;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/sgmw/coreui/gridlayout/DragGridLayout$$ExternalSyntheticLambda2;->f$0:Lcom/sgmw/coreui/gridlayout/DragGridLayout;
+
+    invoke-static {v0}, Lcom/sgmw/coreui/gridlayout/DragGridLayout;->$r8$lambda$6Dq2ARH9xXceXC4HVCDQinJApQg(Lcom/sgmw/coreui/gridlayout/DragGridLayout;)V
+
+    return-void
+.end method

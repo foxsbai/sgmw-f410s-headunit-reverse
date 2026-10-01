@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sgmw.lingos.hmi.biz.standby.StandbyWindowView android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:orientation="horizontal" android:id="@id/standby_root_view" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent">
+        <FrameLayout android:layout_width="@dimen/dp_879" android:layout_height="match_parent">
+            <com.pateo.media.widget.StandbyMediaWidgetBJ android:layout_gravity="end" android:layout_width="@dimen/dp_642" android:layout_height="@dimen/dp_88" android:layout_marginTop="@dimen/dp_375" />
+            <FrameLayout android:id="@id/standby_car_unlock_info_id" android:layout_width="@dimen/dp_879" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_550">
+                <ImageView android:layout_gravity="end|bottom" android:id="@id/standby_car_unlock_anim" android:layout_width="@dimen/dp_500" android:layout_height="@dimen/dp_60" android:src="@drawable/loop_37" />
+                <ImageView android:id="@id/standby_car_unlock_iv" android:layout_width="@dimen/dp_200" android:layout_height="@dimen/dp_90" android:layout_marginLeft="@dimen/dp_253" android:src="@drawable/standby_unlock_car" />
+                <ImageView android:layout_gravity="end|bottom" android:layout_width="@dimen/dp_622" android:layout_height="@dimen/dp_2" android:src="@drawable/standby_unlock_line" android:scaleType="fitXY" />
+            </FrameLayout>
+            <RelativeLayout android:layout_gravity="end" android:layout_width="@dimen/dp_622" android:layout_height="@dimen/dp_49" android:layout_marginTop="@dimen/dp_662">
+                <com.sgmw.lingos.hmi.view.AutoSizeHiDateTimeView android:textSize="@dimen/sp_32" android:textColor="@color/standby_date_weather_color" android:id="@id/standby_date_weather_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="8月26日  星期二" android:maxLines="1" android:layout_centerVertical="true" />
+                <com.sgmw.lingos.hmi.view.AutoSizeHiDateTimeView android:textSize="@dimen/sp_32" android:typeface="monospace" android:textColor="@color/standby_date_weather_color" android:id="@id/time_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_10" android:text="12:59" android:layout_toRightOf="@id/standby_date_weather_tv" android:layout_centerVertical="true" app:date_time_format="HH:mm" />
+                <com.pateo.media.widget.internal.view.AutoSizeTextView android:textSize="@dimen/sp_32" android:textColor="@color/standby_date_weather_color" android:id="@id/weather" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="晴  28℃" android:maxLines="1" android:includeFontPadding="false" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </FrameLayout>
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_975" android:layout_marginTop="@dimen/dp_165">
+            <ImageView android:id="@id/standby_clock_anim" android:layout_width="@dimen/dp_750" android:layout_height="@dimen/dp_750" />
+            <AnalogClock android:layout_gravity="center" android:id="@id/standby_time_ac" android:background="@drawable/clock_scale_bg" android:layout_width="@dimen/dp_660" android:layout_height="@dimen/dp_660" android:dial="@drawable/clock_scale" android:hand_hour="@drawable/clock_hour_hand" android:hand_minute="@drawable/clock_minute_hand" android:hand_second="@drawable/clock_second_hand" />
+        </FrameLayout>
+    </FrameLayout>
+</com.sgmw.lingos.hmi.biz.standby.StandbyWindowView>

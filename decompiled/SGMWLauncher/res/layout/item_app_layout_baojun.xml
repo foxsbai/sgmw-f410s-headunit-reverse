@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/ll_main" android:layout_width="@dimen/dp_158" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_20" android:layout_marginRight="@dimen/dp_20" android:layout_marginBottom="@dimen/dp_25"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:skin="http://schemas.android.com/android/skin">
+    <ImageView android:id="@id/iv_icon" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" android:scaleType="fitXY" android:layout_centerHorizontal="true" />
+    <RelativeLayout android:id="@id/rl_edit" android:layout_width="@dimen/dp_80" android:layout_height="@dimen/dp_60" android:layout_alignParentRight="true" android:paddingEnd="@dimen/dp_15">
+        <ImageView android:id="@id/iv_edit" android:layout_width="@dimen/dp_32" android:layout_height="@dimen/dp_32" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <TextView android:textSize="@dimen/sp_28" android:ellipsize="end" android:gravity="center" android:id="@id/tv_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:layout_below="@id/iv_icon" android:layout_centerHorizontal="true" style="@style/CN.Regular" skin:enable="true" />
+</RelativeLayout>

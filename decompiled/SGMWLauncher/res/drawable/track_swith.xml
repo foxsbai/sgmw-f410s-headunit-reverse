@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/dp_30" />
+                    <solid android:color="@color/bg_switch_high_light_disable" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/dp_30" />
+                    <gradient android:startColor="@color/gradient_color_start" android:endColor="@color/gradient_color_end" android:angle="0.0" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+    <item>
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/dp_30" />
+                    <solid android:color="@color/bg_switch_normal_disable" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="@dimen/dp_30" />
+                    <solid android:color="@color/bg_switch_normal" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</selector>

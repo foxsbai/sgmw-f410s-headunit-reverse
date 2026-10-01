@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/tmc_bar_bady" android:layout_width="match_parent" android:layout_height="40.0px">
+        <View android:id="@id/tmc_bar_container" android:background="@drawable/tmcbar_bg_day" android:layout_width="0.0dp" android:layout_height="14.0px" android:layout_marginStart="@dimen/auto_dimen2_24" android:layout_marginEnd="@dimen/auto_dimen2_24" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <com.sgmw.navigation.view.HorizontalTmcBarView android:id="@id/tmc_bar_view" android:layout_width="0.0dp" android:layout_height="@dimen/auto_dimen2_10" android:layout_marginStart="@dimen/auto_dimen2_27" android:layout_marginEnd="@dimen/auto_dimen2_27" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <ImageView android:id="@id/navi_tmc_cursor" android:background="@drawable/navi_ic_tmc_car" android:layout_width="@dimen/auto_dimen2_32" android:layout_height="@dimen/auto_dimen2_32" app:layout_constraintBottom_toBottomOf="@id/tmc_bar_container" app:layout_constraintStart_toStartOf="@id/tmc_bar_container" app:layout_constraintTop_toTopOf="@id/tmc_bar_container" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

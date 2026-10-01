@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:layout_gravity="center|top" android:id="@id/audio_source_card" android:visibility="gone" android:layout_width="@dimen/dp_420" android:layout_height="@dimen/dp_350" android:layout_marginBottom="@dimen/dp_115" layout="@layout/widget_launcher_mediacard_audio_source" />
+    <include android:layout_gravity="center|bottom" android:id="@id/media_card" android:layout_width="@dimen/dp_520" android:layout_height="@dimen/dp_168" layout="@layout/widget_launcher_mediacard_player" />
+</FrameLayout>

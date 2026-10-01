@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LING OS 车机桌面 · 布局还原图 (1920×1080)</title>
+<style>
+  :root{
+    --screen-w:1920px; --screen-h:1080px;
+    --card-h:170px;
+    --glass:rgba(16,20,28,.72);
+    --glass-border:rgba(255,255,255,.14);
+    --accent:#00d3f2;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:#0b0d12; color:#e8eaef; padding:24px;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .note{max-width:1920px; width:100%; font-size:13px; color:#8b93a1; line-height:1.7;}
+  .note b{color:#cfd6e0;}
+  .note code{background:#171a22; padding:1px 6px; border-radius:5px; color:#7fd7ff; font-size:12px;}
+  .stage{
+    width:1920px; height:1080px; position:relative; overflow:hidden;
+    border-radius:14px; box-shadow:0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08);
+    background:#05070b;
+    transform-origin:top left;
+  }
+  .wallpaper{position:absolute; inset:0; background-size:cover; background-position:center;}
+  .veil{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);}
+  .veil2{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 75%, rgba(0,0,0,.30) 100%);}
+
+  /* ===== 顶部状态栏(还原 SystemUI 插件) ===== */
+  .statusbar{position:absolute; top:0; left:0; right:0; height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 30px; color:#fff; font-size:20px; text-shadow:0 1px 3px rgba(0,0,0,.6);}
+  .statusbar .left{display:flex; gap:22px; align-items:center;}
+  .statusbar .right{display:flex; gap:22px; align-items:center;}
+  .dot{width:10px;height:10px;border-radius:50%;background:#7be07b;box-shadow:0 0 6px #7be07b;}
+  .signal{display:flex;gap:3px;align-items:flex-end;height:14px;}
+  .signal i{width:4px;background:#fff;border-radius:1px;display:block;}
+  .signal i:nth-child(1){height:6px}.signal i:nth-child(2){height:9px}.signal i:nth-child(3){height:12px}.signal i:nth-child(4){height:14px}
+
+  /* ===== 天气卡片(右上) ===== */
+  .weather{position:absolute; top:200px; right:192px; display:flex; align-items:center; gap:16px;
+    padding:16px 24px; border-radius:18px; background:var(--glass); border:1px solid var(--glass-border);
+    backdrop-filter:blur(8px); color:#fff;}
+  .weather .ico{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #ffe27a, #ff9b3d); display:flex;align-items:center;justify-content:center;font-size:28px;}
+  .weather .tmp{font-size:44px; font-weight:600; line-height:1;}
+  .weather .meta{display:flex;flex-direction:column;gap:4px; font-size:17px; color:#dfe5ee;}
+  .weather .meta .city{color:#fff; font-size:18px;}
+
+  /* ===== 底部功能卡片容器 ===== */
+  .dock{position:absolute; left:0; right:0; bottom:0; height:300px; display:flex; align-items:flex-end;
+    padding:0 36px 114px 120px;}
+  .cards{display:flex; gap:26px; overflow-x:auto; scrollbar-width:none; align-items:flex-end;}
+  .cards::-webkit-scrollbar{display:none;}
+  .card{flex:0 0 auto; height:var(--card-h); min-width:300px; border-radius:20px; background:var(--glass);
+    border:1px solid var(--glass-border); backdrop-filter:blur(8px); color:#fff; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center; padding:20px 24px; cursor:default;}
+  .card:hover{background:rgba(24,30,40,.82); border-color:rgba(255,255,255,.28);}
+  .card .icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px; margin-bottom:10px;}
+  .card .t{font-size:22px; font-weight:600;}
+  .card .s{font-size:15px; color:#aeb6c4; margin-top:3px;}
+  .card .prog{position:absolute; right:20px; top:20px; font-size:15px; color:#9fe9ff;}
+  .card.media{min-width:520px; flex-direction:row; align-items:center; gap:20px; justify-content:flex-start;}
+  .card.media .album{width:90px;height:90px;border-radius:14px;background:linear-gradient(135deg,#2b3a55,#1b2334); display:flex;align-items:center;justify-content:center;font-size:34px; flex:0 0 auto;}
+  .card.media .mtxt{flex:1;}
+  .card.media .mtxt .t{font-size:24px;}
+  .card.media .mtxt .s{font-size:16px;}
+  .card.media .btns{display:flex; gap:14px; align-items:center;}
+  .card.media .btns span{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12); display:flex;align-items:center;justify-content:center;font-size:18px;}
+
+  /* 底栏时间/媒体简条 */
+  .nowbar{position:absolute; left:120px; bottom:34px; color:#dfe5ee; font-size:17px; display:flex; gap:20px; align-items:center;}
+  .nowbar b{color:#fff; font-weight:600;}
+
+  /* ===== 图例 ===== */
+  .legend{max-width:1920px; width:100%; display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{font-size:12px; background:#151923; border:1px solid #242b38; color:#aab3c2; padding:5px 10px; border-radius:20px;}
+  .chip b{color:#7fd7ff;}
+</style>
+</head>
+<body>
+  <div class="note">
+    <b>LING OS 车机桌面 · 静态布局还原</b> —— 依据反编译产物重绘，用于预览桌面结构（非真实运行渲染）。
+    屏幕 <code>1920×1080</code>（横屏，mdpi，1dp≈1px）。数据源：<code>SGMWLauncher.apk</code> 反编译
+    <code>res/layout/fragment_launcher.xml</code> + <code>layout_widget_selector.xml</code> + <code>res/values/strings.xml</code>。
+    壁纸为 <code>SGMWThemeStore/assets/wallpaper/preset_wallpaper_1.jpg</code>（原图 3840×2160）。
+  </div>
+
+  <div class="stage">
+    <div class="wallpaper" style="background-image:url('mockup/wallpaper.jpg');"></div>
+    <div class="veil"></div>
+    <div class="veil2"></div>
+
+    <!-- 状态栏 -->
+    <div class="statusbar">
+      <div class="left">
+        <span class="dot"></span><span>EV</span>
+        <div class="signal"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="right">
+        <span>25.5°C</span><span>周三</span><span>10:08</span>
+      </div>
+    </div>
+
+    <!-- 天气卡片 -->
+    <div class="weather">
+      <div class="ico">☀️</div>
+      <div>
+        <div class="tmp">26°</div>
+        <div class="meta"><span class="city">南宁 · 晴</span><span>空气质量 优</span></div>
+      </div>
+    </div>
+
+    <!-- 底部卡片容器 -->
+    <div class="dock">
+      <div class="cards">
+        <div class="card media">
+          <div class="album">🎵</div>
+          <div class="mtxt">
+            <div class="t">海阔天空</div>
+            <div class="s">酷我音乐 · Beyond</div>
+          </div>
+          <div class="btns"><span>⏮</span><span>▶</span><span>⏭</span></div>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:linear-gradient(135deg,#1d8cf5,#0a80fb)">🧭</div>
+          <div class="t">导航</div><div class="s">去公司 · 12 km</div>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:linear-gradient(135deg,#00d346,#00b964)">📞</div>
+          <div class="t">蓝牙电话</div><div class="s">未连接</div>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:linear-gradient(135deg,#ff9b3d,#ee2e20)">❄️</div>
+          <div class="t">空调</div><div class="s">22°C · 自动</div>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:linear-gradient(135deg,#bf025b,#8b0c26)">🔌</div>
+          <div class="t">充电站</div><div class="s">附近 8 个</div>
+        </div>
+        <div class="card">
+          <div class="icon" style="background:linear-gradient(135deg,#00d3f2,#1d8cf5)">🗂</div>
+          <div class="t">应用中心</div><div class="s">36 个应用</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nowbar"><b>10:08</b><span>·</span><span>剩余续航 412 km</span></div>
+  </div>
+
+  <div class="legend">
+    <span class="chip"><b>状态栏</b> SystemUI 插件</span>
+    <span class="chip"><b>天气卡片</b> WeatherCardView · marginTop=200dp marginEnd=192dp</span>
+    <span class="chip"><b>底部卡片容器</b> WidgetContainerView · paddingBottom=114dp paddingStart=120dp</span>
+    <span class="chip"><b>卡片</b> biz/widget/*（媒体/导航/蓝牙/空调/充电/应用中心）</span>
+    <span class="chip"><b>壁纸</b> CustomWallpaperView + 主题商店预设壁纸</span>
+  </div>
+
+<script>
+  // 自适应缩放显示（保持 1920×1080 逻辑分辨率）
+  (function(){
+    const stage=document.querySelector('.stage');
+    const fit=()=>{ const s=Math.min(1, (window.innerWidth-48)/1920); stage.style.transform=`scale(${s})`; stage.style.marginBottom=`${-(1080*(1-s))}px`; };
+    window.addEventListener('resize',fit); fit();
+  })();
+</script>
+</body>
+</html>

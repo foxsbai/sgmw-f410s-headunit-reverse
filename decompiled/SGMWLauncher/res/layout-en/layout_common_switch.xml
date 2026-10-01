@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:id="@id/cl_root" android:tag="layout-en/layout_common_switch_0" android:background="@drawable/bg_widget" android:layout_width="match_parent" android:layout_height="@dimen/dp_96" skin:enable="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:skin="http://schemas.android.com/android/skin">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ll_left_text" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_56" android:layout_alignParentStart="true">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_26" android:textColor="@color/text_normal" android:gravity="center" android:id="@id/tv_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:contentDescription="@hide_uc(value=[true])" style="@style/CN.Regular" />
+            <ImageView android:layout_gravity="center" android:id="@id/pedestrian_warning" android:visibility="gone" android:layout_width="@dimen/dp_56" android:layout_height="@dimen/dp_56" android:src="@drawable/pedestrian_warning_icon" skin:enable="true" />
+            <ImageView android:layout_gravity="center" android:id="@id/iv_detail" android:visibility="gone" android:layout_width="@dimen/dp_24" android:layout_height="@dimen/dp_24" android:src="@drawable/warning_icon" android:layout_marginStart="@dimen/dp_16" skin:enable="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_bottom" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6">
+            <ImageView android:id="@id/iv_warning" android:layout_width="@dimen/dp_24" android:layout_height="@dimen/dp_24" android:layout_marginTop="@dimen/dp_2" android:src="@drawable/icon_common_waring" android:layout_marginEnd="@dimen/dp_3" />
+            <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_22" android:textColor="@color/text_normal" android:id="@id/tv_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:alpha="0.5" style="@style/CN.Regular" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/iv_more" android:visibility="gone" android:layout_width="@dimen/dp_64" android:layout_height="@dimen/dp_64" android:src="@drawable/icon_more" android:layout_centerVertical="true" android:layout_toEndOf="@id/ll_left_text" skin:enable="true" />
+    <com.pateo.widget.InterceptFrameLayout android:gravity="center_vertical" android:id="@id/sw_wrapper" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:paddingEnd="@dimen/dp_0" android:layout_alignParentEnd="true">
+        <Switch android:id="@id/sw_main" android:thumb="@drawable/selector_switch_thumb" android:track="@drawable/track_swith" android:splitTrack="false" android:showText="false" style="@style/widget_switch" />
+    </com.pateo.widget.InterceptFrameLayout>
+    <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_30" android:textColor="@color/text_normal" android:id="@id/tv_left_big_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_centerVertical="true" android:layout_marginStart="@dimen/dp_16" android:layout_toEndOf="@id/sw_wrapper" style="@style/CN.Medium" skin:enable="true" />
+</RelativeLayout>

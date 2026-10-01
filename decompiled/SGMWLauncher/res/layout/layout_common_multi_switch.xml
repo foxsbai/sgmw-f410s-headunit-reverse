@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/cl_root" android:tag="layout/layout_common_multi_switch_0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:skin="http://schemas.android.com/android/skin">
+    <com.pateo.widget.CommonMultiSwitchImpl android:id="@id/multi_switch" android:layout_width="wrap_content" android:layout_height="match_parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <View android:id="@id/v_0" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_1" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_2" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_3" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_4" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_5" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_6" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_7" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_8" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+        <View android:id="@id/v_9" android:layout_width="1.0dp" android:layout_height="1.0dp" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_selected="false" android:drawable="@drawable/widget_media_ic_play_small" />
+    <item android:state_enabled="true" android:state_selected="true" android:drawable="@drawable/widget_media_ic_pause_small" />
+    <item android:state_enabled="false" android:drawable="@drawable/widget_media_ic_play_small_disable" />
+</selector>

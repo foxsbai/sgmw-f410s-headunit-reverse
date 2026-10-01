@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator android:interpolator="@android:interpolator/decelerate_cubic" android:duration="@integer/qmui_anim_duration" android:valueFrom="-0.4" android:valueTo="0" android:valueType="floatType" android:propertyName="xFraction" />
+    <objectAnimator android:interpolator="@android:interpolator/decelerate_cubic" android:duration="@integer/qmui_anim_duration" android:valueFrom="0.85" android:valueTo="1.0" android:propertyName="alpha" />
+</set>

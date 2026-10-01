@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:id="@id/source_switch_background" android:layout_width="match_parent" android:layout_height="match_parent" skin:enable="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:skin="http://schemas.android.com/android/skin">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/source_switch_shape" android:paddingTop="@dimen/dp_10" android:layout_width="@dimen/dp_1095" android:layout_height="@dimen/dp_324" android:layout_marginRight="@dimen/dp_120" android:layout_marginBottom="@dimen/dp_50" android:paddingStart="@dimen/dp_45" android:paddingEnd="@dimen/dp_45" skin:enable="true">
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_qq_music" android:layout_width="0.0dp" android:layout_height="@dimen/dp_250" android:layout_weight="1.0">
+            <ImageView android:id="@id/iv_qq_music" android:padding="1.0dp" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/media_switch_color" android:id="@id/source_switch_qq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/qq" style="@style/CN.Regular" skin:enable="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_kuwo_music" android:layout_width="0.0dp" android:layout_height="@dimen/dp_250" android:layout_weight="1.0">
+            <ImageView android:id="@id/iv_kuwo_music" android:padding="1.0dp" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/media_switch_color" android:id="@id/source_switch_kw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/kuwo" style="@style/CN.Regular" skin:enable="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_local_station" android:layout_width="0.0dp" android:layout_height="@dimen/dp_250" android:layout_weight="1.0" skin:enable="true">
+            <ImageView android:id="@id/iv_local_station" android:padding="1.0dp" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/media_switch_color" android:id="@id/source_switch_radio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/local_radio" style="@style/CN.Regular" skin:enable="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_ximalaya" android:layout_width="0.0dp" android:layout_height="@dimen/dp_250" android:layout_weight="1.0">
+            <ImageView android:id="@id/iv_ximalaya" android:padding="1.0dp" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/media_switch_color" android:id="@id/source_switch_xima" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/xmly_music" style="@style/CN.Regular" skin:enable="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_bt_music" android:layout_width="0.0dp" android:layout_height="@dimen/dp_250" android:layout_weight="1.0">
+            <ImageView android:id="@id/iv_bt_music" android:padding="1.0dp" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/media_switch_color" android:id="@id/source_switch_bt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bt_music" style="@style/CN.Regular" skin:enable="true" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_usb_music" android:layout_width="0.0dp" android:layout_height="@dimen/dp_250" android:layout_weight="1.0">
+            <ImageView android:id="@id/iv_usb_music" android:padding="1.0dp" android:layout_width="@dimen/dp_128" android:layout_height="@dimen/dp_128" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/media_switch_color" android:id="@id/source_switch_usb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/usb_music" style="@style/CN.Regular" skin:enable="true" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

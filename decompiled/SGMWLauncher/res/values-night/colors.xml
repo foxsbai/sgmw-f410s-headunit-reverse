@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="SW_Color01">@color/White01</color>
+    <color name="SW_Color02">@color/Black01_40</color>
+    <color name="SW_Color03">@color/White01_40</color>
+    <color name="toast_bg_color">@color/color_4F6587</color>
+</resources>

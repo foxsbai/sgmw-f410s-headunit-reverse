@@ -1,0 +1,26 @@
+# 大体积固件/镜像中间产物（不入库）
+payload.bin
+soc/
+soc_vr/
+update/
+img/
+out/
+apks/
+
+# 复现脚本生成目录
+reproduced/
+apktool.jar
+payload_dumper.py
+update_metadata_pb2.py
+
+# 工具 jar（本地下载）
+tools/*.jar
+tools/*.tar.gz
+tools/__pycache__/
+
+# macOS
+.DS_Store
+
+# mockup 里的冗余资源（保留 html 引用的精简集即可）
+mockup/wallpaper.jpg
+mockup/assets/_preview_*.png

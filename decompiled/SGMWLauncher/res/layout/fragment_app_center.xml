@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.core.widget.NestedScrollView android:orientation="vertical" android:id="@id/scroll_view" android:fadingEdgeLength="@dimen/dp_68" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/dp_155" android:overScrollMode="never" android:requiresFadingEdge="vertical">
+        <com.pateo.widget.layout.HiFloatLayout android:layout_gravity="start" android:id="@id/float_layout" android:paddingBottom="@dimen/dp_72" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="@dimen/dp_152" android:paddingEnd="@dimen/dp_150" />
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

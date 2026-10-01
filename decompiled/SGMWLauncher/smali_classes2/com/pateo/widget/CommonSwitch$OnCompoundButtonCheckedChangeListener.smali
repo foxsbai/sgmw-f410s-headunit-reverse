@@ -1,0 +1,19 @@
+.class public interface abstract Lcom/pateo/widget/CommonSwitch$OnCompoundButtonCheckedChangeListener;
+.super Ljava/lang/Object;
+.source "CommonSwitch.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/pateo/widget/CommonSwitch;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "OnCompoundButtonCheckedChangeListener"
+.end annotation
+
+
+# virtual methods
+.method public abstract onCheckedChanged(Lcom/pateo/widget/CommonSwitch;Landroid/widget/CompoundButton;Z)V
+.end method

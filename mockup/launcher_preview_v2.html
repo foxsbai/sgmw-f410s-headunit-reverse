@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LING OS 桌面还原 v2 · 真实资源版 (1920×1080)</title>
+<style>
+  :root{
+    --sw:1920px; --sh:1080px;
+    --text:#282c2e;            /* 真实 text_color */
+    --text-app:#282c2e;
+    --card-w:520px; --card-h:168px;
+    --card-radius:24px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#101318;color:#e8eaef;padding:20px;display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .note{width:1920px;max-width:1920px;font-size:12.5px;color:#8b93a1;line-height:1.7;}
+  .note b{color:#cfd6e0;} .note code{background:#171a22;padding:1px 5px;border-radius:4px;color:#7fd7ff;font-size:11.5px;}
+  .stage{width:1920px;height:1080px;position:relative;overflow:hidden;border-radius:10px;box-shadow:0 18px 60px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.07);transform-origin:top left;background:#000;}
+  .wp{position:absolute;inset:0;background-size:cover;background-position:center;}
+
+  /* ===== 天气卡：右上悬浮大温度（真实无背景框） ===== */
+  .weather{position:absolute;top:200px;right:192px;color:var(--text);line-height:1;}
+  .weather .tmp{font-size:90px;font-weight:700;}             /* sp_90 */
+  .weather .unit{font-size:28px;vertical-align:top;margin-top:20px;display:inline-block;}   /* sp_28 °C */
+  .weather .meta{font-size:24px;color:var(--text-app);opacity:.6;margin-top:8px;}           /* sp_24 城市/天气 */
+  .weather .date{font-size:24px;color:var(--text-app);opacity:.6;margin-top:6px;}           /* M月dd日 EEEE */
+
+  /* ===== 底部卡片容器 ===== */
+  .dock{position:absolute;left:0;right:0;bottom:0;height:282px;padding:0 36px 114px 120px;display:flex;align-items:flex-end;overflow:hidden;}
+  .cards{display:flex;gap:24px;align-items:flex-end;overflow-x:auto;scrollbar-width:none;}
+  .cards::-webkit-scrollbar{display:none;}
+
+  /* 真实卡片：白色圆角 + 深色字 */
+  .card{flex:0 0 auto;width:520px;height:168px;border-radius:24px;position:relative;overflow:hidden;
+    background:rgba(255,255,255,.60); /* bg_widget_horizontal.png 中心 alpha 0.6 */
+    color:var(--text); box-shadow:0 2px 14px rgba(0,0,0,.10);}
+  .card .inner{position:absolute;inset:0;display:flex;align-items:center;padding:0 22px;gap:16px;}
+
+  /* 媒体卡 */
+  .card.media .cd{width:120px;height:120px;flex:0 0 auto;}
+  .card.media .cd img{width:120px;height:120px;}
+  .card.media .mtxt{flex:1;display:flex;flex-direction:column;gap:8px;overflow:hidden;}
+  .card.media .mtxt .t{font-size:24px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .card.media .mtxt .s{font-size:17px;opacity:.55;}
+  .card.media .btns{display:flex;gap:12px;align-items:center;flex:0 0 auto;}
+  .card.media .btns img{width:48px;height:48px;}
+
+  /* 普通卡片：图标 + 文字 */
+  .card .icon{width:64px;height:64px;flex:0 0 auto;}
+  .card .icon img{width:64px;height:64px;}
+  .card .txt{flex:1;display:flex;flex-direction:column;gap:6px;}
+  .card .txt .t{font-size:26px;font-weight:600;}
+  .card .txt .s{font-size:17px;opacity:.55;}
+
+  /* 导航卡：搜索条 + 三按钮 */
+  .card.navi .search{position:absolute;top:25px;left:0;right:0;margin:0 auto;width:440px;height:56px;border-radius:28px;
+    background:rgba(255,255,255,.7);display:flex;align-items:center;padding:0 20px;gap:8px;color:var(--text);}
+  .card.navi .search img{width:28px;height:28px;opacity:.6;}
+  .card.navi .search span{font-size:26px;opacity:.3;}
+  .card.navi .btm{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;gap:150px;}
+  .card.navi .btm img{width:48px;height:48px;}
+
+  .legend{width:1920px;display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-size:11.5px;background:#151923;border:1px solid #242b38;color:#aab3c2;padding:4px 9px;border-radius:16px;}
+  .chip b{color:#7fd7ff;}
+  .chip.real{border-color:#2c4a3a;color:#7fe0a8;}
+  .chip.real b{color:#9ff0c0;}
+</style>
+</head>
+<body>
+  <div class="note">
+    <b>LING OS 桌面还原 v2（真实资源版）</b> —— 全部图标/卡片背景/壁纸均为 <code>SGMWLauncher.apk</code> 反编译出来的真实资源；布局参数取自
+    <code>fragment_launcher.xml</code> / <code>widget_navi.xml</code> / <code>widget_launcher_mediacard_player.xml</code> / <code>layout_weather_card.xml</code>。
+    分辨率 1920×1080（横屏 mdpi，1dp≈1px）。桌面本体<b>不含状态栏</b>（状态栏由独立 SystemUI 插件绘制）。
+    天气温度/歌名/城市等为示意文案（需真机数据）。
+  </div>
+
+  <div class="stage">
+    <div class="wp" id="wp" style="background-image:url('assets/wallpaper_day.jpg');"></div>
+
+    <!-- 天气卡（右上悬浮，无背景框） -->
+    <div class="weather">
+      <span class="tmp">26</span><span class="unit">°C</span>
+      <div class="meta">南宁 · 晴 · 空气质量 优</div>
+      <div class="date">10月01日  星期三</div>
+    </div>
+
+    <!-- 底部功能卡片 -->
+    <div class="dock"><div class="cards">
+      <!-- 媒体卡 -->
+      <div class="card media"><div class="inner">
+        <div class="cd"><img src="assets/cd_cover.png"></div>
+        <div class="mtxt"><div class="t">海阔天空</div><div class="s">酷我音乐 · Beyond</div></div>
+        <div class="btns"><img src="assets/music_play_left_nor.png"><img src="assets/music_play_nor.png"><img src="assets/music_play_right_nor.png"></div>
+      </div></div>
+      <!-- 导航卡 -->
+      <div class="card navi">
+        <div class="search"><img src="assets/ic_navi_search.png"><span>请输入目的地</span></div>
+        <div class="btm"><img src="assets/ic_navi_home.png"><img src="assets/ic_navi_company.png"><img src="assets/ic_navi_collection.png"></div>
+      </div>
+      <!-- 空调卡 -->
+      <div class="card"><div class="inner">
+        <div class="icon"><img src="assets/ic_launcher_hvac.png"></div>
+        <div class="txt"><div class="t">空调</div><div class="s">22°C · 自动</div></div>
+      </div></div>
+      <!-- 蓝牙电话卡 -->
+      <div class="card"><div class="inner">
+        <div class="icon"><img src="assets/ic_launcher_bt.png"></div>
+        <div class="txt"><div class="t">蓝牙电话</div><div class="s">未连接</div></div>
+      </div></div>
+      <!-- 座椅加热卡 -->
+      <div class="card"><div class="inner">
+        <div class="icon"><img src="assets/icon_seat_heating_l3.png"></div>
+        <div class="txt"><div class="t">座椅加热</div><div class="s">左 3 档 · 右 关</div></div>
+      </div></div>
+      <!-- 无线充电卡 -->
+      <div class="card"><div class="inner">
+        <div class="icon"><img src="assets/ic_widget_charging.png"></div>
+        <div class="txt"><div class="t">无线充电</div><div class="s">充电中</div></div>
+      </div></div>
+    </div></div>
+  </div>
+
+  <div class="legend">
+    <span class="chip real"><b>壁纸</b> 主题商店 preset_wallpaper（浅色）</span>
+    <span class="chip real"><b>卡片底</b> bg_widget_horizontal.png 520×168 圆角24</span>
+    <span class="chip real"><b>媒体卡</b> ic_mediacard_player_cover_cd + music_play_*.png</span>
+    <span class="chip real"><b>导航卡</b> ic_navi_search/home/company/collection</span>
+    <span class="chip real"><b>图标</b> ic_launcher_*.png（78×78 真实图标）</span>
+    <span class="chip"><b>天气卡</b> 悬浮大温度 sp_90，无背景框（真实）</span>
+    <span class="chip"><b>状态栏</b> 属 SystemUI 插件，桌面不含（真实）</span>
+    <span class="chip"><b>示意</b> 温度/歌名/城市为占位文案</span>
+  </div>
+
+<script>
+(function(){const s=document.querySelector('.stage');const fit=()=>{const sc=Math.min(1,(innerWidth-40)/1920);s.style.transform=`scale(${sc})`;s.style.marginBottom=`${-(1080*(1-sc))}px`;};addEventListener('resize',fit);fit();})();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/shape_source_bg" android:layout_width="match_parent" android:layout_height="@dimen/dp_165" skin:enable="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:skin="http://schemas.android.com/android/skin">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/drive_mode_economic_super" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_125" android:layout_marginLeft="@dimen/dp_20">
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@color/text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_11" android:text="@string/driving_mode_eco_plus" android:includeFontPadding="false" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/drive_mode_economic" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_125" android:layout_marginLeft="@dimen/dp_20">
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@color/text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_11" android:text="@string/driving_mode_eco" android:includeFontPadding="false" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/drive_mode_standard" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_125" android:layout_marginLeft="@dimen/dp_20">
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@color/text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_11" android:text="@string/driving_mode_standard" android:includeFontPadding="false" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/drive_mode_sport" android:layout_width="@dimen/dp_100" android:layout_height="@dimen/dp_125" android:layout_marginLeft="@dimen/dp_20">
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@color/text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_11" android:text="@string/driving_mode_sport" android:includeFontPadding="false" />
+    </LinearLayout>
+</LinearLayout>

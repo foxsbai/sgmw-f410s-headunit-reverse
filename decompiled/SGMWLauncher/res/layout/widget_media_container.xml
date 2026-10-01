@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/fl_container_root" android:background="@drawable/widget_media_shape_bg_container" android:layout_width="@dimen/dp_570" android:layout_height="@dimen/dp_830"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/fl_container" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_media_source" android:layout_width="wrap_content" android:layout_height="@dimen/dp_64" android:layout_marginTop="@dimen/dp_32" android:paddingStart="@dimen/dp_30" android:paddingEnd="@dimen/dp_30">
+        <ImageView android:id="@id/iv_icon" android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_kw" />
+        <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:gravity="center_vertical" android:id="@id/tv_name_en" android:layout_width="wrap_content" android:layout_height="@dimen/dp_48" android:text="" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_13" style="@style/CN.Regular" />
+        <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_kw" android:includeFontPadding="false" android:layout_marginEnd="@dimen/dp_13" style="@style/CN.Regular" />
+        <ImageView android:id="@id/iv_arrow_down" android:layout_width="@dimen/dp_32" android:layout_height="@dimen/dp_32" android:src="@drawable/widget_media_ic_arrow_down" />
+    </LinearLayout>
+</FrameLayout>

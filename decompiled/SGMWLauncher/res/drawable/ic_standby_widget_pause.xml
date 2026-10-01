@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="108.0dp" android:width="108.0dp" android:viewportWidth="108.0" android:viewportHeight="108.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$ic_standby_widget_pause__0" android:pathData="M54,54m-54,0a54,54 0,1 1,108 0a54,54 0,1 1,-108 0" android:strokeColor="#00000000" android:strokeWidth="1.0" android:fillType="evenOdd" />
+    <path android:fillColor="#ffffff" android:pathData="M41.27,36.82L47.09,36.82C48.2,36.82 49.09,37.71 49.09,38.82L49.09,69.18C49.09,70.29 48.2,71.18 47.09,71.18L41.27,71.18C40.17,71.18 39.27,70.29 39.27,69.18L39.27,38.82C39.27,37.71 40.17,36.82 41.27,36.82ZM60.91,36.82L66.73,36.82C67.83,36.82 68.73,37.71 68.73,38.82L68.73,69.18C68.73,70.29 67.83,71.18 66.73,71.18L60.91,71.18C59.8,71.18 58.91,70.29 58.91,69.18L58.91,38.82C58.91,37.71 59.8,36.82 60.91,36.82Z" android:strokeColor="#00000000" android:strokeWidth="1.0" android:strokeAlpha="0.90000004" android:fillAlpha="0.90000004" android:fillType="evenOdd" />
+</vector>

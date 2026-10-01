@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:background="@drawable/shape_bg_toast" android:paddingTop="@dimen/dp_18" android:paddingBottom="@dimen/dp_18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/dp_297" android:paddingStart="@dimen/dp_40" android:paddingEnd="@dimen/dp_40"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sp_30" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/standby_music_bg" android:layout_width="@dimen/dp_642" android:layout_height="@dimen/dp_88"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/iv_standby_play_pause" android:background="@drawable/selector_standby_widget_play_pause_bj" android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:layout_marginLeft="@dimen/dp_25" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="@dimen/dp_21">
+        <com.pateo.media.widget.internal.view.MarqueeView android:textSize="@dimen/sp_32" android:textColor="#ffa3a3a3" android:gravity="center_vertical" android:id="@id/tv_standby_title" android:layout_width="match_parent" android:layout_height="@dimen/dp_44" android:includeFontPadding="false" style="@style/CN.Medium" />
+        <com.pateo.media.widget.internal.view.MarqueeView android:textSize="@dimen/sp_22" android:textColor="#ffa3a3a3" android:gravity="center_vertical" android:id="@id/tv_standby_artist" android:layout_width="match_parent" android:layout_height="@dimen/dp_30" android:includeFontPadding="false" android:alpha="0.6" style="@style/CN.Medium" />
+    </LinearLayout>
+    <ImageView android:id="@id/iv_standby_audio_source" android:layout_width="@dimen/dp_38" android:layout_height="@dimen/dp_38" android:src="@drawable/standby_music_play_type_qq" android:layout_marginStart="35.0dp" android:layout_marginEnd="@dimen/dp_35" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>

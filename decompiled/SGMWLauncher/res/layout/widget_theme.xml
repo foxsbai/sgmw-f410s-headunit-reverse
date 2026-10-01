@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="bottom" android:clipChildren="false" android:layout_width="@dimen/dp_520" android:layout_height="@dimen/dp_451"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.sgmw.themestore.ui.WallpaperCardContainer android:layout_gravity="bottom" android:id="@id/theme_card" android:clickable="true" android:clipChildren="false" android:layout_width="520.0dp" android:layout_height="451.0dp" />
+</FrameLayout>

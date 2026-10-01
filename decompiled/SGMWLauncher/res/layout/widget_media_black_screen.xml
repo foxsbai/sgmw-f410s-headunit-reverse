@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/media_control_view" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/btn_play_or_pause" android:layout_width="@dimen/dp_72" android:layout_height="@dimen/dp_72" android:src="@drawable/widget_media_selector_btn_play_small" android:layout_centerVertical="true" />
+    <com.pateo.media.widget.internal.view.MarqueeView android:textSize="@dimen/sp_28" android:textColor="#b2ffffff" android:gravity="center_vertical" android:id="@id/tv_title" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="@dimen/dp_350" android:layout_height="@dimen/dp_72" android:text="@string/widget_media_artist_default" android:maxLines="1" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="marquee_forever" android:layout_marginStart="@dimen/dp_20" app:marquee_types="left" style="@style/CN.Medium" />
+</androidx.appcompat.widget.LinearLayoutCompat>

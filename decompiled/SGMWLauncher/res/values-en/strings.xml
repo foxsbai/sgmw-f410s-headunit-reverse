@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="brvah_load_complete">Click to load more</string>
+    <string name="brvah_load_end">No more data</string>
+    <string name="brvah_load_failed">load more failed</string>
+    <string name="brvah_loading">Loading...</string>
+    <string name="go_home">Go Home</string>
+    <string name="widget_date_picker_cancel">Cancel</string>
+    <string name="widget_date_picker_confirm">Confirm</string>
+    <string name="widget_date_picker_default_title">Time Select</string>
+    <string name="widget_media_am">AM</string>
+    <string name="widget_media_app_name">widget</string>
+    <string name="widget_media_artist_default">Unknown</string>
+    <string name="widget_media_bt_btn_name">Connect</string>
+    <string name="widget_media_bt_title_default">Not playing</string>
+    <string name="widget_media_bt_title_default_uncon">Not playing</string>
+    <string name="widget_media_fm">FM</string>
+    <string name="widget_media_network_error">Network error</string>
+    <string name="widget_media_not_playing">Not playing</string>
+    <string name="widget_media_play_time">00:00</string>
+    <string name="widget_media_tab_bt">Bluetooth music</string>
+    <string name="widget_media_tab_kw">Kuwo</string>
+    <string name="widget_media_tab_qq">Music</string>
+    <string name="widget_media_tab_qq_en">QQ</string>
+    <string name="widget_media_tab_radio">Local station</string>
+    <string name="widget_media_tab_usb">USB music</string>
+    <string name="widget_media_tab_xmly">XMLY</string>
+    <string name="widget_media_title_default">Not Playing</string>
+    <string name="widget_media_title_null">Unknown song</string>
+    <string name="widget_media_title_radio_default">Not playing</string>
+    <string name="widget_media_title_radio_search">Not playing</string>
+    <string name="widget_media_unit_am">KHz</string>
+    <string name="widget_media_unit_fm">MHz</string>
+    <string name="widget_media_usb_title_default">Not playing</string>
+    <string name="widget_media_usb_unmount">Not playing</string>
+</resources>

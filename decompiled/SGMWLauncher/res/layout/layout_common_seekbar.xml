@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pateo.widget.InterceptFrameLayout android:gravity="center_vertical" android:id="@id/sw_wrapper" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:skin="http://schemas.android.com/android/skin">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_24" android:textColor="@color/text_normal" android:id="@id/tv_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:alpha="0.6" style="@style/CN.Regular" skin:enable="true" />
+            <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_26" android:textColor="@color/text_normal" android:gravity="center" android:id="@id/text_progress" android:background="@drawable/progress_btn" android:layout_width="@dimen/dp_114" android:layout_height="@dimen/dp_44" android:includeFontPadding="false" style="@style/EN.Regular" skin:enable="true" />
+            <ImageView android:id="@id/tip_icon" android:layout_width="@dimen/dp_56" android:layout_height="@dimen/dp_56" android:src="@drawable/tip_icon" android:layout_marginStart="@dimen/dp_4" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_12">
+            <FrameLayout android:layout_gravity="center_vertical" android:id="@id/startLayout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/iv_icon" android:visibility="gone" android:layout_width="@dimen/dp_56" android:layout_height="@dimen/dp_56" skin:enable="true" />
+                <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_26" android:textColor="@color/text_normal" android:id="@id/left_bottom_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" style="@style/EN.Regular" skin:enable="true" />
+            </FrameLayout>
+            <SeekBar android:layout_gravity="center" android:id="@id/seekbar" android:background="@android:color/transparent" android:paddingTop="0.0px" android:paddingBottom="0.0px" android:layout_width="@dimen/dp_440" android:layout_height="@dimen/dp_38" android:maxHeight="@dimen/dp_10" android:progressDrawable="@drawable/seekbar_bg_and_progress" android:minHeight="@dimen/dp_10" android:thumb="@drawable/seekbar_thumb" android:thumbOffset="@dimen/dp_9" android:paddingStart="0.0px" android:paddingEnd="0.0px" android:layout_marginStart="@dimen/dp_24" android:layout_marginEnd="@dimen/dp_24" android:splitTrack="false" />
+            <FrameLayout android:layout_gravity="center" android:id="@id/endLayout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_26" android:textColor="@color/text_normal" android:id="@id/tv_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:fontFamily="sans-serif" android:textFontWeight="500" skin:enable="true" />
+                <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_26" android:textColor="@color/text_normal" android:id="@id/full_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" style="@style/EN.Regular" skin:enable="true" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</com.pateo.widget.InterceptFrameLayout>

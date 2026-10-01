@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/custom_view" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:skin="http://schemas.android.com/android/skin">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/dp_40" android:layout_marginRight="@dimen/dp_40" android:layout_marginBottom="@dimen/dp_40">
+        <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_32" android:textColor="@color/text_dialog_window_title" android:gravity="center" android:id="@id/tv_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/widget_date_picker_charging_title" style="@style/CN.Medium" skin:enable="true" />
+        <FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="@dimen/dp_0" android:layout_marginBottom="5.0dp" android:minWidth="@dimen/dp_624" android:layout_weight="1.0">
+            <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:paddingLeft="@dimen/dp_20" android:paddingRight="@dimen/dp_20" android:paddingBottom="@dimen/dp_15" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <com.pateo.widget.views.ChargingDatePickerView android:id="@id/year_pv" android:layout_width="@dimen/dp_160" android:layout_height="match_parent" />
+                <com.pateo.widget.views.ChargingDatePickerView android:id="@id/month_pv" android:layout_width="@dimen/dp_160" android:layout_height="match_parent" />
+                <com.pateo.widget.views.ChargingDatePickerView android:id="@id/day_pv" android:visibility="gone" android:layout_width="@dimen/dp_160" android:layout_height="match_parent" />
+                <com.pateo.widget.views.ChargingDatePickerView android:id="@id/hour_pv" android:visibility="gone" android:layout_width="@dimen/dp_160" android:layout_height="match_parent" />
+                <com.pateo.widget.views.ChargingDatePickerView android:id="@id/minute_pv" android:visibility="gone" android:layout_width="@dimen/dp_160" android:layout_height="match_parent" />
+            </LinearLayout>
+            <View android:layout_gravity="center" android:id="@id/v_select" android:background="@color/common_color_transparent" android:layout_width="match_parent" android:layout_height="@dimen/dp_80" android:layout_marginBottom="@dimen/dp_8" />
+        </FrameLayout>
+        <LinearLayout android:layout_gravity="center" android:id="@id/ll_bottom_btn_container" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_28" android:textColor="@color/selector_color_text_btn_high_light" android:gravity="center" android:id="@id/btn_bottom_left" android:background="@drawable/bg_options_high_light_radius_12" android:layout_width="@dimen/dp_272" android:layout_height="@dimen/dp_64" android:layout_marginRight="@dimen/dp_64" android:text="@string/widget_date_picker_confirm" android:includeFontPadding="false" skin:enable="true" />
+            <com.pateo.widget.AutoSizeTextView android:textSize="@dimen/sp_28" android:textColor="@color/selector_color_text_btn" android:gravity="center" android:id="@id/btn_bottom_right" android:background="@drawable/bg_options_normal_radius_12" android:layout_width="@dimen/dp_272" android:layout_height="@dimen/dp_64" android:text="@string/widget_date_picker_cancel" android:includeFontPadding="false" skin:enable="true" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

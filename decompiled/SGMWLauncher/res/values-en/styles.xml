@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTextStyle" />
+    <style name="CN.Bold" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+    <style name="CN.ExtraLight" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">200</item>
+    </style>
+    <style name="CN.Heavy" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">800</item>
+    </style>
+    <style name="CN.Light" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">300</item>
+    </style>
+    <style name="CN.Medium" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">600</item>
+    </style>
+    <style name="CN.Normal" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    <style name="CN.Regular" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <style name="EN.Black" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">900</item>
+    </style>
+    <style name="EN.Bold" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+    <style name="EN.ExtraBold" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">800</item>
+    </style>
+    <style name="EN.ExtraLight" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">200</item>
+    </style>
+    <style name="EN.Light" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">300</item>
+    </style>
+    <style name="EN.Medium" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+    <style name="EN.Regular" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+    <style name="EN.SemiBold" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">600</item>
+    </style>
+    <style name="EN.Thin" parent="@style/AppTextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textFontWeight">100</item>
+    </style>
+</resources>

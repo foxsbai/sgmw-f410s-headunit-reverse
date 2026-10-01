@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:drawable="@drawable/ic_mediacard_player_like_xmly_disable_new" />
+    <item android:state_selected="true" android:drawable="@drawable/ic_mediacard_player_like_xmly_favorite_new_bj" />
+    <item android:drawable="@drawable/ic_mediacard_player_like_xmly_normal_new_bj" />
+</selector>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:drawable="@drawable/ic_mediacard_player_previous_disable_bj" />
+    <item android:drawable="@drawable/ic_mediacard_selector_player_previous_bj_left" />
+</selector>

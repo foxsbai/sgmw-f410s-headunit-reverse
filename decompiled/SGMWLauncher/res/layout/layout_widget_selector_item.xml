@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.sgmw.lingos.hmi.biz.widget.selector.view.UnClickableFrameLayout android:layout_gravity="top" android:id="@id/widgetView" android:clipChildren="false" android:clipToPadding="false" android:layout_width="@dimen/dp_148" android:layout_height="@dimen/dp_240" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.utils.widget.ImageFilterView android:id="@id/addView" android:layout_width="@dimen/dp_32" android:layout_height="@dimen/dp_32" android:src="@drawable/icon_widget_add" android:layout_marginStart="@dimen/dp_122" app:layout_constraintBottom_toTopOf="@id/widgetView" app:layout_constraintStart_toStartOf="@id/widgetView" app:layout_constraintTop_toTopOf="@id/widgetView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

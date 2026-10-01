@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tts_can_exec">
+        <item>好滴</item>
+        <item>好呀</item>
+        <item>好哒</item>
+        <item>没问题</item>
+        <item>马上安排！</item>
+        <item>收到</item>
+        <item>好啦</item>
+        <item>好的</item>
+    </string-array>
+    <string-array name="tts_execing">
+        <item>好的，交给我吧</item>
+    </string-array>
+    <string-array name="tts_execing_emotion">
+        <item>好的，交给我吧</item>
+        <item>收到，正在处理中</item>
+    </string-array>
+</resources>

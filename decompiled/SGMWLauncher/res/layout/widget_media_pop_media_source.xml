@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pateo.sgmw.media.base.widget.cardView.CardView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" app:cardBackgroundColor="@color/widget_media_window_media_source" app:cardCornerRadius="@dimen/dp_20" app:cardElevation="@dimen/dp_20" app:cardLightDirection="none"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="@dimen/dp_12" android:layout_width="wrap_content" android:layout_height="match_parent" android:paddingStart="@dimen/dp_12" android:paddingEnd="@dimen/dp_12">
+        <LinearLayout android:gravity="center_vertical" android:id="@id/ll_tab_qq" android:background="@drawable/widget_media_selector_bg_tab" android:layout_width="@dimen/dp_234" android:layout_height="@dimen/dp_70" android:layout_marginBottom="@dimen/dp_24">
+            <ImageView android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_qq" android:layout_marginStart="@dimen/dp_18" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:gravity="center_vertical" android:id="@id/tv_tab_qq_en" android:layout_width="wrap_content" android:layout_height="@dimen/dp_48" android:text="@string/widget_media_tab_qq_en" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_12" style="@style/CN.Regular" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_tab_qq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_qq" android:includeFontPadding="false" style="@style/CN.Regular" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/ll_tab_kw" android:background="@drawable/widget_media_selector_bg_tab" android:layout_width="@dimen/dp_234" android:layout_height="@dimen/dp_70" android:layout_marginBottom="@dimen/dp_24">
+            <ImageView android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_kw" android:layout_marginStart="@dimen/dp_18" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_tab_kw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_kw" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_12" style="@style/CN.Regular" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/ll_tab_radio" android:background="@drawable/widget_media_selector_bg_tab" android:layout_width="@dimen/dp_234" android:layout_height="@dimen/dp_70" android:layout_marginBottom="@dimen/dp_24">
+            <ImageView android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_radio" android:layout_marginStart="@dimen/dp_18" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_tab_radio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_radio" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_12" style="@style/CN.Regular" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/ll_tab_xmly" android:background="@drawable/widget_media_selector_bg_tab" android:layout_width="@dimen/dp_234" android:layout_height="@dimen/dp_70" android:layout_marginBottom="@dimen/dp_24">
+            <ImageView android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_xmly" android:layout_marginStart="@dimen/dp_18" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_tab_xmly" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_xmly" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_12" style="@style/CN.Regular" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/ll_tab_bt" android:background="@drawable/widget_media_selector_bg_tab" android:layout_width="@dimen/dp_234" android:layout_height="@dimen/dp_70" android:layout_marginBottom="@dimen/dp_24">
+            <ImageView android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_bt" android:layout_marginStart="@dimen/dp_18" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_tab_bt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_bt" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_12" style="@style/CN.Regular" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:id="@id/ll_tab_usb" android:background="@drawable/widget_media_selector_bg_tab" android:layout_width="@dimen/dp_234" android:layout_height="@dimen/dp_70" android:layout_marginBottom="@dimen/dp_24">
+            <ImageView android:layout_width="@dimen/dp_48" android:layout_height="@dimen/dp_48" android:src="@drawable/widget_media_ic_tab_usb" android:layout_marginStart="@dimen/dp_18" />
+            <TextView android:textSize="@dimen/sp_28" android:textColor="@color/widget_media_text_title" android:id="@id/tv_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_media_tab_usb" android:includeFontPadding="false" android:layout_marginStart="@dimen/dp_12" style="@style/CN.Regular" />
+        </LinearLayout>
+    </LinearLayout>
+</com.pateo.sgmw.media.base.widget.cardView.CardView>

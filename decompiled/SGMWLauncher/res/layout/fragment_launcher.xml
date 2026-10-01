@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/fl_container" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.sgmw.lingos.hmi.view.CustomWallpaperView android:id="@id/view_wallpaper" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <ImageView android:id="@id/image_wallpaper_capture" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.sgmw.lingos.hmi.biz.laucnher.weathcer.WeatherCardView android:layout_gravity="end" android:id="@id/weather_card" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_200" android:layout_marginEnd="@dimen/dp_192" />
+    <include android:id="@id/layout_widget_selector" android:visibility="gone" layout="@layout/layout_widget_selector" />
+    <com.sgmw.lingos.hmi.biz.widget.WidgetContainerView android:layout_gravity="bottom" android:id="@id/widget_layout" android:paddingBottom="@dimen/dp_114" android:fadingEdgeLength="@dimen/dp_56" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="match_parent" android:overScrollMode="never" android:requiresFadingEdge="horizontal" android:paddingStart="@dimen/dp_120" android:paddingEnd="@dimen/dp_36" app:scrollableHeight="@dimen/dp_168" />
+</FrameLayout>

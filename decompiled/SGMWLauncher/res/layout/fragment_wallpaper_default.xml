@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img_default_wallpaper" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.sgmw.lingos.hmi.biz.laucnher.carmodel.CarModelCardView android:id="@id/car_model_card" android:layout_width="@dimen/dp_907" android:layout_height="@dimen/dp_520" android:layout_marginTop="@dimen/dp_302" android:layout_marginStart="@dimen/dp_176" />
+</FrameLayout>
