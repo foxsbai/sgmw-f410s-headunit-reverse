@@ -7,29 +7,30 @@
 
 把 DiPlay（Shihab 的开源 CarPlay 主机端，包名 `com.shihab.diplay`，v0.2.10）装进 **2024 款宝骏云海 F410S** 车机（博泰/PATEO，MTK MT8666，Android 9，SGMW LING OS），把 iPhone 投屏成 CarPlay 界面。
 
-- 无线路线：**已搁置**（MTK 车机热点给不出 DiPlay 能 scope 的 IPv6 link-local，视频链路起不来）
-- 有线路线：**卡在 iPhone 拒绝切换 CarPlay 模式**
+- 无线路线：✅ **已跑通**（0.2.12 + 补 ap0 OUTPUT 路由，见坑 10）
+- 有线路线：**卡在 iPhone 拒绝切换 CarPlay 模式**（0x52 STALL，独立未解）
 
 ## 二、结论（一句话）
 
-**车机侧、软件侧、硬件侧全部正常；卡点锁定为 iPhone iOS 15.4.1 与 DiPlay 0.2.10 有线不兼容 —— iPhone 停在 PTP 模式并拒绝执行 CarPlay 切换指令（0x52）。**
+**✅ 无线 CarPlay 已跑通（DiPlay 0.2.12 + 一条路由修复）；有线 0x52 STALL 仍是独立未解问题。**
 
-> ⚠ **2026-10-05 修正（两轮反转后定论）**：
-> - 用户把 DiPlay 装到 **Android 15 手机**上，iPhone iOS 15.4.1 能正常连。但实测证明手机是**无线热点**连接（不是有线），且装的是 **0.2.12**（非 0.2.10）。
-> - → 手机成功**不能**证明「iOS 15.4.1 有线兼容」，**也不构成对车机有线 0x52 STALL 的反驳**。车机有线卡 0x52 仍是无解状态。
-> - → 唯一被**坐实**的是：车机**无线**连不上 = 热点**无 IPv6 link-local**（手机热点有 → 无线能连）。
-> - **下一步最优先：车机试装 DiPlay 0.2.12 重测有线。** 详见 [wireless-carplay-comparison.md](wireless-carplay-comparison.md)。
+> ⚠ **2026-10-05 深夜最终定论（无线侧，两轮反转后再修正）**：
+> - **无线已通**：车机装 DiPlay **0.2.12**，加一条 IPv6 路由修复（补 ap0 的 OUTPUT link-local 路由）后，iPhone iOS 15.4.1 **无线 CarPlay 正常连接**（画面出来）。
+> - **无线根因（坐实）**：不是「热点无 IPv6 link-local」（那是误判，热点**有** link-local），而是**车机 IPv6 策略路由缺 ap0 的 OUTPUT link-local 路由** → SYN-ACK 发不回 iPhone → 握手卡死。详见坑 10 与 [wireless-carplay-comparison.md](wireless-carplay-comparison.md) 第九节。
+> - **有线仍未解**：0x52 STALL（iPhone 拒绝切 CarPlay 模式）是独立问题，与无线无关。
+> - 详见坑 10。
 
 ## 三、进度状态快照
 
 | 项目 | 状态 |
 |---|---|
 | 车机 USB 数据口 | ✅ 正常（描述符全读出、speed=480、bMaxPower=500mA） |
-| DiPlay 版本 | 0.2.10，自签重装（uid 10029） |
+| DiPlay 版本 | **0.2.12**（versionCode 31），自签重装（uid 10029） |
+| **无线 CarPlay** | ✅ **已跑通**（补 ap0 OUTPUT 路由后，画面正常） |
 | USB 权限 | ✅ UsbGrant root 守护进程持久授权 |
 | 蓝牙 iAP2/RFCOMM + MFI 认证 | ✅ 无线阶段已跑通（`mfi authentication-succeeded`） |
-| iPhone | iOS 15.4.1，PTP 模式（pid `12a8`），**从未切到 CarPlay** |
-| DiPlay 日志 | 循环 `0x52 transferred -1 of 1 bytes`（约每 30s 重试） |
+| iPhone | iOS 15.4.1，PTP 模式（pid `12a8`），**从未切到 CarPlay**（有线） |
+| DiPlay 日志（有线） | 循环 `0x52 transferred -1 of 1 bytes`（约每 30s 重试） |
 
 ## 四、已实现（车机侧净改动，全部可回滚）
 
@@ -51,10 +52,12 @@
 
 ### 坑 1：无线 CarPlay 卡「正在准备iPhone」，视频链路起不来
 
+> ⚠ **本坑「根因」结论后来被坑 10 修正**：当时归因「车机热点给不出 link-local」是**错的**，热点其实**有** link-local，真正的根因是**缺 ap0 的 OUTPUT 路由**（见坑 10）。
+
 - **现象**：蓝牙 iAP2/RFCOMM 连上、MFI 认证成功、甚至传了 32KB 封面，但 AirPlay 视频端口 7000 从未收到 iPhone 连接，画面永远出不来。
-- **根因**：DiPlay 无线视频/控制链路走热点接口的 IPv6 link-local（NCM/AirPlay tunnel），宝骏 MTK 车机热点给不出 DiPlay 能 scope 的 IPv6 link-local → 视频起不来。日志线索 `Wireless hotspot link-local IPv6 address is not scoped`。
+- **当时误判的根因**：DiPlay 无线视频/控制链路走热点接口的 IPv6 link-local（NCM/AirPlay tunnel），一度以为是宝骏 MTK 车机热点给不出 DiPlay 能 scope 的 IPv6 link-local。日志线索 `Wireless hotspot link-local IPv6 address is not scoped`。
 - **尝试**：把 DiPlay 强禁的 `LOCAL_ONLY_HOTSPOT` 分支 patch 回来（`AirPlayPersistence.smali` 两处判断改回），热点确实起了 `AndroidShare_xxxx`，但视频仍不通。
-- **结论**：**平台不支持，无线搁置**。此车机 Android 9 无 Wi-Fi Direct，热点无 IPv6 link-local，无线路线走不通。
+- **真正根因（坑 10）**：车机 IPv6 策略路由缺 ap0 的 OUTPUT link-local 路由，SYN-ACK 发不出。补路由后无线**已跑通**。
 
 ### 坑 2：USB 权限弹窗缺失 → 永远授权不上
 
@@ -112,15 +115,28 @@
 - **车机有线 0x52 STALL 仍是独立未解问题**，iOS 15.4.1 有线兼容性仍未验证（手机成功是无线，不构成反驳）。
 - 详见 [wireless-carplay-comparison.md](wireless-carplay-comparison.md)。
 
-## 六、下一步（按推荐序，2026-10-05 更新）
+### 坑 10（最终定论）：无线根因 = 缺 ap0 的 OUTPUT link-local 路由，补路由后跑通
 
-> ⚠ 真正坐实：车机**无线**连不上 = 热点无 IPv6 link-local（手机热点有 → 无线能连）。车机**有线** 0x52 仍未解。最优先换版本重测。
+- **现象**（同坑 1）：DiPlay 日志显示蓝牙 iAP2 → MFI 认证 → mDNS 全通，但 AirPlay 端口 7000 迟迟收不到 iPhone 连接，卡「准备 iPhone」。
+- **决定性证据（离线采样）**：热点起来期间 iPhone 一直 REACHABLE、SYN 也到了车机（抓包 checksum 正确），但 DiPlay 的 7000 端口 socket 在 `/proc/net/tcp6` 里**始终停在 `0A`(LISTEN)**，上百次采样**从未进入 `03`(SYN_RECV) / `01`(ESTAB)**。→ SYN 进来却没被转成半连接。
+- **根因（坐实）**：车机 IPv6 策略路由里，netd 把 ap0 的 `fe80::/64` link-local 路由放进了 **table 1095**，但**没有任何 `ip -6 rule` 引用它**；IPv6 规则也**没有** IPv4 那种 `lookup main`。于是内核回 SYN-ACK（OUTPUT 方向）时查不到 ap0 的 link-local 单播路由，落到 `32000: from all unreachable` → **SYN-ACK 发不出去**。这与「等待时间」「iOS 版本」「DiPlay 版本」「musb」都无关，是宝骏/MTK Android 9 的 IPv6 策略路由对热点接口（ap0）配置不全。
+- **修复（两条命令）**：
+  ```sh
+  ip -6 rule  add pref 17100 from all oif ap0 lookup 1095
+  ip -6 route replace fe80::/64 dev ap0 table local_network
+  ```
+  修复后 `ip -6 route get` 从 `unreachable error -101` 变为 `dev ap0 ... src <车机>`，tcp6 出现 `03` + 268×`01`(ESTAB)，**画面正常**。
+- **固化**：路由必须**每次热点起来后重加**（DiPlay 每次启动无线都重建 ap0，netd 会 flush）。提供常驻脚本 `scripts/diplay-ap0-route-fix.sh`（root，监听 ap0 的 link-local 出现即幂等补路由）。开机自启需往 init.rc 加 service，见脚本头部注释。
+- **对坑 1 / 坑 9 的修正**：坑 1「热点给不出 link-local」、坑 9「车机热点无 IPv6 link-local」都是**误判**——热点**有** link-local，缺的是 **OUTPUT 路由**。
 
-1. **车机试装 DiPlay 0.2.12**（手机在用的版本，车机是 0.2.10）← **最优先**。0.2.10→0.2.12 可能修了有线 0x52 或无线 IPv6 处理，`install -r` 换版本重测有线，成本最低。
-2. 若仍卡 0x52，车机抓 dmesg/usbmon 确认 STALL 来源，再决定是否深挖有线。
-3. 无线路线：根因是车机热点无 IPv6 link-local，属 MTK 内核能力，DiPlay 解决不了。
+## 六、下一步（按推荐序，2026-10-05 深夜更新）
 
-**勿再让用户升 iOS**。
+> ✅ **无线已跑通**（0.2.12 + 补 ap0 OUTPUT 路由）。剩下只有**有线 0x52 STALL** 一个未解问题。
+
+1. **（可选）有线 0x52 深挖**：车机抓 dmesg/usbmon 确认 STALL 来源（iPhone 返回 vs 车机栈自产），再决定是否值得继续。无线已通，有线优先级降低。
+2. **（可选）固化收尾**：若想让路由修复**开机自启**（跨车机重启），需往 `/vendor/etc/init/hw/init.project.rc` 加 service 指向 `scripts/diplay-ap0-route-fix.sh`（remount /vendor rw 后追加，见脚本头部注释）。
+
+**勿再让用户升 iOS**（无线已证 iOS 15.4.1 可正常连）。
 
 ## 七、常用命令
 
