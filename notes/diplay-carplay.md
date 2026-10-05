@@ -12,10 +12,13 @@
 
 ## 二、结论（一句话）
 
-**车机侧、软件侧、硬件侧全部正常；卡点锁定为 iPhone iOS 15.4.1 与 DiPlay 0.2.10 有线不兼容 —— iPhone 停在 PTP 模式并拒绝执行 CarPlay 切换指令（0x52）。唯一正解是升级 iPhone 到 iOS 17/18。**
+**车机侧、软件侧、硬件侧全部正常；卡点锁定为 iPhone iOS 15.4.1 与 DiPlay 0.2.10 有线不兼容 —— iPhone 停在 PTP 模式并拒绝执行 CarPlay 切换指令（0x52）。**
 
-> ⚠ **2026-10-05 决定性反转（本条结论已被推翻）**：用户把**同一个 DiPlay 0.2.10 APK + 同一台 iPhone iOS 15.4.1** 装到 **Android 15 手机**上，有线 CarPlay **正常连接**。
-> **→ 真正的根因是车机 Android 9 的 MTK USB 栈**（`musb-hdrc` 控制器驱动 / MTK 定制 USB HAL `android.hardware.usb@1.1-service-mediatek`），不是 iOS 版本。iOS 15.4.1 本身接受 0x52 wIdx=4。**勿再让用户升 iOS。**
+> ⚠ **2026-10-05 修正（两轮反转后定论）**：
+> - 用户把 DiPlay 装到 **Android 15 手机**上，iPhone iOS 15.4.1 能正常连。但实测证明手机是**无线热点**连接（不是有线），且装的是 **0.2.12**（非 0.2.10）。
+> - → 手机成功**不能**证明「iOS 15.4.1 有线兼容」，**也不构成对车机有线 0x52 STALL 的反驳**。车机有线卡 0x52 仍是无解状态。
+> - → 唯一被**坐实**的是：车机**无线**连不上 = 热点**无 IPv6 link-local**（手机热点有 → 无线能连）。
+> - **下一步最优先：车机试装 DiPlay 0.2.12 重测有线。** 详见 [wireless-carplay-comparison.md](wireless-carplay-comparison.md)。
 
 ## 三、进度状态快照
 
@@ -95,30 +98,29 @@
 
 - 车机 USB 接口配置里「仅充电」灰色不可点是 `ro.sys.usb.charging.only=yes`，只影响车机当 device 的口，与插 iPhone 的 host 口无关。实测数据口完全正常。
 
-### 坑 8（决定性反转）：根因是车机 USB 栈，不是 iOS 版本
+### 坑 8（对照实验，先误判后纠正）：手机能连是「无线 + 0.2.12」
 
-- **对照实验**：同一 DiPlay 0.2.10 APK + 同一台 iPhone iOS 15.4.1，装到 **Android 15 手机**上，有线 CarPlay **正常连接**。
-- **推翻**：iOS 15.4.1 本身接受 0x52 wIdx=4，「iOS 版本不兼容」结论错误。
-- **新根因假设**：车机 Android 9 的 MTK USB 栈差异 —— `musb-hdrc` 控制器驱动对「设备即将重枚举」类 vendor IN 请求（0x52 wIdx=4）错误上报 STALL，或 `android.hardware.usb@1.1-service-mediatek`（MTK 定制 USB HAL）对 vendor 请求有白名单拦截。旁证：0x52 wIdx=0 与 0x53 能成功、唯独 wIdx=4（触发重枚举的那个）被 STALL。
-- **验证方向**：usbmon/dmesg 抓原始 USB 包、root 直接 `ioctl(USBDEVFS_CONTROL)` 绕过 framework、查 MTK USB HAL 白名单。
+- **对照实验**：DiPlay 装到 **Android 15 手机**（Pixel Fold）上，iPhone iOS 15.4.1 **正常连接**（视频 26fps）。
+- **一度误判**：以为「同一 0.2.10 + 有线」，据此推翻「iOS 15.4.1 有线不兼容」并推断「车机 USB 栈(musb) 是根因」。
+- **实测纠正（坑 9）**：手机其实是**无线热点**连接 + **0.2.12** 版本，两个前提都错了。
 
-### 坑 9：手机侧 USB 栈对照坐实「musb-hdrc」嫌疑
+### 坑 9：手机是「无线热点 + 0.2.12」，坐实「热点 IPv6 link-local」差异
 
-- 抓了能连的 Android 15 手机（Pixel Fold / Tensor G2）USB 栈：内核 5.10.214，控制器 **DWC3**（`11210000.dwc3`，xhci_hcd+dwc3），USB HAL = `android.hardware.usb` **AIDL v3**（generic）。
-- 车机：musb-hdrc + HIDL `@1.1-service-mediatek` + 内核 4.4.146。
-- **头号嫌疑 = musb-hdrc**：peripheral-first 老 OTG 控制器，host 模式下对「0x52 wIdx=4 触发 iPhone 立即断开重枚举」这类控制传输误报 STALL/-EPIPE。
-- 详见 [usb-stack-comparison.md](usb-stack-comparison.md)。
+- 三条铁证证明手机走**无线**：① Pixel Fold 唯一 USB-C 口被笔记本占用（adb），插不了 iPhone；② `/sys/bus/usb/devices/` 无 iPhone；③ 热点接口 `ap_br_wlan2` 有 IPv6 link-local 且 ARP 邻居 REACHABLE（=iPhone）。
+- 手机 DiPlay = **0.2.12**（versionCode 31），车机 = **0.2.10**（versionCode 29）。
+- **真正坐实的结论**：车机**无线**连不上 = 热点**无 IPv6 link-local**（手机热点有 → 无线能连）。印证了坑 1 的无线根因，与「等待时间」「musb」「iOS」无关。
+- **车机有线 0x52 STALL 仍是独立未解问题**，iOS 15.4.1 有线兼容性仍未验证（手机成功是无线，不构成反驳）。
+- 详见 [wireless-carplay-comparison.md](wireless-carplay-comparison.md)。
 
 ## 六、下一步（按推荐序，2026-10-05 更新）
 
-> ⚠ iOS 已排除（Android 15 手机能连）。根因锁定车机 USB 栈，头号嫌疑 = musb-hdrc 驱动（对照见 [usb-stack-comparison.md](usb-stack-comparison.md)）。
+> ⚠ 真正坐实：车机**无线**连不上 = 热点无 IPv6 link-local（手机热点有 → 无线能连）。车机**有线** 0x52 仍未解。最优先换版本重测。
 
-1. **车机抓 usbmon/dmesg 确认 STALL 来源**（一锤定音）：root 下发 `0x52 wIdx=4`，看 dmesg 里是 iPhone 返回 STALL 还是 musb 报 `-EPIPE`/babble/disconnect。
-2. **绕过 framework**：root 下直接 `ioctl(USBDEVFS_CONTROL)` 发原始 `0x52 wIdx=4`，看是否绕过 MTK USB HAL 后仍是 musb 层 STALL（实锤驱动问题）。
-3. **查 musb 驱动源码**：MT8666 内核 4.4 的 `musb_hdrc` 对 vendor 请求路径，是否有 STALL 误报 / OTG 状态机 quirk。
-4. **现实评估**：musb 在内核里，改内核要动 boot.img（联发科签名，风险高）。先抓清 STALL 来源再决定值不值得动。
+1. **车机试装 DiPlay 0.2.12**（手机在用的版本，车机是 0.2.10）← **最优先**。0.2.10→0.2.12 可能修了有线 0x52 或无线 IPv6 处理，`install -r` 换版本重测有线，成本最低。
+2. 若仍卡 0x52，车机抓 dmesg/usbmon 确认 STALL 来源，再决定是否深挖有线。
+3. 无线路线：根因是车机热点无 IPv6 link-local，属 MTK 内核能力，DiPlay 解决不了。
 
-**勿再让用户升 iOS**（已证 iOS 15.4.1 在 Android 15 手机可正常连）。
+**勿再让用户升 iOS**。
 
 ## 七、常用命令
 

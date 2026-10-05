@@ -1,10 +1,12 @@
 # USB 栈对照：能连的 Android 15 手机 vs 卡 0x52 的车机
 
-> 采集：2026-10-05。**目的**：用户把「同一 DiPlay 0.2.10 + 同一 iPhone iOS 15.4.1」装到 Android 15 手机（Pixel Fold）上可正常连 CarPlay，车机却卡在 0x52 STALL。抓手机侧 USB 栈，与车机逐项对比，定位根因。
+> ⚠ **本文结论已被 [wireless-carplay-comparison.md](wireless-carplay-comparison.md) 纠正**：手机连的其实是**无线热点**（`ap_br_wlan2`），不是 USB 有线，且装的是 DiPlay **0.2.12**（非 0.2.10）。因此「musb-hdrc 头号嫌疑」的推断**撤回**——真正可比的差异是「手机热点有 IPv6 link-local vs 车机热点无」，与 musb 无关。本文仅保留 USB 栈原始采集数据作参考。
+
+> 采集：2026-10-05。**目的**：用户把 DiPlay 装到 Android 15 手机（Pixel Fold）上可正常连 CarPlay，车机却卡在 0x52 STALL。抓手机侧 USB 栈，与车机逐项对比。
 
 ## 一、结论
 
-**根因锁定为 USB 控制器驱动差异：能连的手机用现代 DWC3/xHCI 主机控制器，卡住的车机用老旧的 musb-hdrc（Mentor）控制器。** 0x52 wIdx=4 是「触发 iPhone 重枚举」的 vendor 请求，musb 作为 peripheral-first 的老 OTG 控制器，在 host 模式下对「请求后设备立即断开重枚举」这一类控制传输处理有缺陷，把待处理传输误报为 STALL（-EPIPE），而 DWC3/xHCI 能正确处理。
+> ⚠ **已撤回**：原结论「根因 = musb-hdrc 驱动差异」基于「手机是有线连接」的错误前提。实测手机是**无线热点**连接（见 wireless-carplay-comparison.md），故本条结论不成立。保留本表仅作 USB 栈数据参考。
 
 ## 二、逐项对照表
 
