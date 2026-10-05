@@ -4,6 +4,10 @@
 
 > 平台：联发科 **MT8666**（`spm8666p2_64_mce`）· Android 9 (API 28) · 厂商固件 V4.03.05 · `userdebug` + `test-keys`
 
+## 架构总览（先读这个）
+
+👉 **[车机整体架构 + 逆向猜想](notes/architecture.md)** —— 硬件平台 / 系统软件 / 分区布局 / 核心服务 / OEM 应用全量梳理，并汇总 8 条基于证据的逆向猜想（verity·AVB 签名、boot 重签禁区、Launcher 硬编码、root 提权、方向盘键链路、CarPlay 无线/有线根因等）。
+
 ## 目录结构
 
 ```
