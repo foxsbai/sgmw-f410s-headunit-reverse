@@ -14,6 +14,9 @@
 
 **车机侧、软件侧、硬件侧全部正常；卡点锁定为 iPhone iOS 15.4.1 与 DiPlay 0.2.10 有线不兼容 —— iPhone 停在 PTP 模式并拒绝执行 CarPlay 切换指令（0x52）。唯一正解是升级 iPhone 到 iOS 17/18。**
 
+> ⚠ **2026-10-05 决定性反转（本条结论已被推翻）**：用户把**同一个 DiPlay 0.2.10 APK + 同一台 iPhone iOS 15.4.1** 装到 **Android 15 手机**上，有线 CarPlay **正常连接**。
+> **→ 真正的根因是车机 Android 9 的 MTK USB 栈**（`musb-hdrc` 控制器驱动 / MTK 定制 USB HAL `android.hardware.usb@1.1-service-mediatek`），不是 iOS 版本。iOS 15.4.1 本身接受 0x52 wIdx=4。**勿再让用户升 iOS。**
+
 ## 三、进度状态快照
 
 | 项目 | 状态 |
@@ -63,7 +66,7 @@
 - **误判过程**：一度以为 wIndex 应为 0，做了 `4→0` 补丁 → 发现 0 只读状态不触发切换、反而让 DiPlay 卡死 WaitingForReenumeration → **已撤销，恢复 wIndex=4**。
 - **又一度归因「锁屏/未点信任」**：引导解锁+点信任 → 实测推翻（见坑 4）。
 
-### 坑 4：锁定根因 = iOS 15.4.1 不兼容（决定性）
+### 坑 4：锁定根因 = iOS 15.4.1 不兼容（决定性）—— **已被坑 8 推翻**
 
 穷举 vendor 请求实测（反射探测工具 UsbProbe5/6/7）：
 
@@ -92,13 +95,22 @@
 
 - 车机 USB 接口配置里「仅充电」灰色不可点是 `ro.sys.usb.charging.only=yes`，只影响车机当 device 的口，与插 iPhone 的 host 口无关。实测数据口完全正常。
 
-## 六、下一步（按推荐序）
+### 坑 8（决定性反转）：根因是车机 USB 栈，不是 iOS 版本
 
-1. **升级 iPhone 到 iOS 18 最新小版本**（不是 27）← 唯一正解，有线兼容证据最扎实
-2. 换一台 iOS 17/18 的 iPhone 插上验证（立刻确认判断）
-3. 无线路线在此车机走不通（Android 9 无 Wi-Fi Direct，热点无 IPv6 link-local）
+- **对照实验**：同一 DiPlay 0.2.10 APK + 同一台 iPhone iOS 15.4.1，装到 **Android 15 手机**上，有线 CarPlay **正常连接**。
+- **推翻**：iOS 15.4.1 本身接受 0x52 wIdx=4，「iOS 版本不兼容」结论错误。
+- **新根因假设**：车机 Android 9 的 MTK USB 栈差异 —— `musb-hdrc` 控制器驱动对「设备即将重枚举」类 vendor IN 请求（0x52 wIdx=4）错误上报 STALL，或 `android.hardware.usb@1.1-service-mediatek`（MTK 定制 USB HAL）对 vendor 请求有白名单拦截。旁证：0x52 wIdx=0 与 0x53 能成功、唯独 wIdx=4（触发重枚举的那个）被 STALL。
+- **验证方向**：usbmon/dmesg 抓原始 USB 包、root 直接 `ioctl(USBDEVFS_CONTROL)` 绕过 framework、查 MTK USB HAL 白名单。
 
-升级完 iPhone 后：重发 `UsbProbe4 4 c0 1` 看 `0x52 wIdx=4` 是否从 -1 变成成功、iPhone 是否重枚举出 6 个配置。
+## 六、下一步（按推荐序，2026-10-05 更新）
+
+> ⚠ iOS 已排除（Android 15 手机能连）。下面全部针对「车机 MTK USB 栈」。
+
+1. **抓 USB 原始包定位 STALL 来源**：root 下用 `usbmon`（`/sys/kernel/debug/usb/usbmon/`）或 `dmesg`/`/proc/kmsg` 抓 `0x52 wIdx=4` 时的底层传输，确认 STALL 是 iPhone 返回还是 MTK 栈自产。
+2. **绕过 Android framework**：root 下直接 `ioctl(USBDEVFS_CONTROL)` 发原始 `0x52 wIdx=4`，看是否绕过 MTK USB HAL/框架层拦截。
+3. **查 MTK USB 白名单**：`android.hardware.usb@1.1-service-mediatek` 与内核 musb 驱动对 vendor 请求的处理。
+
+**勿再让用户升 iOS**（已证 iOS 15.4.1 在 Android 15 手机可正常连）。
 
 ## 七、常用命令
 
