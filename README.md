@@ -8,6 +8,10 @@
 
 👉 **[车机整体架构 + 逆向猜想](notes/architecture.md)** —— 硬件平台 / 系统软件 / 分区布局 / 核心服务 / OEM 应用全量梳理，并汇总 8 条基于证据的逆向猜想（verity·AVB 签名、boot 重签禁区、Launcher 硬编码、root 提权、方向盘键链路、CarPlay 无线/有线根因等）。
 
+## CarPlay（DiPlay）一键复刻
+
+👉 **[DiPlay 无线 CarPlay 安装与调试指南](notes/diplay-carplay.md)** —— 自包含、照着做即可装好 DiPlay 0.2.12 并跑通无线 CarPlay（✅ 已在 F410S 实机跑通），含完整排查方法。核心：装 APK + 补一条 ap0 的 IPv6 OUTPUT 路由。
+
 ## 目录结构
 
 ```
@@ -19,9 +23,7 @@
 │   ├── rom-analysis.md              # 升级包结构 / 平台 / 分区 / 签名 分析
 │   ├── launcher-analysis.md         # SGMWLauncher 架构 / 卡片体系 / 布局 分析
 │   ├── upgrade-package-vs-device.md # 升级包 ↔ 实机逐项对照
-│   ├── diplay-carplay.md            # DiPlay CarPlay 安装进度 + 踩坑记录（公开版，✅ 无线已跑通）
-│   ├── wireless-carplay-comparison.md # 无线 CarPlay 成功(手机) vs 失败(车机) 对照（✅ 已定位根因并跑通）
-│   └── usb-stack-comparison.md      # USB 栈采集（结论已撤回，仅留数据）
+│   └── diplay-carplay.md            # DiPlay 无线 CarPlay 安装与调试指南（✅ 可复刻）
 ├── scripts/
 │   ├── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
 │   ├── diplay-ap0-route-fix.sh      # DiPlay 无线 CarPlay 修复：补 ap0 的 IPv6 OUTPUT 路由（常驻 daemon）
