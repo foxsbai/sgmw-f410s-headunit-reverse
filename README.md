@@ -24,7 +24,8 @@
 │   └── usb-stack-comparison.md      # USB 栈采集（结论已撤回，仅留数据）
 ├── scripts/
 │   ├── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
-│   └── diplay-ap0-route-fix.sh      # DiPlay 无线 CarPlay 修复：补 ap0 的 IPv6 OUTPUT 路由（常驻 daemon）
+│   ├── diplay-ap0-route-fix.sh      # DiPlay 无线 CarPlay 修复：补 ap0 的 IPv6 OUTPUT 路由（常驻 daemon）
+│   └── diplay-autostart.sh          # 上面 daemon 的开机自启 部署/回滚/状态 一体化脚本
 ├── decompiled/
 │   └── SGMWLauncher/                # apktool 反编译产物（smali + res + manifest）
 ├── mockup/

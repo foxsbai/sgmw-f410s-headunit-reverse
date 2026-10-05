@@ -126,7 +126,8 @@
   ip -6 route replace fe80::/64 dev ap0 table local_network
   ```
   修复后 `ip -6 route get` 从 `unreachable error -101` 变为 `dev ap0 ... src <车机>`，tcp6 出现 `03` + 268×`01`(ESTAB)，**画面正常**。
-- **固化**：路由必须**每次热点起来后重加**（DiPlay 每次启动无线都重建 ap0，netd 会 flush）。提供常驻脚本 `scripts/diplay-ap0-route-fix.sh`（root，监听 ap0 的 link-local 出现即幂等补路由）。开机自启需往 init.rc 加 service，见脚本头部注释。
+- **固化**：路由必须**每次热点起来后重加**（DiPlay 每次启动无线都重建 ap0，netd 会 flush）。提供常驻脚本 `scripts/diplay-ap0-route-fix.sh`（root，监听 ap0 的 link-local 出现即幂等补路由）。
+- **开机自启 + 回滚**：常驻脚本只在车机启动后手动拉起才跑；要让它在**重启后自动起来**，需在 init 里注册开机自启 service。已提供一体化脚本 `scripts/diplay-autostart.sh`（`install`/`rollback`/`status` 三合一，含备份与校验），命令见下「七、常用命令」。
 - **对坑 1 / 坑 9 的修正**：坑 1「热点给不出 link-local」、坑 9「车机热点无 IPv6 link-local」都是**误判**——热点**有** link-local，缺的是 **OUTPUT 路由**。
 
 ## 六、下一步（按推荐序，2026-10-05 深夜更新）
@@ -134,7 +135,7 @@
 > ✅ **无线已跑通**（0.2.12 + 补 ap0 OUTPUT 路由）。剩下只有**有线 0x52 STALL** 一个未解问题。
 
 1. **（可选）有线 0x52 深挖**：车机抓 dmesg/usbmon 确认 STALL 来源（iPhone 返回 vs 车机栈自产），再决定是否值得继续。无线已通，有线优先级降低。
-2. **（可选）固化收尾**：若想让路由修复**开机自启**（跨车机重启），需往 `/vendor/etc/init/hw/init.project.rc` 加 service 指向 `scripts/diplay-ap0-route-fix.sh`（remount /vendor rw 后追加，见脚本头部注释）。
+2. ✅ **固化已完成**：开机自启 service 已追加到 `/vendor/etc/init/hw/init.project.rc`（下次重启生效），原始 rc 备份在 `/data/adb/init.project.rc.bak`。部署/回滚用 `scripts/diplay-autostart.sh`，见下。
 
 **勿再让用户升 iOS**（无线已证 iOS 15.4.1 可正常连）。
 
@@ -152,6 +153,26 @@ $ADB shell 'd=/sys/bus/usb/devices/1-1.4; cat $d/idProduct $d/bNumConfigurations
 
 # 重发 CarPlay 切换请求（验证 iOS 升级后是否通过）：
 $ADB shell 'CLASSPATH=/data/local/tmp/probe4.dex app_process /system/bin UsbProbe4 4 c0 1; cat /data/local/tmp/probe4.log'
+
+# ---- 无线 CarPlay 路由修复：部署 / 回滚 / 状态（开机自启） ----
+# 两个脚本都要先推到车机 /data/adb/：
+$ADB push scripts/diplay-ap0-route-fix.sh /data/adb/diplay-ap0-route-fix.sh
+$ADB push scripts/diplay-autostart.sh   /data/adb/diplay-autostart.sh
+
+# 部署开机自启 service（备份 rc → 追加 service → 校验；下次重启生效）：
+$ADB shell 'sh /data/adb/diplay-autostart.sh install'
+
+# 回滚（用备份 /data/adb/init.project.rc.bak 覆盖回 rc）：
+$ADB shell 'sh /data/adb/diplay-autostart.sh rollback'
+
+# 看当前状态（rc/service/备份/daemon/路由规则）：
+$ADB shell 'sh /data/adb/diplay-autostart.sh status'
+
+# 手动拉起常驻 daemon（不重启车机时的临时兜底）：
+$ADB shell 'setsid sh /data/adb/diplay-ap0-route-fix.sh >/dev/null 2>&1 &'
+
+# 重启车机后自检（service 应为 running）：
+$ADB shell 'getprop init.svc.diplay_ap0_fix; ip -6 rule show | grep 17100'
 ```
 
 ### 反编译 / 重编译 / 签名 DiPlay
