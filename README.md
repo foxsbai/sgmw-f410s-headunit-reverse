@@ -11,8 +11,10 @@
 ├── README.md                        # 本文件
 ├── .gitignore                       # 忽略大体积固件/镜像中间产物
 ├── notes/
+│   ├── architecture.md              # 车机整体架构 + 逆向猜想（公开版，已去敏感信息）
 │   ├── rom-analysis.md              # 升级包结构 / 平台 / 分区 / 签名 分析
-│   └── launcher-analysis.md         # SGMWLauncher 架构 / 卡片体系 / 布局 分析
+│   ├── launcher-analysis.md         # SGMWLauncher 架构 / 卡片体系 / 布局 分析
+│   └── upgrade-package-vs-device.md # 升级包 ↔ 实机逐项对照
 ├── scripts/
 │   └── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
 ├── decompiled/

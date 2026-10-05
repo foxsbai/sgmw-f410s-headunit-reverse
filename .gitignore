@@ -5,7 +5,15 @@ soc_vr/
 update/
 img/
 out/
+output/
 apks/
+
+# 实机全量快照（含 VIN/串号/MAC/条码等敏感信息，仅本地保留）
+device-dump/
+
+# 含设备唯一标识的私密工作笔记（公开版见 notes/architecture.md）
+notes/f410s-device-info.md
+notes/diplay-carplay-progress.md
 
 # 复现脚本生成目录
 reproduced/
