@@ -102,13 +102,21 @@
 - **新根因假设**：车机 Android 9 的 MTK USB 栈差异 —— `musb-hdrc` 控制器驱动对「设备即将重枚举」类 vendor IN 请求（0x52 wIdx=4）错误上报 STALL，或 `android.hardware.usb@1.1-service-mediatek`（MTK 定制 USB HAL）对 vendor 请求有白名单拦截。旁证：0x52 wIdx=0 与 0x53 能成功、唯独 wIdx=4（触发重枚举的那个）被 STALL。
 - **验证方向**：usbmon/dmesg 抓原始 USB 包、root 直接 `ioctl(USBDEVFS_CONTROL)` 绕过 framework、查 MTK USB HAL 白名单。
 
+### 坑 9：手机侧 USB 栈对照坐实「musb-hdrc」嫌疑
+
+- 抓了能连的 Android 15 手机（Pixel Fold / Tensor G2）USB 栈：内核 5.10.214，控制器 **DWC3**（`11210000.dwc3`，xhci_hcd+dwc3），USB HAL = `android.hardware.usb` **AIDL v3**（generic）。
+- 车机：musb-hdrc + HIDL `@1.1-service-mediatek` + 内核 4.4.146。
+- **头号嫌疑 = musb-hdrc**：peripheral-first 老 OTG 控制器，host 模式下对「0x52 wIdx=4 触发 iPhone 立即断开重枚举」这类控制传输误报 STALL/-EPIPE。
+- 详见 [usb-stack-comparison.md](usb-stack-comparison.md)。
+
 ## 六、下一步（按推荐序，2026-10-05 更新）
 
-> ⚠ iOS 已排除（Android 15 手机能连）。下面全部针对「车机 MTK USB 栈」。
+> ⚠ iOS 已排除（Android 15 手机能连）。根因锁定车机 USB 栈，头号嫌疑 = musb-hdrc 驱动（对照见 [usb-stack-comparison.md](usb-stack-comparison.md)）。
 
-1. **抓 USB 原始包定位 STALL 来源**：root 下用 `usbmon`（`/sys/kernel/debug/usb/usbmon/`）或 `dmesg`/`/proc/kmsg` 抓 `0x52 wIdx=4` 时的底层传输，确认 STALL 是 iPhone 返回还是 MTK 栈自产。
-2. **绕过 Android framework**：root 下直接 `ioctl(USBDEVFS_CONTROL)` 发原始 `0x52 wIdx=4`，看是否绕过 MTK USB HAL/框架层拦截。
-3. **查 MTK USB 白名单**：`android.hardware.usb@1.1-service-mediatek` 与内核 musb 驱动对 vendor 请求的处理。
+1. **车机抓 usbmon/dmesg 确认 STALL 来源**（一锤定音）：root 下发 `0x52 wIdx=4`，看 dmesg 里是 iPhone 返回 STALL 还是 musb 报 `-EPIPE`/babble/disconnect。
+2. **绕过 framework**：root 下直接 `ioctl(USBDEVFS_CONTROL)` 发原始 `0x52 wIdx=4`，看是否绕过 MTK USB HAL 后仍是 musb 层 STALL（实锤驱动问题）。
+3. **查 musb 驱动源码**：MT8666 内核 4.4 的 `musb_hdrc` 对 vendor 请求路径，是否有 STALL 误报 / OTG 状态机 quirk。
+4. **现实评估**：musb 在内核里，改内核要动 boot.img（联发科签名，风险高）。先抓清 STALL 来源再决定值不值得动。
 
 **勿再让用户升 iOS**（已证 iOS 15.4.1 在 Android 15 手机可正常连）。
 

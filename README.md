@@ -19,7 +19,8 @@
 │   ├── rom-analysis.md              # 升级包结构 / 平台 / 分区 / 签名 分析
 │   ├── launcher-analysis.md         # SGMWLauncher 架构 / 卡片体系 / 布局 分析
 │   ├── upgrade-package-vs-device.md # 升级包 ↔ 实机逐项对照
-│   └── diplay-carplay.md            # DiPlay CarPlay 安装进度 + 踩坑记录（公开版）
+│   ├── diplay-carplay.md            # DiPlay CarPlay 安装进度 + 踩坑记录（公开版）
+│   └── usb-stack-comparison.md      # USB 栈对照（能连的 Android15 手机 vs 卡 0x52 的车机）
 ├── scripts/
 │   └── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
 ├── decompiled/
