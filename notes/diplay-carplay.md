@@ -116,12 +116,15 @@ adb shell '
 ### 6.3 常驻修复（推荐，一劳永逸）
 
 ```sh
-# 推到车机并后台常驻（daemon 每秒检测 ap0 的 link-local 出现，出现即幂等补路由）
+# 推到车机并后台常驻（daemon 每 3s 周期幂等补路由；待机唤醒后 netd flush 路由也能自愈）
 adb push scripts/diplay-ap0-route-fix.sh /data/adb/diplay-ap0-route-fix.sh
 adb shell 'setsid sh /data/adb/diplay-ap0-route-fix.sh >/dev/null 2>&1 &'
 ```
 
 > 脚本用 `ip -6 rule show | grep -q ... || ip -6 rule add ...` 保证幂等，不会堆积重复规则。
+> 之所以「周期幂等 apply」而非「down→up 翻转触发」：车机「熄火→点火」是**待机（suspend）不重启系统**，唤醒时 netd 可能已 flush 路由但 ap0 仍 up，翻转触发会漏补；周期幂等则无论何种状态，最多 3s 内自动补回。
+>
+> ⚠ 上面 `setsid ... &` 只用于**临时验证**；进程不归 init 管，待机/清理时会被杀。**正式固化务必走第七节开机自启**（init service 托管，被杀自动拉起）。
 
 ---
 
@@ -145,6 +148,7 @@ adb shell 'sh /data/adb/diplay-autostart.sh rollback'
 - 原理：往 `/vendor/etc/init/hw/init.project.rc` 追加 `on property:sys.boot_completed=1 → start diplay_ap0_fix`（service 指向 route-fix 脚本，`seclabel u:r:su:s0`）。这正是 [architecture.md](architecture.md) 猜想 5 的「init 托管 root 守护」方案。
 - 该 rc 已被 `/init.rc → init.mt8666.rc → init.project.rc` import 链覆盖，boot 时一定会解析到。
 - 完整命令与校验见 `scripts/diplay-autostart.sh` 头部注释。
+- ⚠ **install 之后必须 `adb reboot` 真重启才生效**：车机「熄火→点火」是**待机（suspend）不重启系统**，init 不会重新解析 rc，改完会「看似没生效」。验证：`adb shell getprop init.svc.diplay_ap0_fix` 应为 `running`。
 
 ---
 

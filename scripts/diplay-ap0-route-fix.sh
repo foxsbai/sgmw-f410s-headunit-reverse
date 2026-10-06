@@ -16,7 +16,8 @@
 #   2) 再加一条 `oif ap0 lookup 1095` 规则兜底。
 #
 # 关键：DiPlay 每次启动无线 CarPlay 都会重建 ap0，netd 会 flush 掉上面的路由，
-#       所以必须【常驻监听 ap0 的 link-local 出现 → 立即重加】。
+#       所以必须常驻守护。又因为「待机唤醒」时 netd 也可能 flush 路由但 ap0 仍 up
+#       （旧「down→up 翻转触发」会漏补），改为【周期幂等 apply】，唤醒后自动自愈。
 #
 # 用法：
 #   - 一次性：  sh diplay-ap0-route-fix.sh once
@@ -45,18 +46,15 @@ case "${1:-daemon}" in
         fi
         ;;
     *)
-        # 常驻 daemon：只在 ap0 从 down→up 翻转时 apply 一次，避免每 1s 刷日志
-        was_up=0
+        # 常驻 daemon：每 3s 周期幂等 apply（而非 down→up 翻转触发）。
+        # 待机唤醒时 netd 可能已 flush 路由但 ap0 仍 up，旧翻转逻辑会漏补；周期幂等
+        # apply 则无论 ap0 处于何种状态，唤醒后最多 3s 内自动补回。apply() 内部幂等，
+        # 不会堆积重复 rule/route。
         while :; do
             if ap0_up; then
-                if [ "$was_up" -eq 0 ]; then
-                    apply
-                    was_up=1
-                fi
-            else
-                was_up=0
+                apply
             fi
-            sleep 1
+            sleep 3
         done
         ;;
 esac
