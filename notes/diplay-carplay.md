@@ -6,6 +6,41 @@
 
 ---
 
+## 快速上手（TL;DR，照着做）
+
+> 给「照抄就能跑通」的人 / AI：按顺序执行，每步注释里标了**预期输出**，对不上就跳回对应章节查。全程用 **USB adb**（无线热点会顶掉 WiFi adb，见 2.3）。
+
+```sh
+ADB=adb   # 改成你自己的 adb 路径；车机 adb shell 进去本身即 root
+
+# 0) 确认 root
+$ADB shell id                                   # 期望 uid=0(root)
+
+# 1) 装 DiPlay 0.2.12（官方签；覆盖旧版若签名不一致先卸载再装）
+$ADB install DiPlay-0.2.12.apk
+$ADB shell dumpsys package com.shihab.diplay | grep versionName   # 期望 versionName=0.2.12
+
+# 2) 推两个脚本上车
+$ADB push scripts/diplay-ap0-route-fix.sh /data/adb/diplay-ap0-route-fix.sh
+$ADB push scripts/diplay-autostart.sh     /data/adb/diplay-autostart.sh
+
+# 3) 注册开机自启（往 /vendor/etc/init/hw/init.project.rc 追加 service，并备份）
+$ADB shell 'sh /data/adb/diplay-autostart.sh install'   # 期望「已追加开机自启 service」
+
+# 4) 真重启（关键！熄火/点火是【待机】不算重启，init 不重新解析 rc）
+$ADB reboot
+# ……等 2~3 分钟车机重启、adb 重连（WiFi adb 需重新 connect）……
+
+# 5) 验证固化
+$ADB shell 'getprop init.svc.diplay_ap0_fix'   # 期望 running（这一步就能确认是否真生效）
+
+# 6) 车上打开 DiPlay → 选「无线 CarPlay」→ iPhone 连上车机热点 → 出画面即成功
+```
+
+> 每步的完整背景、原理与排查，见对应章节：装 APK 见四、配置见五、路由原理见六、自启原理见七、验证见八、排查见九。
+
+---
+
 ## 一、结论与原理（30 秒版）
 
 - **无线 CarPlay 已跑通**。装 DiPlay 0.2.12 后，唯一的车机侧修复是**补一条 ap0 的 IPv6 OUTPUT 路由**（见第六节）。
@@ -249,6 +284,26 @@ adb pull /data/local/tmp/ap0.pcap .
 ## 十一、有线 CarPlay（独立未解问题，仅记录）
 
 有线 USB 路线卡在 iPhone 拒绝切换 CarPlay 模式（`0x52` controlTransfer 返回 STALL），是**独立于无线的另一个问题**，目前未解，不在本指南范围内。既然无线已通，优先用无线即可。
+
+---
+
+## 十二、变更记录（Changelog）
+
+### 2026-10-06 —— 固化开机自启 + 待机唤醒自愈
+
+**发现的问题**：路由修复 daemon 起初是用 `setsid ... &` 手动拉起的，随后暴露出两个坑：
+
+1. **重启后 CarPlay 连不上** —— `setsid` 进程不归 init 管，重启 / 待机清理时被杀；且车机「熄火 → 点火」是**待机（suspend）不重启系统**，之前 `install` 写进的 init service 从没被 init 重新解析过（uptime 连续 47.8h 坐实），于是 daemon 既不常驻、init 也没拉起它。
+2. **待机唤醒可能漏补路由** —— 旧 daemon 只在 ap0「down→up 翻转」时补一次路由；待机唤醒时 netd 已 flush 路由但 ap0 仍 up，翻转不触发 → 漏补，CarPlay 连不上。
+
+**做了什么修改**：
+
+1. `scripts/diplay-ap0-route-fix.sh`：daemon 由「翻转触发」改为**每 3s 周期幂等 apply**——无论 ap0 处于何种状态，唤醒后最多 3s 内自动补回路由。
+2. 固化开机自启：`diplay-autostart.sh install` 把 service 写进 init，`adb reboot` 真重启后 `init.svc.diplay_ap0_fix = running`、进程由 init 托管（PPID=1），daemon 被杀时 init 自动拉起（`kill -9` 实测 6s 内复活）。
+
+**解决了什么**：无线 CarPlay 从「每次重启 / 待机后要手动重拉 daemon」变成「重启、待机唤醒都能自动恢复」，实机已确认重启后正常拉起 CarPlay。
+
+**结论**：日常熄火 / 点火 / 待机 / 重启都不再需要人工干预。仅当**恢复出厂**（清 `/data`，脚本没了）或 **OTA 升级**（刷 `/vendor`，rc 被覆盖）后，才需要重新「推脚本 + `install` + `adb reboot`」。
 
 ---
 
