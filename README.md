@@ -12,6 +12,10 @@
 
 👉 **[DiPlay 无线 CarPlay 安装与调试指南](notes/diplay-carplay.md)** —— 自包含、照着做即可装好 DiPlay 0.2.12 并跑通无线 CarPlay（✅ 已在 F410S 实机跑通），含完整排查方法。核心：装 APK + 补一条 ap0 的 IPv6 OUTPUT 路由。
 
+## 仪表盘（全液晶仪表）逆向
+
+👉 **[仪表盘逆向笔记](notes/instrument-cluster.md)** —— 驾驶位那块 1280×480 全液晶屏是**独立于车机的第二台设备**（AMT630H V100 + Cortex-M MCU，跑 **FreeRTOS + AWTK** 而非 Android）。已打通 **AWTK 官方 `preview_ui` 渲染**驾驶页 `driving_page.bin`，含固件层级（UPDF v3 / ROMA 资源 FS / AWTK `ui_binary` 格式）与车机通讯方式。
+
 ## 目录结构
 
 ```
@@ -23,7 +27,9 @@
 │   ├── rom-analysis.md              # 升级包结构 / 平台 / 分区 / 签名 分析
 │   ├── launcher-analysis.md         # SGMWLauncher 架构 / 卡片体系 / 布局 分析
 │   ├── upgrade-package-vs-device.md # 升级包 ↔ 实机逐项对照
-│   └── diplay-carplay.md            # DiPlay 无线 CarPlay 安装与调试指南（✅ 可复刻）
+│   ├── diplay-carplay.md            # DiPlay 无线 CarPlay 安装与调试指南（✅ 可复刻）
+│   ├── instrument-cluster.md        # 仪表盘（AMT630H + FreeRTOS + AWTK）逆向笔记（✅ 已官方渲染）
+│   └── instrument-cluster-driving-page.png  # driving_page.bin 的官方渲染效果图
 ├── scripts/
 │   ├── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
 │   ├── diplay-ap0-route-fix.sh      # DiPlay 无线 CarPlay 修复：补 ap0 的 IPv6 OUTPUT 路由（常驻 daemon）
