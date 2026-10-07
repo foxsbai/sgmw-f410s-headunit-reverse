@@ -168,16 +168,21 @@ roma_flat/default/strings  -> （空，暂不需要）
 
 2. **`strings` 资源缺失**：ROMA 提取结果里没有 `strings`（本地化文案），所以 `label` 类控件（如速度数字、单位文字）若依赖字符串资源则暂不渲染。需从 ROMA 里定位 `strings.xml/.bin` 或从 app 代码区反推。
 
-3. **CRC 未解出（刷机拦路虎）**：
-   - update.bin 头 CRC（u32@0xC，值 `0x4b987670`，`iap_need_crc32_check`）
-   - ROMA 头 CRC（u32@0xC，值 `fdab40e2`）
-   均已排除标准 crc32/crc32c/adler32/sum32/xor32 及其常见切片。待从 app.bin 反汇编定位 CRC seed。
+3. **CRC 已解出（刷机链路 100% 可重算，2026-10-07 定论）**：固件三个校验点的算法已定位为**标准 normal（MSB-first）CRC32，无 final XOR**——与 `zlib.crc32` 的唯一区别就是最后不 `^0xFFFFFFFF`。参数：poly `0x04C11DB7`、init `0xFFFFFFFF`、终值无、覆盖整个区域且 **CRC 字段本身 4 字节清零**后参与计算、little-endian 存储。
+
+   | 区域 | CRC 字段位置 | 覆盖范围 | 实测值 |
+   |---|---|---|---|
+   | update.bin (UPDF 容器) | 文件偏移 `0x0C` | 整个文件 | `0x4b987670` |
+   | ROMA 区 | ROMA 内偏移 `0x0C` | 整个 ROMA | `0xe240abfd` |
+   | BANI 区 | BANI 内偏移 `0x24` | 整个 BANI | `0x3d7726a0` |
+
+   汇编证据：流式 CRC 函数 `0x200b4238` 查表 `0x2023cde8`，表首 8 项 = 标准 normal CRC32 表；比对逻辑 `0x2008a838` 把区域头里存的 CRC 读出、清零该字段、再对整个区域流式 CRC 后 `cmp` 比对。**刷机结论：整条校验链（instrument.zip 的 md5.txt → update.bin 头 CRC → ROMA CRC → BANI CRC）无 RSA/SHA 签名，改任意资源后逐层重算 CRC+MD5 即可。**
 
 ---
 
 ## 七、待办
 
-- [ ] Task2：从 `update.bin` app 代码区反汇编 `iap_need_crc32_check`，定位 CRC seed/算法
+- [x] ~~Task2：CRC seed/算法~~ ✅ 已解出（normal CRC32 无 final XOR，见「六、已知问题 3」）
 - [ ] 补 `strings` 资源，让 `label`/`progress_bar` 类控件也渲染，进一步贴近真车
 - [ ] 官方渲染图 ↔ 实机拍摄图逐像素对齐核对
 - [ ] `mcuapp.bin`（Cortex-M）反汇编，解析 CAN 信号矩阵，坐实车机/整车通讯协议

@@ -33,7 +33,9 @@
 ├── scripts/
 │   ├── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
 │   ├── diplay-ap0-route-fix.sh      # DiPlay 无线 CarPlay 修复：补 ap0 的 IPv6 OUTPUT 路由（常驻 daemon）
-│   └── diplay-autostart.sh          # 上面 daemon 的开机自启 部署/回滚/状态 一体化脚本
+│   ├── diplay-autostart.sh          # 上面 daemon 的开机自启 部署/回滚/状态 一体化脚本
+│   ├── vector2svg.py                # 把 vector drawable(XML) 转 SVG，供桌面 mockup 引用（修复 navi 图标缺失）
+│   └── crc.py                       # 仪表盘固件 CRC32 计算/修补（normal CRC32 无 final XOR，三校验点自检）
 ├── decompiled/
 │   └── SGMWLauncher/                # apktool 反编译产物（smali + res + manifest）
 ├── mockup/
