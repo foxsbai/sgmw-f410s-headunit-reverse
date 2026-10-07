@@ -43,6 +43,7 @@
 │   ├── pack_roma.py                 # ROMA 资源 FS 重打包（自动算 CRC，round-trip 可逆）
 │   ├── parse_ui.py                  # AWTK ui_binary 解析/序列化（round-trip 验证用）
 │   ├── preview_ui.py                # 驾驶页近似静态渲染沙盒（PIL 拼图，非官方渲染）
+│   ├── mcuapp_can_extract.py        # mcuapp.bin CAN 信号表/ID 提取脚本（只读，反汇编结论见笔记）
 │   └── awtk-preview-ui.patch        # AWTK preview_ui 官方渲染的两处关键修复（git apply）
 ├── decompiled/
 │   └── SGMWLauncher/                # apktool 反编译产物（smali + res + manifest）

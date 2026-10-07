@@ -90,7 +90,7 @@ widget record 布局：`type[32]`（null 结尾 + 零填充）→ `x/y/w/h`（�
 
 ## 四、车机通讯方式（仪表 ↔ 车机 / 整车）
 
-> ⚠ 本节区分**实测事实**与**推断**：固件/设备层信息为实测，具体总线协议报文为推断（本次逆向未解析 CAN 报文）。
+> ⚠ 本节区分**实测事实**与**推断**。`mcuapp.bin` 已反汇编（2026-10-07）：**CAN 信号表 / CAN ID 列表为实锤**，但各 CAN ID 对应的信号含义与 CAN 控制器细节待整车 CAN 库交叉验证。可复现提取脚本见 [`../scripts/mcuapp_can_extract.py`](../scripts/mcuapp_can_extract.py)。
 
 ### 4.1 实测事实
 
@@ -98,6 +98,7 @@ widget record 布局：`type[32]`（null 结尾 + 零填充）→ `x/y/w/h`（�
   - `mcuapp.bin`（**Cortex-M**，A/B 双区，front@0x0 / back@0x30914）—— 数据/控制 MCU；
   - `update.bin`（**AMT630H V100** 显示 SoC 的 app，FreeRTOS + AWTK + Vivante OpenVG）—— 只负责渲染。
 - **车机侧走 vehicle HAL**：车机（MT8666 / Android）实测有 `vehicle-hal-2.0`（`hal.vehicle.ele.gids=362`、`persist.hal.provider=pateo`），动力类型 `hybrid.type=3`（插混/油混）。
+- **MCU 架构识别（实测内存映射 + 推断芯片）**：初始 SP=`0x10010000`（RAM@`0x10000000`，恰好 64KB）、flash@`0x0`、外设 `0x40000000`(APB)/`0x40200000`/`0x50000000`(AHB)。这套映射 + SP=64KB 与 **NXP LPC17xx/LPC40xx 系（Cortex-M3/M4）**，尤其 **LPC1768**（512KB flash + 64KB SRAM + 双 CAN）严丝合缝。**芯片型号为推断，未 100% 坐实。**
 
 ### 4.2 推断的通讯链路（待验证）
 
@@ -109,7 +110,28 @@ widget record 布局：`type[32]`（null 结尾 + 零填充）→ `x/y/w/h`（�
 
 即典型汽车仪表架构：**Cortex-M MCU 采集 CAN/硬线信号（车速、转速、档位、报警灯等）→ 通过片间接口送给 AMT630H → AWTK 渲染**。车机与仪表都挂在整车 CAN 上，二者之间没有直接连线，而是各自从 CAN 上取数据。
 
-> 待办：从 `mcuapp.bin`（Cortex-M）反汇编，或从车机 `pateo` vehicle HAL provider 的 so 里找 CAN ID/信号矩阵，才能坐实具体报文。当前仅到「双芯片 + 双 CAN 节点」的架构层。
+### 4.3 mcuapp.bin 反汇编实测结论（2026-10-07）
+
+**① 关键前置结论：`mcuapp.bin` 只含数据、不含可执行代码。** 向量表 reset handler=`0x34FE8`、各中断 handler=`0x3D5D4~0x3E064`，**全部落在文件尾 `0x334D0` 之后**——真正跑 CAN 初始化/收发的代码段（约 36KB，0x34FE8+）在独立 flash 区，**未随本 OTA 下发**。三个独立证据：向量地址超界 / 函数指针表（@0x2D130）超界 / 全文件 prologue opcode 扫描 0 命中。所以「CAN 控制器基址 + 初始化/收发逻辑」**无法从本文件反汇编**。
+
+**② CAN 信号表（实测，@0x30450，59 条，16B/条）**：结构 `{u32 f0, u32 RAM地址, u32 CAN_ID, u32 f3}`，把 RAM 变量映射到 11-bit 标准 CAN ID。
+
+- 前 9 条（特殊，f0/f3 各异）：CAN ID `0x108, 0x110, 0x118, 0x130, 0x176, 0x19E, 0x1AC, 0x1BA, 0x1C2`，对应 RAM `0x10000648~0x1000069C`。
+- 后 49 条（规则块，f0=0x24、f3=0x21 恒定）：CAN ID `0x20A, 0x252, 0x29A, 0x2E2, ... 0xF8A`（**步进 0x48**），对应 RAM 自 `0x100006A0` 起每 +0x24(36) 一条，至 `0x10000D84`。
+
+**③ 扩展 ID 表（实测，@0x30328，25 条 24-bit 值）**：`0x080119~0x080131`，疑为 29-bit 扩展帧/诊断 ID（用途未定）。
+
+**④ 报文调度周期（实测，@0x332C0/@0x33320）**：两个描述符各带 6 个数据块指针 + 4 个周期参数 **25/30ms、500ms、1000ms、2000ms** —— 典型 CAN 发送周期（快帧 25~30ms、中帧 500ms、慢帧 1~2s）。
+
+**⑤ 掩码/排列表（实测，@0x2FBA0 起）**：`0x7FF`(11-bit 掩码)、`0x7FFFF`(19-bit)、`0x380/0x39E/0x37E/0x35E` 等具体 ID。
+
+**⑥ mcuapp 头部 CRC（实测）**：`0x204 = zlib.crc32(data[0x210:])`（标准 reflected CRC32 带 final XOR）——**注意这与 update.bin/ROMA/BANI 的「normal CRC32 无 final XOR」是两条不同的校验链**。文件 = 向量表(0x200) + 头(0x10) + payload(0x332C0)，自洽完整未截断。
+
+**⑦ 向量表异常（实测，成因待定）**：handler 地址全是**偶数**（bit0=0），非标准 Cortex-M Thumb 地址。ARMv7-M 进异常强制 Thumb 态、忽略 LSB，所以偶数地址真机上照跑——归因「工具链/启动文件未置 Thumb 位」（某些国产 SDK 常见）。
+
+**未定项（需下一步）**：f0/f3 字段语义（疑为信号位长/起始位）；各 CAN ID 对应的车速/转速/档位/报警灯含义（需宝骏/五菱整车 CAN 库交叉验证）；CAN 控制器基址；TX/RX 方向与 DLC。
+
+> **要坐实 CAN 控制器与收发逻辑，唯一途径是拿到 `0x34FE8~0x3E064` 那段约 36KB 的代码**（完整 flash dump，或「完整版」mcuapp OTA）。本文件里能榨的 CAN 信息已基本榨干：信号矩阵和 CAN ID 表是硬数据，可拿去对整车 CAN 矩阵。
 
 ---
 
@@ -187,6 +209,8 @@ roma_flat/default/strings  -> （空，暂不需要）
 ## 七、待办
 
 - [x] ~~Task2：CRC seed/算法~~ ✅ 已解出（normal CRC32 无 final XOR，见「六、已知问题 3」）
+- [x] ~~`mcuapp.bin` 反汇编，解析 CAN 信号矩阵~~ ✅ 已反汇编（见「四、4.3」）：CAN 信号表 59 条 / CAN ID 列表已实锤，但**代码段缺失**（0x34FE8+ 未随 OTA 下发）
+- [ ] **拿到 `0x34FE8~0x3E064` 代码段**（约 36KB，完整 flash dump 或完整版 mcuapp OTA）——坐实 CAN 控制器基址、初始化/收发逻辑的唯一途径
+- [ ] 用宝骏/五菱整车 CAN 库交叉验证 0x108~0xF8A 的信号含义（车速/转速/档位/报警灯）
 - [ ] 补 `strings` 资源，让 `label`/`progress_bar` 类控件也渲染，进一步贴近真车
 - [ ] 官方渲染图 ↔ 实机拍摄图逐像素对齐核对
-- [ ] `mcuapp.bin`（Cortex-M）反汇编，解析 CAN 信号矩阵，坐实车机/整车通讯协议
