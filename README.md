@@ -16,6 +16,8 @@
 
 👉 **[仪表盘逆向笔记](notes/instrument-cluster.md)** —— 驾驶位那块 1280×480 全液晶屏是**独立于车机的第二台设备**（AMT630H V100 + Cortex-M MCU，跑 **FreeRTOS + AWTK** 而非 Android）。已打通 **AWTK 官方 `preview_ui` 渲染**驾驶页 `driving_page.bin`，含固件层级（UPDF v3 / ROMA 资源 FS / AWTK `ui_binary` 格式）与车机通讯方式。
 
+配套：**[AWTK ui_binary 格式规范](notes/awtk-ui-binary-format.md)**（逐字节）· **[ROMA 资源 FS + 重打包 + 校验链](notes/roma-fs-repack.md)**（CRC 已解出，整条刷机链路可重算）。
+
 ## 目录结构
 
 ```
@@ -29,13 +31,19 @@
 │   ├── upgrade-package-vs-device.md # 升级包 ↔ 实机逐项对照
 │   ├── diplay-carplay.md            # DiPlay 无线 CarPlay 安装与调试指南（✅ 可复刻）
 │   ├── instrument-cluster.md        # 仪表盘（AMT630H + FreeRTOS + AWTK）逆向笔记（✅ 已官方渲染）
+│   ├── awtk-ui-binary-format.md     # AWTK ui_binary 二进制格式逐字节规范（round-trip 验证）
+│   ├── roma-fs-repack.md            # ROMA 资源 FS 格式 + 重打包 + 三层校验链（CRC 已解出）
 │   └── instrument-cluster-driving-page.png  # driving_page.bin 的官方渲染效果图
 ├── scripts/
 │   ├── reproduce.sh                 # 一键从原包复现「解包 → 反编译」全过程
 │   ├── diplay-ap0-route-fix.sh      # DiPlay 无线 CarPlay 修复：补 ap0 的 IPv6 OUTPUT 路由（常驻 daemon）
 │   ├── diplay-autostart.sh          # 上面 daemon 的开机自启 部署/回滚/状态 一体化脚本
 │   ├── vector2svg.py                # 把 vector drawable(XML) 转 SVG，供桌面 mockup 引用（修复 navi 图标缺失）
-│   └── crc.py                       # 仪表盘固件 CRC32 计算/修补（normal CRC32 无 final XOR，三校验点自检）
+│   ├── crc.py                       # 仪表盘固件 CRC32 计算/修补（normal CRC32 无 final XOR，三校验点自检）
+│   ├── pack_roma.py                 # ROMA 资源 FS 重打包（自动算 CRC，round-trip 可逆）
+│   ├── parse_ui.py                  # AWTK ui_binary 解析/序列化（round-trip 验证用）
+│   ├── preview_ui.py                # 驾驶页近似静态渲染沙盒（PIL 拼图，非官方渲染）
+│   └── awtk-preview-ui.patch        # AWTK preview_ui 官方渲染的两处关键修复（git apply）
 ├── decompiled/
 │   └── SGMWLauncher/                # apktool 反编译产物（smali + res + manifest）
 ├── mockup/

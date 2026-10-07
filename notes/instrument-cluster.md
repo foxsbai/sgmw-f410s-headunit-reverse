@@ -3,6 +3,8 @@
 > 本文是 F410S **仪表盘**（驾驶位那块 1280×480 全液晶屏）的独立逆向笔记，与车机（MT8666 / Android，见 [architecture.md](architecture.md)）是**两台设备**。
 > 面向：仪表 UI 资源提取、界面还原、渲染验证、二次修改。**已移除设备唯一标识**，仅保留固件/平台层面的公开信息。
 
+**配套笔记**：[awtk-ui-binary-format.md](awtk-ui-binary-format.md)（UI 二进制格式逐字节规范）· [roma-fs-repack.md](roma-fs-repack.md)（ROMA 资源 FS + 重打包 + 校验链）· [architecture.md](architecture.md)（车机整体架构）
+
 ---
 
 ## 一、仪表盘是什么（与车机的关系）
@@ -140,6 +142,8 @@ if (is_bin) {
   str_set(&file_data, s.str);
 }
 ```
+
+现成 patch：见 [`../scripts/awtk-preview-ui.patch`](../scripts/awtk-preview-ui.patch)（`git apply` 即可，同时跳过 `.bin` 的 `confirm_file_data_window` 预处理）。
 
 **② 资源目录扁平化**：`preview_ui` 的自定义目录构造器（`preview_ui.c` 的 `build_asset_dir_custom`）拼的是 `res_root/{theme}/{subpath}/{ratio}/`，不是默认 `assets/default/raw/`。所以把 ROMA 提取出的四个子目录软链到一个扁平 `default/` 布局：
 

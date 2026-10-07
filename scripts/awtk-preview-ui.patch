@@ -1,0 +1,24 @@
+diff --git a/tools/preview_ui/preview_ui.c b/tools/preview_ui/preview_ui.c
+index 62fe9a9..9d30e0e 100644
+--- a/tools/preview_ui/preview_ui.c
++++ b/tools/preview_ui/preview_ui.c
+@@ -528,14 +528,15 @@ static widget_t* preview_ui(const char* filename) {
+   str_init(&file_data, 0);
+   if (is_bin) {
+     content = (uint8_t*)file_read(filename, &size);
++    str_set_with_len(&file_data, (const char*)content, size);
+   } else {
+     xml_file_read_to_str(filename, &s);
+-    content = (uint8_t*)s.str;
+-    size = s.size;
++    str_set(&file_data, s.str);
+   }
+-  str_set(&file_data, (const char*)content);
+ 
+-  confirm_file_data_window(&file_data);
++  if (!is_bin) {
++    confirm_file_data_window(&file_data);
++  }
+   try_get_ui_dir_path(filename, ui_dir, MAX_PATH);
+   filename_to_res_name(filename, ui_dir, name, TK_NAME_LEN);
+ 

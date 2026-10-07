@@ -28,6 +28,7 @@ tools/__pycache__/
 
 # macOS
 .DS_Store
+__pycache__/
 
 # mockup 里的冗余资源（保留 html 引用的精简集即可）
 mockup/wallpaper.jpg
