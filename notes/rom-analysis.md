@@ -31,7 +31,7 @@
 | `post-security-patch-level` | 2021-04-05 |
 | `pre-device` | `spm8666p2_64_mce` |
 
-`care_map.txt` 列出改动分区：`vendor`、`system`（均为 ext4）。
+`care_map.txt` 列出改动分区：`vendor`、`system`（均为 ext4）。这三个元数据文件已从 `soc_update.zip` 抽出，存于本仓库 [`ota-metadata/`](../ota-metadata/) 供参考。
 
 ## 分区清单（payload.bin 解出，共 12 个）
 
