@@ -24,11 +24,11 @@
 
 ![driving_page.bin 官方渲染结果](instrument-cluster-driving-page.png)
 
-*上图为 `driving_page.bin` 的官方渲染：1280×480，暗色底 + 白色刻度/数字 + 灰色表盘环。*
+*上图为 `driving_page.bin` 的官方渲染：1280×480，浅蓝底（`Bg_2.png` 原图）+ 仪表控件（刻度环/车速/转速/档位）。*
 
 打通过程中有两个关键点（详见「五、渲染复现」）：
 
-1. **二进制 UI 不能被按 C 字符串截断**：AWTK 官方 `preview_ui` 用 `str_set` 读 `.bin`，会在第一个 `\0`（类型字段 32 字节的零填充）处截断，导致加载失败。改用 `str_set_with_len` 修复。
+1. **二进制 UI 不能被按 C 字符串截断**：AWTK 官方 `preview_ui` 用 `str_set` 读 `.bin`，会在第一个 `\0`（类型字段 32 字节的零填充）处截断，导致加载失败。修复方法是**把 `file_read` 出来的原始 buffer 直接传给 loader**，完全不经过 `str_*` 系列（`str_set_with_len` 内部也是 `strncpy`，一样会截断——早期笔记里写「用 `str_set_with_len` 修复」是错的，正是这个坑导致之前渲染成灰白空图）。
 2. **资源目录要按 AWTK 期望的布局**：`preview_ui` 的自定义目录构造器拼的是 `res_root/{theme}/{subpath}/{ratio}/`，而不是默认的 `res_root/assets/default/raw/...`，需要一个扁平化的 `default/{ui,styles,fonts,images,strings}` 目录。
 
 ---
@@ -153,19 +153,25 @@ scons NANOVG_BACKEND=AGGE VGCANVAS=NANOVG LCD_COLOR_FORMAT=bgra8888 \
 
 ### 5.3 两处关键修改
 
-**① `tools/preview_ui/preview_ui.c`**：二进制 UI 不能走 `str_set`（按 C 字符串截断），改为：
+**① `tools/preview_ui/preview_ui.c`**：二进制 UI 不能走 `str_*`（`str_set`/`str_set_with_len` 内部都是 `strncpy`，会在第一个 `\0` 处截断），改为把 `file_read` 的原始 buffer 直接传给 loader：
 
 ```c
 if (is_bin) {
+  /* .bin 是二进制 UI（ui_binary 格式），里面含大量 0x00，不能走 str_* 系列 */
   content = (uint8_t*)file_read(filename, &size);
-  str_set_with_len(&file_data, (const char*)content, size);
 } else {
   xml_file_read_to_str(filename, &s);
+  size = s.size;
   str_set(&file_data, s.str);
 }
+if (!is_bin) {
+  confirm_file_data_window(&file_data);
+}
+/* ... */
+ui_loader_load(loader, is_bin ? content : (uint8_t*)file_data.str, size, builder);
 ```
 
-现成 patch：见 [`../scripts/awtk-preview-ui.patch`](../scripts/awtk-preview-ui.patch)（`git apply` 即可，同时跳过 `.bin` 的 `confirm_file_data_window` 预处理）。
+现成 patch：见 [`../scripts/awtk-preview-ui.patch`](../scripts/awtk-preview-ui.patch)（`git apply` 即可）。该 patch 同时包含三处修复：**① 上面的原始 buffer 加载**；**② 退出时 `locale_info_xml` 的越界销毁加保护**（见「六、已知问题 1」）；**③ 增加 `screenshot=out.png` 参数**，走官方绘制路径后把 `lcd_mem` 的 offline framebuffer 存成 PNG，用于无窗口环境下的自动化截图。
 
 **② 资源目录扁平化**：`preview_ui` 的自定义目录构造器（`preview_ui.c` 的 `build_asset_dir_custom`）拼的是 `res_root/{theme}/{subpath}/{ratio}/`，不是默认 `assets/default/raw/`。所以把 ROMA 提取出的四个子目录软链到一个扁平 `default/` 布局：
 
@@ -181,16 +187,17 @@ roma_flat/default/strings  -> （空，暂不需要）
 
 ```bash
 ./bin/preview_ui ui=/path/to/roma_extract/assets/default/raw/ui/driving_page.bin \
-  res_root=/path/to/roma_flat lcd_w=1280 lcd_h=480 log_level=0
+  res_root=/path/to/roma_flat lcd_w=1280 lcd_h=480 log_level=0 \
+  screenshot=/path/to/driving_page.png
 ```
 
-日志干净（`Window 1 shown` / `Window 1 exposed`，无 `theme_find_style` / `assets_manager_preload` 报错）即成功。
+日志干净（`Window 1 shown` / `Window 1 exposed`，无 `theme_find_style` / `assets_manager_preload` 报错）即成功；加上 `screenshot=xxx.png` 会自动把渲染结果存成 PNG 并退出（退出码 0，不再弹「意外退出」）。
 
 ---
 
 ## 六、已知问题
 
-1. **`preview_ui` 退出时段错误**（macOS 弹「preview_ui 意外退出」）：crash 栈为 `main → locale_info_xml_destroy → str_destroy`（SIGSEGV）。这是 AWTK **退出清理**阶段的 bug，**不影响渲染结果**（窗口正常出图后，进程退出时才崩）。根因方向：没有加载 `strings` 资源时，`locale_info_xml` 清理路径越界。要消除需补一个合法 `strings` 资源或修 AWTK teardown。
+1. **`preview_ui` 退出时段错误已修复（2026-10-08 定论）**：之前 macOS 弹「preview_ui 意外退出」，crash 栈为 `main → locale_info_xml_destroy → str_destroy`（SIGSEGV）。根因是 `application_on_exit` 无条件 `locale_info_xml_destroy(locale_info())`，而**没有加载 `strings` 资源时 `locale_info()` 返回的是默认 `locale_info`（非 xml 实现）**，把它强转成 `locale_info_xml_t` 再 `str_destroy` 就访问了错误结构体偏移，越界崩溃。修复：只有当 `application_on_launch` 里用 `s_language` 创建过 `locale_info_xml`（此时 `s_old_locale_info` 非空）才销毁它。已合入 [`../scripts/awtk-preview-ui.patch`](../scripts/awtk-preview-ui.patch)，渲染后退出码为 0。
 
 2. **`strings` 资源缺失**：ROMA 提取结果里没有 `strings`（本地化文案），所以 `label` 类控件（如速度数字、单位文字）若依赖字符串资源则暂不渲染。需从 ROMA 里定位 `strings.xml/.bin` 或从 app 代码区反推。
 

@@ -44,7 +44,7 @@
 │   ├── parse_ui.py                  # AWTK ui_binary 解析/序列化（round-trip 验证用）
 │   ├── preview_ui.py                # 驾驶页近似静态渲染沙盒（PIL 拼图，非官方渲染）
 │   ├── mcuapp_can_extract.py        # mcuapp.bin CAN 信号表/ID 提取脚本（只读，反汇编结论见笔记）
-│   └── awtk-preview-ui.patch        # AWTK preview_ui 官方渲染的两处关键修复（git apply）
+│   └── awtk-preview-ui.patch        # AWTK preview_ui 官方渲染的三处修复（原始 buffer 加载 / 退出崩溃保护 / screenshot 参数）
 ├── decompiled/
 │   └── SGMWLauncher/                # apktool 反编译产物（smali + res + manifest）
 ├── mockup/
