@@ -86,11 +86,12 @@ sgmw-launcher-reverse/
 ## 从这里开始
 
 1. **先读 [`notes/README.md`](notes/README.md)** —— 三条线的地图和阅读顺序。
-2. **想快速看效果**：浏览器打开 [`mockup/launcher_preview_v2.html`](mockup/launcher_preview_v2.html)（桌面还原）、`notes/instrument-cluster-driving-page.png`（仪表渲染图）。
-3. **按兴趣分叉**：
+2. **🎯 想接着做仪表 UI 改造** → 读 [`notes/PROGRESS.md`](notes/PROGRESS.md)（进度 + 待办 + 从零恢复环境步骤，新 session/AI 入口）。
+3. **想快速看效果**：浏览器打开 [`mockup/launcher_preview_v2.html`](mockup/launcher_preview_v2.html)（桌面还原）、[`notes/instrument-cluster-driving-page.png`](notes/instrument-cluster-driving-page.png)（仪表渲染图）、[`work/renders/`](work/renders/)（奥迪/比亚迪 UI 原型效果图）。
+4. **按兴趣分叉**：
    - 车机/桌面 → [`notes/architecture.md`](notes/architecture.md) → [`notes/launcher-analysis.md`](notes/launcher-analysis.md)
    - CarPlay → [`notes/diplay-carplay.md`](notes/diplay-carplay.md)（自包含）
-   - 仪表盘 → [`notes/instrument-cluster.md`](notes/instrument-cluster.md)
+   - 仪表盘 UI 改造 → [`notes/instrument-cluster.md`](notes/instrument-cluster.md)（第八节）→ [`notes/app-code-binding.md`](notes/app-code-binding.md)（数据绑定）
 
 ---
 

@@ -127,3 +127,46 @@ skip:
 | 新加的 progress_circle 显示真实电量 | ✅ 同理需改代码 |
 
 **结论：纯视觉改造（换样式/加表盘图/改布局）不需要碰 app 代码；但任何"新控件随数据动"的功能必须改 app 代码。**
+
+---
+
+## 七、如何从 OTA 提取 app_code.bin（自包含）
+
+app 代码区不入库（3.5MB 中间产物），需要时从原始 OTA 提取：
+
+```bash
+python3 -c "
+import zipfile
+z=zipfile.ZipFile('instrument.zip')   # ~/Downloads/仪表盘3.0.14ota版本/update/instrument.zip
+u=z.read('update.bin')
+open('app_code.bin','wb').write(u[0x40000:0x3c0000])   # app 区: 0x40000~BANI起点
+print(len(open('app_code.bin','rb').read()), 'bytes')
+"
+```
+
+- app 代码区 = `update.bin` 偏移 `0x40000 ~ 0x3c0000`（到 BANI 区起点），3.58MB。
+- 运行时基址 `0x20000000`（AMT630H 映射）。反汇编时用 ARM 模式（capstone `CS_MODE_ARM`）。
+- 导出符号表已入库：`scripts/symtab.json`（167 个函数地址，指针注入改造时查函数实现地址用）。
+
+### 导出符号表（`scripts/symtab.json`）
+
+从 app 代码 @app0x227500 区的导出表解析，结构 `[name_ptr, func_ptr]` 成对。解析脚本：
+
+```bash
+python3 -c "
+import struct
+app=open('app_code.bin','rb').read()
+BASE=0x20000000
+symtab={}
+for off in range(0x220000,0x230000,4):
+    w=struct.unpack_from('<I',app,off)[0]
+    if 0x20270000<=w<=0x202c0000:
+        so=w-BASE
+        name=app[so:so+48].split(b'\x00')[0].decode('latin1','replace')
+        fp=struct.unpack_from('<I',app,off+4)[0] if off+4<len(app) else 0
+        if 0x20000000<=fp<=0x20270000:
+            symtab[name]=hex(fp)
+import json; json.dump(symtab,open('symtab.json','w'),indent=1)
+print(len(symtab),'functions')
+"
+```
