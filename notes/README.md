@@ -76,4 +76,5 @@
 | [instrument-cluster.md](instrument-cluster.md) | 仪表盘（AMT630H + FreeRTOS + AWTK）逆向 + 官方渲染（✅） |
 | [awtk-ui-binary-format.md](awtk-ui-binary-format.md) | AWTK `ui_binary` 二进制格式逐字节规范（round-trip 验证） |
 | [roma-fs-repack.md](roma-fs-repack.md) | ROMA 资源 FS 格式 + 重打包 + 三层校验链（CRC 已解出） |
+| [app-code-binding.md](app-code-binding.md) | app 代码数据绑定逆向：`widget_lookup` 模式 + 车速更新链路 + gauge_pointer 0 调用 + 指针注入方案 |
 | [instrument-cluster-driving-page.png](instrument-cluster-driving-page.png) | `driving_page.bin` 的官方渲染效果图 |

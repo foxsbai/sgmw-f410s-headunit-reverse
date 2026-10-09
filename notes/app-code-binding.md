@@ -1,0 +1,129 @@
+# 仪表 app 代码数据绑定逆向笔记
+
+> 本文是 F410S 仪表 **app 代码区**（`update.bin` @0x40000）的逆向结论，聚焦「CAN 数据 → app → UI 控件」的数据绑定链路。
+> 目的：搞清加新控件（如指针表盘）后，怎么让它随真实数据动起来。
+> 配套笔记：[instrument-cluster.md](instrument-cluster.md)（仪表整体逆向）· [roma-fs-repack.md](roma-fs-repack.md)（资源 FS + 重打包）
+
+---
+
+## 一、app 代码基本结构（实测）
+
+- **裸 ARM 二进制**（非 ELF），运行时映射到 `0x20000000`。
+- 向量表在头部（ARM 模式），reset handler = `0x202452dc`。
+- 区域划分（app 内偏移）：
+  - 代码区 `0x0 ~ 0x1b0000`（约）
+  - 数据/literal pool `0x1b0000 ~ 0x280000`
+  - 字符串表 `0x280000 ~ 0x2c8000`
+- **导出符号表** @app0x227500 区，结构 `[name_ptr(4), func_ptr(4)]` 成对，已解析出 167 个导出函数。
+- **AWTK 核心函数**（`widget_lookup`/`widget_set_value`/`widget_set_prop` 等）**不在导出表**，是内部静态函数，但可通过调用模式定位。
+
+---
+
+## 二、数据绑定模式（实测）
+
+app 用 `widget_lookup(root, "控件name")` 查控件。ARM 调用约定 R0=root, R1=name。
+
+裸字节扫描（ARM LDR PC-relative）定位到 **12 处控件名 LDR 引用**（全部 `LDR r1,[PC,#imm]`，加载到 R1 作为 lookup 第二参数）。
+
+### 2.1 模式一：主题/样式更新（改属性，非数据）
+
+```
+ldr  r1,[PC,#imm] = "Speed_dat"     ; 控件名
+mov  r0, r4                         ; root
+bl   0x20151160                      ; widget_lookup(root, name) → widget
+cmp  r0, #0 / beq skip
+ldr  r2,[PC,#imm] = "#080D11"      ; 颜色值
+ldr  r1,[PC,#imm] = "text_color"    ; 属性名
+bl   0x20159fe4                      ; widget_set_prop(widget, "text_color", "#080D11")
+```
+
+`Speed_dat` 有 2 处此模式（白天 `#DAE2E6` / 夜间 `#080D11`），是**主题切换**，不是数据更新。
+
+### 2.2 模式二：数据更新（车速核心链路）⭐
+
+`Speed_dat` 第 3 处引用 @app0x191138（rt0x20191138）：
+
+```
+0x20191124: lookup(root, "driving_page")        ; 先找容器
+0x20191138: lookup(root, "Speed_dat") → R6      ; 找车速控件
+0x2019114c: ldr r7,[PC] = 0x2207dd98            ; 全局字符串缓冲区
+0x20191154: r2=&fmt(PC附近) r1=0x80 r3=r5       ; r5=车速原始值
+0x20191160: bl 0x20050a20                        ; snprintf(buf, 0x80, fmt, r5)
+0x20191168: mov r1,r7; mov r0,r6                ; (widget, buf)
+0x2019116c: bl 0x2014f63c                        ; widget_set_text_utf8(Speed_dat, buf)
+```
+
+**车速数据流：`r5`（车速原始值）→ `snprintf(0x2207dd98)` → `widget_set_text(Speed_dat)`。**
+
+---
+
+## 三、关键函数地址（实测）
+
+| 函数 | 地址（运行时） | 说明 |
+|---|---|---|
+| `widget_lookup`（内部） | `0x20151160` | BL 调用最频繁之一，查控件 by name |
+| `widget_set_prop` | `0x20159fe4` | 设置控件属性（颜色等） |
+| `widget_set_text_utf8` | `0x2014f63c` | 设置控件文本（数据更新） |
+| `snprintf` | `0x20050a20` | 格式化数字→字符串 |
+| `gauge_pointer_set_angle` | `0x20263eac` | 导出表，但**全代码 0 次 BL 调用** |
+| `gauge_pointer_set_image` | `0x2025692c` | 同上 |
+| `gauge_pointer_create` | `0x2027d7f0`（近似） | 同上 |
+| `progress_circle_set_value` | `0x2026e558` | 同上 |
+
+---
+
+## 四、gauge_pointer 0 调用（决定性证据）
+
+`gauge_pointer_set_angle` 实现地址 `0x20263eac`，全代码区（0~0x1b0000）BL 扫描：**0 次调用**。
+
+这证明原仪表是**纯数字表**，app 代码从不更新任何指针角度。**即使 `.bin` 里加了 `gauge_pointer` 控件，app 代码也不会转动它**——指针会停在初始 `angle` 值。
+
+同理 `progress_circle_set_value` 也 0 调用，原代码不用圆弧进度（仪表里的 progress_bar 是线性条，不是 progress_circle）。
+
+---
+
+## 五、指针动态化改造方案（已明确可行）
+
+要让新加的 `gauge_pointer`（name=`Speed_Gauge`）随车速转，在 `Speed_dat` 数据更新点（@0x2019116c 之后）插入代码：
+
+```arm
+; 此处 r5=车速值, r6=Speed_dat widget, r4=root 仍在可用范围
+ldr  r1, [pc, #off]        ; = "Speed_Gauge" (新指针 name)
+mov  r0, r4                ; root
+bl   0x20151160            ; widget_lookup(root, "Speed_Gauge") → R0=指针widget
+cmp  r0, #0
+beq  skip
+; 车速→角度: angle = speed * 系数 + 偏移 (0km/h=-120°, 180km/h=+150°)
+mov  r1, r5                ; angle 参数 (R1), 需换算
+bl   0x20263eac            ; gauge_pointer_set_angle(gp, angle)
+skip:
+```
+
+### 实现要点
+
+1. **插入点**：@0x20191170 附近（Speed_dat set_text 之后），需移动后续代码腾空间或用**跳板**（跳到代码区空隙的 trampoline）。
+2. **literal pool**：需加 `"Speed_Gauge"` 字符串，放在数据区。
+3. **CRC**：改代码区不动 BANI/ROMA，只动 update.bin @0x40000 区，重算 update.bin 头 CRC（@0x0C），`scripts/crc.py patch` 支持。
+4. **换算系数**：r5 的值范围/单位待确认（km/h？可能 CAN 原始值需换算）。可通过实机抓包或反汇编 r5 来源确认。
+5. **其他控件同理**：`Power_data`/`BatSoc_bar` 等的数据更新点可用同样方法定位（都有 `widget_set_text`/`widget_set_value` 调用模式）。
+
+### 难度评估
+
+- **反汇编定位**：✅ 已完成（控件名 LDR + BL 调用模式清晰）
+- **插入代码**：⚠️ 需处理代码空间（trampoline）和 literal pool 布局，改裸 ARM 二进制
+- **数据换算**：⚠️ r5 单位/范围待实机确认
+- **整体**：可行，是"改 app 代码让指针动"的唯一可靠路径
+
+---
+
+## 六、对 UI 改造的指导意义
+
+| 要做的 | 是否依赖 app 代码 |
+|---|---|
+| 换背景/图标/表盘图/颜色/布局 | ❌ 不依赖，改资源即可 |
+| 刷入后界面正常显示 | ❌ 不依赖（CRC 已解决） |
+| 原仪表功能（报警灯/ADAS/数字车速）正常 | ❌ 不依赖（app 代码和 MCU 没动） |
+| **新加的指针随真实车速转动** | ✅ **必须改 app 代码**（插入 lookup+set_angle） |
+| 新加的 progress_circle 显示真实电量 | ✅ 同理需改代码 |
+
+**结论：纯视觉改造（换样式/加表盘图/改布局）不需要碰 app 代码；但任何"新控件随数据动"的功能必须改 app 代码。**
