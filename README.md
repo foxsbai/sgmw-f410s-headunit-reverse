@@ -49,7 +49,19 @@ sgmw-launcher-reverse/
 │   ├── crc.py                C线：仪表固件 CRC32 计算/修补
 │   ├── preview_ui.py         C线：驾驶页近似渲染沙盒（非官方）
 │   ├── mcuapp_can_extract.py C线：mcuapp.bin CAN 信号提取（只读）
-│   └── awtk-preview-ui.patch  C线：AWTK 官方渲染三处修复
+│   ├── awtk-preview-ui.patch C线：AWTK 官方渲染三处修复
+│   ├── extract_roma.py       C线：从 instrument.zip 一路提取到 ROMA 资源
+│   ├── pack_instrument.py    C线：完整封包（改资源→重打包→重算CRC→封instrument.zip）
+│   ├── inject_gauges.py      C线：原 driving_page 树注入 gauge 指针表盘
+│   ├── gen_audi_assets.py    C线：生成奥迪风格表盘/指针 PNG（PIL）
+│   └── watch_render.py       C线：监视 work/*.xml，保存即 xml_to_ui→渲染→打开
+│
+├── work/                   仪表 UI 二次开发：原型 XML + 渲染效果图
+│   ├── prototype_audi_v1.xml   奥迪 Virtual Cockpit 风格（深底+双指针表）
+│   ├── prototype_byd_v1.xml    比亚迪风格（中央大数字+弧形进度环）
+│   ├── prototype_v2_dual_gauge.xml  双表盘原型（AWTK 通用素材）
+│   ├── gauge_test_page.xml     指针表盘最小测试
+│   └── renders/                各原型渲染效果图（1280×480 PNG）
 │
 ├── mockup/                 桌面布局可视化还原（浏览器直接打开看效果）
 │   ├── launcher_preview_v2.html  ← 真实资源版（推荐）

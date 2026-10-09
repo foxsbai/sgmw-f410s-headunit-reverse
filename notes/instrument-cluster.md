@@ -221,3 +221,74 @@ roma_flat/default/strings  -> （空，暂不需要）
 - [ ] 用宝骏/五菱整车 CAN 库交叉验证 0x108~0xF8A 的信号含义（车速/转速/档位/报警灯）
 - [ ] 补 `strings` 资源，让 `label`/`progress_bar` 类控件也渲染，进一步贴近真车
 - [ ] 官方渲染图 ↔ 实机拍摄图逐像素对齐核对
+
+---
+
+## 八、UI 二次开发（2026-10-09，渲染链重建 + 封包闭环 + 指针表盘）
+
+本节记录「换仪表 UI」方向的完整链路打通成果。
+
+### 8.1 刷机渠道确认
+
+仪表盘有**独立 USB 刷入接口**。改完 UI 后封包成 `instrument.zip` 格式即可通过 USB 刷入，无需车机参与。
+
+### 8.2 AWTK 渲染链重建（之前产物被清理，已全部重建）
+
+- AWTK 源码 clone 自 `github.com/zlgopen/awtk` 到 `/tmp/awtk`，已应用 `scripts/awtk-preview-ui.patch`（3 处修复 + screenshot 参数）。
+- 编译命令：`cd /tmp/awtk && scons NANOVG_BACKEND=AGGE VGCANVAS=NANOVG LCD_COLOR_FORMAT=bgra8888 BUILD_TESTS=false BUILD_DEMOS=false DEBUG=false -j8` → 产出 `bin/preview_ui`。
+- 渲染命令：`bin/preview_ui ui=<driving_page.bin> res_root=<roma_flat> lcd_w=1280 lcd_h=480 log_level=0 screenshot=<out.png>`。
+- ROMA 提取脚本 `scripts/extract_roma.py`（补了 `pack_roma.py` 缺的 extract 方向）：`python3 -I extract_roma.py <instrument.zip> -O <outdir>`，558 文件全解出。
+
+### 8.3 完整工具链：XML → bin → 渲染（关键发现）
+
+AWTK 自带 `xml_to_ui` 工具，输出就是 `ui_binary` 格式（magic `0x11221212`，我们的 `parse_ui.py` 能解析）：
+
+```
+写/改 XML → xml_to_ui → .bin (ui_binary) → preview_ui 渲染验证
+```
+
+比手写/改二进制省事得多。`xml_to_ui <in.xml> <out.bin> bin`。
+
+### 8.4 指针表盘控件（已验证可用）
+
+仪表原是**纯数字表**（车速 = 大号 label `Speed_dat` 字号 150，无指针）。要加指针用 AWTK 原生控件：
+
+| 控件 | type | 关键属性 | 用途 |
+|---|---|---|---|
+| `gauge` | `"gauge"` | `image`=表盘底图 | 表盘背景容器 |
+| `gauge_pointer` | `"gauge_pointer"` | `angle`(12点=0°顺时针正,float)/`image`/`anchor_x`/`anchor_y` | **指针**，按角度旋转 |
+| `progress_circle` | `"progress_circle"` | `start_angle`/`line_width`/`counter_clock_wise` | 圆弧进度（油量/电量弧） |
+
+三者均在 `s_ext_widgets` 注册表（`src/ext_widgets/ext_widgets.c`），`tk_ext_widgets_init()` 在 `awtk_main.inc` 主初始化链调用，preview_ui 编译后 `.bin` 可直接加载。
+
+**实测**：`scripts/inject_gauges.py` 在原 `driving_page.bin` 树里注入两个 gauge 表盘（保留全部原功能），渲染出图成功，指针按角度旋转正常。
+
+### 8.5 刷机封包链路（全闭环 ✅）
+
+`scripts/pack_instrument.py` 一键完成：
+
+```
+改好的 driving_page (含gauge)
+  → pack_roma 重打包 ROMA + 重算 ROMA CRC
+  → 塞回 update.bin (ROMA 是最后区域, 变大直接变长) + 重算 update CRC
+  → 封 instrument.zip (DEFLATE) + 重算 md5.txt
+```
+
+**闭环验证**：从封好的 instrument.zip 重新提取 driving_page，确认含 gauge_pointer，数据无损往返。
+
+关键事实：
+- `update.bin` 结构 = [头+app代码@0x40000][BANI@0x3c0000][ROMA@0x4c0000]，**ROMA 是最后区域**（ROMA 结束 = 文件尾），ROMA 变大 update.bin 直接变长，不影响 BANI/app。
+- `instrument.zip` 内只有 `update.bin` + `mcuapp.bin`（DEFLATE 压缩），无内部 md5.txt。外层 `update/md5.txt` = instrument.zip 文件本身的 md5。
+- `pack_roma.py` 读文件表顺序来自原 roma.bin（`--roma` 参数）；**务必确认磁盘上的 driving_page 已 cp 覆盖到 roma_extract 目录**（曾踩坑）。
+
+### 8.6 UI 风格原型（work/ 目录）
+
+- `work/prototype_audi_v1.xml` — **奥迪 Virtual Cockpit 风格**：深色底 + 左右双指针表盘（`audi_gauge_bg` + `audi_pointer`，由 `scripts/gen_audi_assets.py` 生成）+ 中央挡位 + progress_circle 电池环。
+- `work/prototype_byd_v1.xml` — **比亚迪风格**：浅色底 + 中央大号数字车速 + 左右弧形进度环。
+- `work/prototype_v2_dual_gauge.xml` — 双表盘原型（AWTK 通用 gauge_bg 素材）。
+- `work/renders/*.png` — 各原型渲染效果图（1280×480）。
+- `scripts/watch_render.py` — 实时预览：监视 `work/*.xml` 变化，保存即 `xml_to_ui → preview_ui → open` 自动渲染打开。
+
+### 8.7 待解决（UI 视觉）
+
+当前奥迪/比亚迪原型用的是 AWTK 通用素材 + PIL 手绘表盘，视觉偏粗糙。要做出真正汽车仪表质感，需要更精细的表盘底图 + 指针图（用户正在寻找素材）。控件机制（gauge/gauge_pointer/progress_circle）和封包链路均已就绪，素材就绪后替换 PNG 即可。
