@@ -33,3 +33,12 @@ __pycache__/
 # mockup 里的冗余资源（保留 html 引用的精简集即可）
 mockup/wallpaper.jpg
 mockup/assets/_preview_*.png
+
+# 仪表盘（dash-cluster）本地大体积固件/中间产物（不入库；小样例/脚本/笔记在 dash-cluster/ 内）
+dash-cluster/fw/
+dash-cluster/roma_extract/
+dash-cluster/roma_modified/
+dash-cluster/roma_flat/
+dash-cluster/__pycache__/
+dash-cluster/*.bin
+dash-cluster/scripts/crc_probe

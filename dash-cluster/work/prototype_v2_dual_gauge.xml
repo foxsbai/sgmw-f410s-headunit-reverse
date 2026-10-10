@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+  <!-- F410S 双指针表盘仪表原型 v2
+       布局:1280x480
+       - 背景 + 左右装饰条 + 底部条 (全复用原仪表素材)
+       - 左侧: 转速指针表盘 (替掉功率竖条)
+       - 中央: ADAS 雷达区保留 (NomCar + 车道)
+       - 右侧: 车速指针表盘 (指针 + 保留数字车速叠加)
+       套用 AWTK 同源 gauge 控件 + gauge_bg/gauge_pointer 素材 -->
+
+  <!-- 背景层 -->
+  <image x="0" y="0" w="1280" h="480" image="Bg_2" draw_type="default"/>
+  <image x="56" y="26" w="388" h="454" image="BgDrivingAdorn_L2" draw_type="default"/>
+  <image x="836" y="26" w="388" h="454" image="BgDrivingAdorn_R2" draw_type="default"/>
+  <image x="0" y="400" w="1280" h="76" image="BgDrivingAdorn_B2" draw_type="default"/>
+
+  <!-- 中央 ADAS 雷达区保留 (复用原素材) -->
+  <image x="436" y="200" w="449" h="280" image="DrivingBg_Lane2" draw_type="default"/>
+  <image x="583" y="341" w="113" h="84" image="NomCar" draw_type="default"/>
+  <image x="538" y="59" w="208" h="26" image="Gear_N2" draw_type="default"/>
+
+  <!-- 左侧: 转速指针表盘
+       gauge 中心约 (250, 253), 表盘 300x300 -->
+  <gauge x="100" y="100" w="300" h="300" image="gauge_bg">
+    <gauge_pointer x="c" y="44" w="30" h="180" value="-30"
+        image="gauge_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <!-- 转速数字 (叠加在表盘下方) -->
+  <label x="100" y="350" w="300" h="50" text="x1000"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="22"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"
+        opacity="153"/>
+  <label x="180" y="245" w="140" h="60" text="2.5"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="48"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+
+  <!-- 右侧: 车速指针表盘
+       gauge 中心约 (1030, 253), 表盘 300x300 -->
+  <gauge x="880" y="100" w="300" h="300" image="gauge_bg">
+    <gauge_pointer x="c" y="44" w="30" h="180" value="45"
+        image="gauge_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <!-- 车速数字 (指针 + 数字并存) -->
+  <label x="960" y="335" w="140" h="60" text="88"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="48"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+  <label x="980" y="375" w="100" h="28" text="km/h"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="20"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"
+        opacity="153"/>
+</window>

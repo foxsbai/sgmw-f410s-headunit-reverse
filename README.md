@@ -15,6 +15,7 @@
 | **A** | 车机 | 桌面 Launcher / 系统 / 分区 | MT8666 · Android 9 | ✅ 已解包反编译 |
 | **B** | CarPlay | 无线 CarPlay 投屏 | 车机 + iPhone | ✅ 实机跑通 |
 | **C** | 仪表盘 | UI 资源 / 渲染 / 回刷 | AMT630H · FreeRTOS + AWTK | ✅ 官方渲染打通 |
+| **D** | 车机↔仪表通信 | 通信协议 / 信号映射 | TCP + CAN | ✅ 架构印证 + 映射表提取 |
 
 所有结论都在 `notes/` 里，**入口是 [`notes/README.md`](notes/README.md)**（人读它、AI 也读它，是整仓库的知识地图）。
 
@@ -37,6 +38,8 @@ sgmw-launcher-reverse/
 │   ├── instrument-cluster.md C线：仪表盘逆向总入口（✅ 官方渲染）
 │   ├── awtk-ui-binary-format.md  C线：AWTK ui_binary 逐字节格式
 │   ├── roma-fs-repack.md     C线：ROMA 资源 FS + 重打包 + 校验链
+│   ├── comm-architecture-crosscheck.md  D线：车机↔仪表通信架构互相印证
+│   ├── comm-framework-diagram.md        D线：数据流框架图 + 改 UI 必须信息清单
 │   └── instrument-cluster-driving-page.png  C线：渲染效果图
 │
 ├── scripts/                ★ 可执行的复现/工具脚本（对照上面三线）
@@ -55,6 +58,18 @@ sgmw-launcher-reverse/
 │   ├── inject_gauges.py      C线：原 driving_page 树注入 gauge 指针表盘
 │   ├── gen_audi_assets.py    C线：生成奥迪风格表盘/指针 PNG（PIL）
 │   └── watch_render.py       C线：监视 work/*.xml，保存即 xml_to_ui→渲染→打开
+│
+├── dash-cluster/           ★ 仪表盘逆向子工程（C线 + D线）
+│   ├── README.md             仪表盘固件逆向子工程说明
+│   ├── notes/                逆向笔记（UI 格式 / ROMA / CRC / 渲染 / CAN）
+│   ├── scripts/              解析·打包·CRC·渲染·CAN·propid↔canid 提取脚本
+│   │   └── extract_propid_canid.py  D线：车机 HAL propid↔canid 映射表提取
+│   ├── samples/              4 个 UI .bin 样例（driving_page 等）
+│   ├── analysis/             D线：车机 HAL propid↔canid 映射表 + 通信配置脚本引用
+│   │   ├── propid_canid_map.json     提取的映射表（1157 条）
+│   │   ├── propid_canid_map.csv
+│   │   └── headunit-comm-refs/       通信配置脚本引用（.rc/.sh）
+│   └── render/               AWTK 真实渲染截图（cluster_fixed.png）
 │
 ├── work/                   仪表 UI 二次开发：原型 XML + 渲染效果图
 │   ├── prototype_audi_v1.xml   奥迪 Virtual Cockpit 风格（深底+双指针表）
@@ -83,6 +98,18 @@ sgmw-launcher-reverse/
 
 ---
 
+## D 线：车机 ↔ 仪表盘 通信架构
+
+👉 **[通信架构互相印证](notes/comm-architecture-crosscheck.md)** · **[数据流框架图 + 改 UI 必须信息清单](notes/comm-framework-diagram.md)** —— 从车机 OTA 包提取 vehicle HAL / libxrpc / libRpcData / libelectricdiagnostic / instrument_network_config.sh，与仪表侧 app 代码（FreeRTOS-Plus-TCP）互相印证。核心结论：
+
+- **两条独立通道**：① TCP 10001（仪表←车机 拉取 OTA 固件）/ 10002（仪表→车机 回传日志），帧格式 `type+subtype+data+len`；② CAN 总线（车辆信号），车机经 vehicle HAL→libxrpc→MCU。
+- **车机 IP = 192.168.2.99**（由 `instrument_network_config.sh` 配置），仪表主动 TCP 连接。
+- **车机 HAL 的 propid↔canid 映射表已逆汇编提取**（1157 条，69 个唯一 CAN ID），脚本 `dash-cluster/scripts/extract_propid_canid.py`，产物 `dash-cluster/analysis/propid_canid_map.json`。
+- **车机 CAN 域（0xE1~0x573）与仪表 CAN 域（0x108~0xF8A）交集仅 1 条（0x32A）→ 两域经网关交汇，非直连。**
+- **改仪表 UI 让指针转起来的唯一卡点 = r5（车速原始值）的单位/范围**，实机抓一次即解，不需要车机侧完整信号映射。
+
+---
+
 ## 从这里开始
 
 1. **先读 [`notes/README.md`](notes/README.md)** —— 三条线的地图和阅读顺序。
@@ -92,6 +119,7 @@ sgmw-launcher-reverse/
    - 车机/桌面 → [`notes/architecture.md`](notes/architecture.md) → [`notes/launcher-analysis.md`](notes/launcher-analysis.md)
    - CarPlay → [`notes/diplay-carplay.md`](notes/diplay-carplay.md)（自包含）
    - 仪表盘 UI 改造 → [`notes/instrument-cluster.md`](notes/instrument-cluster.md)（第八节）→ [`notes/app-code-binding.md`](notes/app-code-binding.md)（数据绑定）
+   - 车机↔仪表通信 → [`notes/comm-architecture-crosscheck.md`](notes/comm-architecture-crosscheck.md) → [`notes/comm-framework-diagram.md`](notes/comm-framework-diagram.md)
 
 ---
 
@@ -131,8 +159,9 @@ sgmw-launcher-reverse/
 | 车机屏幕 | 1920×1080 横屏（mdpi，1dp≈1px） |
 | 仪表盘 | 独立设备：AMT630H V100 + Cortex-M MCU，FreeRTOS + AWTK，1280×480 |
 | CarPlay | DiPlay 0.2.12 + ap0 的 IPv6 OUTPUT 路由，✅ 无线跑通 |
+| 车机↔仪表通信 | TCP 10001(OTA)/10002(日志) + CAN 总线；两 CAN 域交集仅 0x32A |
 
-详见 `notes/architecture.md`、`notes/rom-analysis.md`、`notes/launcher-analysis.md`、`notes/instrument-cluster.md`。
+详见 `notes/architecture.md`、`notes/rom-analysis.md`、`notes/launcher-analysis.md`、`notes/instrument-cluster.md`、`notes/comm-architecture-crosscheck.md`。
 
 ---
 

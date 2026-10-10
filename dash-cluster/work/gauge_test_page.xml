@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+  <!-- 测试: 在仪表中心区域加一个指针表盘 (1280x480) -->
+  <!-- gauge: 表盘背景容器, image=表盘底图, 居中放在车速数字上方 -->
+  <gauge x="c" y="40" w="320" h="320" image="gauge_bg">
+    <!-- gauge_pointer: 指针, value/angle=旋转角度(12点=0, 顺时针正), image=指针图 -->
+    <!-- anchor: 旋转锚点, 默认底部中点; 这里用底部中心 (0.5, 1.0) -->
+    <gauge_pointer x="c" y="50" w="32" h="192" value="45"
+        image="gauge_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+</window>

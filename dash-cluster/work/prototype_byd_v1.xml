@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+  <!-- F410S 比亚迪风格原型 v1
+       布局:1280x480
+       比亚迪特征: 中央大号车速数字 + 环绕信息区 + 浅色科技感
+       与原仪表结构接近(原仪表就是中央数字), 改动小 -->
+
+  <!-- 浅色科技背景 (用 Bg_2 蓝天) -->
+  <image x="0" y="0" w="1280" h="480" image="Bg_2" draw_type="default"/>
+
+  <!-- 左侧弧形信息区 (功率/电量, 比亚迪式环绕弧) -->
+  <progress_circle x="40" y="120" w="180" h="180" value="45" max="100"
+      start_angle="-135" line_width="8"
+      style:normal:fg_color="#00C8B4"
+      style:normal:bg_color="#B0D8D0"
+      style:normal:text_color="#080D11"/>
+  <label x="40" y="175" w="180" h="36" text="45%"
+        style:normal:font_name="Montserrat_Medium"
+        style:normal:font_size="28"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+  <label x="40" y="215" w="180" h="22" text="功率"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#5A7A78"/>
+
+  <!-- 中央大号车速数字 (比亚迪核心特征) -->
+  <label x="c" y="120" w="300" h="180" text="88"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="160"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#0A2E3A"/>
+  <label x="c" y="295" w="120" h="36" text="km/h"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="26"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#0A2E3A"
+        opacity="160"/>
+
+  <!-- 挡位 (大号, 居中偏上, 比亚迪风格) -->
+  <label x="c" y="60" w="80" h="50" text="D"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="40"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#00C8B4"/>
+
+  <!-- 右侧弧形信息区 (续航/油量) -->
+  <progress_circle x="1060" y="120" w="180" h="180" value="72" max="100"
+      start_angle="-45" line_width="8"
+      style:normal:fg_color="#3A8AFF"
+      style:normal:bg_color="#B0C8E0"
+      style:normal:text_color="#080D11"/>
+  <label x="1060" y="175" w="180" h="36" text="72%"
+        style:normal:font_name="Montserrat_Medium"
+        style:normal:font_size="28"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+  <label x="1060" y="215" w="180" h="22" text="续航"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#5A6A88"/>
+
+  <!-- 底部信息条 -->
+  <label x="c" y="340" w="400" h="30" text="总里程 12,345 km    小计 128.5"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="18"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#0A2E3A"
+        opacity="180"/>
+
+  <!-- 顶部 ADAS/驾驶辅助提示区 (比亚迪常有的) -->
+  <label x="c" y="400" w="600" h="30" text="●  巡航  ●  车道保持  ●  前车距离"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#00C8B4"/>
+</window>

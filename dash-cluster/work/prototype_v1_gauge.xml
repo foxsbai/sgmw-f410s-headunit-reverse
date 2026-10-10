@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+  <!-- F410S 指针版仪表原型 v1
+       布局:1280x480
+       - 背景: 用我们的 Bg_2 (蓝天)
+       - 中心: gauge 指针表盘 (AWTK 官方 gauge_bg + gauge_pointer)
+       - 车速数字: 保留 label
+       套用 AWTK 同源 gauge 控件 + 素材 -->
+  <image x="0" y="0" w="1280" h="480" image="Bg_2" draw_type="default"/>
+
+  <!-- 左侧装饰 (复用仪表原素材) -->
+  <image x="56" y="26" w="388" h="454" image="BgDrivingAdorn_L2" draw_type="default"/>
+
+  <!-- 右侧装饰 -->
+  <image x="836" y="26" w="388" h="454" image="BgDrivingAdorn_R2" draw_type="default"/>
+
+  <!-- 中心指针表盘: AWTK 官方 gauge 控件 + gauge_bg 刻度环 -->
+  <gauge x="c" y="60" w="360" h="360" image="gauge_bg">
+    <!-- 指针: 指向 -60 度 (约10点方向, 模拟车速中等), 锚点底部居中 -->
+    <gauge_pointer x="c" y="56" w="36" h="216" value="-60"
+        image="gauge_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+
+  <!-- 车速数字 (叠加在表盘下方, 保留原仪表的数字车速) -->
+  <label x="c" y="350" w="300" h="160" text="88"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="120"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+  <label x="c" y="440" w="120" h="32" text="km/h"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="24"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"
+        opacity="153"/>
+</window>

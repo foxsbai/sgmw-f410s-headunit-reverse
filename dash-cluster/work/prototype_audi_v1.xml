@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+  <!-- F410S 奥迪 Virtual Cockpit 风格原型 v1
+       布局:1280x480 (与奥迪 1440x540 接近的宽高比)
+       - 深色背景: Bg_1 (夜间深色版)
+       - 左表盘: 转速 (奥迪风格 audi_gauge_bg + audi_pointer)
+       - 右表盘: 车速 (同风格)
+       - 中央: 挡位 + 简信息
+       - 底部: 里程/能量信息 -->
+
+  <!-- 深色背景 (奥迪仪表是深底的) -->
+  <image x="0" y="0" w="1280" h="480" image="Bg_1" draw_type="default"/>
+
+  <!-- 左表盘: 转速 (340x340, 居中在左侧装饰条区) -->
+  <gauge x="60" y="70" w="340" h="340" image="audi_gauge_bg">
+    <gauge_pointer x="c" y="c" w="28" h="170" value="-60"
+        image="audi_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <!-- 转速数字 -->
+  <label x="145" y="330" w="150" h="60" text="2.5"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="44"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+  <label x="165" y="375" w="110" h="24" text="x1000"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="18"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"
+        opacity="180"/>
+
+  <!-- 中央信息区 (奥迪 Classic 中央是挡位+小信息) -->
+  <label x="c" y="40" w="120" h="50" text="D"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="44"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+  <!-- 中央: 续航/能量信息 (弧形进度条模拟) -->
+  <progress_circle x="c" y="180" w="120" h="120" value="65" max="100"
+      start_angle="-90" line_width="6"
+      style:normal:fg_color="#3A8AFF"
+      style:normal:bg_color="#2A2A35"
+      style:normal:text_color="#E0E0E0"/>
+  <label x="c" y="215" w="120" h="36" text="65%"
+        style:normal:font_name="Montserrat_Medium"
+        style:normal:font_size="28"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+  <label x="c" y="255" w="120" h="22" text="电池"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"/>
+
+  <!-- 右表盘: 车速 (340x340) -->
+  <gauge x="880" y="70" w="340" h="340" image="audi_gauge_bg">
+    <gauge_pointer x="c" y="c" w="28" h="170" value="70"
+        image="audi_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <!-- 车速数字 (大号, 叠在表盘下部) -->
+  <label x="965" y="320" w="170" h="70" text="88"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="56"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+  <label x="985" y="375" w="130" h="24" text="km/h"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="18"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"
+        opacity="180"/>
+
+  <!-- 底部信息条 (里程 + 小计) -->
+  <label x="60" y="430" w="200" h="30" text="总里程 12,345 km"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_color="#909098"/>
+  <label x="c" y="430" w="200" h="30" text="小计 128.5 km"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"/>
+  <label x="1020" y="430" w="200" h="30" text="续航 456 km"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="right"
+        style:normal:text_color="#909098"/>
+</window>

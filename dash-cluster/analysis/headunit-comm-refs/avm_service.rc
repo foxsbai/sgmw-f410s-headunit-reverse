@@ -1,0 +1,38 @@
+
+service avm_cp /system/bin/avm_cp.sh
+    class main
+    user root
+    group root
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+service vcapserver /system/bin/vcapserver.sh
+    class main
+    user root
+    group root
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+service tsavmserver /system/bin/tsavmservice.sh
+    class main
+    user root
+    group root
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+#on post-fs
+#on property:vendor.ts.avm_cp.start=1
+on property:vendor.tsh.avm_cp.start=1
+   start avm_cp
+
+#on property:sys.boot_completed=1
+on property:vendor.ts.avmstart=1
+   start vcapserver
+   start tsavmserver
+   
+on post-fs-data
+    mkdir /data/avm 0770 root root
+

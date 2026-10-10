@@ -1,0 +1,7066 @@
+{
+  "tables": [
+    {
+      "name": "EQ100_t1",
+      "offset": "0x1100D8",
+      "capacity": 226,
+      "valid": 226,
+      "entries": [
+        {
+          "propid": 557900610,
+          "canid": 560,
+          "propid_hex": "0x2140E342",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900613,
+          "canid": 560,
+          "propid_hex": "0x2140E345",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 559997928,
+          "canid": 798,
+          "propid_hex": "0x2160E3E8",
+          "canid_hex": "0x031E"
+        },
+        {
+          "propid": 559997927,
+          "canid": 790,
+          "propid_hex": "0x2160E3E7",
+          "canid_hex": "0x0316"
+        },
+        {
+          "propid": 559997929,
+          "canid": 790,
+          "propid_hex": "0x2160E3E9",
+          "canid_hex": "0x0316"
+        },
+        {
+          "propid": 559997930,
+          "canid": 790,
+          "propid_hex": "0x2160E3EA",
+          "canid_hex": "0x0316"
+        },
+        {
+          "propid": 559997932,
+          "canid": 790,
+          "propid_hex": "0x2160E3EC",
+          "canid_hex": "0x0316"
+        },
+        {
+          "propid": 557900597,
+          "canid": 857,
+          "propid_hex": "0x2140E335",
+          "canid_hex": "0x0359"
+        },
+        {
+          "propid": 557900757,
+          "canid": 1251,
+          "propid_hex": "0x2140E3D5",
+          "canid_hex": "0x04E3"
+        },
+        {
+          "propid": 557900758,
+          "canid": 1251,
+          "propid_hex": "0x2140E3D6",
+          "canid_hex": "0x04E3"
+        },
+        {
+          "propid": 557900738,
+          "canid": 1002,
+          "propid_hex": "0x2140E3C2",
+          "canid_hex": "0x03EA"
+        },
+        {
+          "propid": 557900730,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BA",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900731,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BB",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900732,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BC",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557966210,
+          "canid": 262,
+          "propid_hex": "0x2141E382",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557900672,
+          "canid": 262,
+          "propid_hex": "0x2140E380",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557900740,
+          "canid": 262,
+          "propid_hex": "0x2140E3C4",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557900569,
+          "canid": 1141,
+          "propid_hex": "0x2140E319",
+          "canid_hex": "0x0475"
+        },
+        {
+          "propid": 559997931,
+          "canid": 1141,
+          "propid_hex": "0x2160E3EB",
+          "canid_hex": "0x0475"
+        },
+        {
+          "propid": 557863319,
+          "canid": 513,
+          "propid_hex": "0x21405197",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900633,
+          "canid": 513,
+          "propid_hex": "0x2140E359",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900702,
+          "canid": 513,
+          "propid_hex": "0x2140E39E",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557863220,
+          "canid": 1085,
+          "propid_hex": "0x21405134",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900593,
+          "canid": 306,
+          "propid_hex": "0x2140E331",
+          "canid_hex": "0x0132"
+        },
+        {
+          "propid": 557900609,
+          "canid": 489,
+          "propid_hex": "0x2140E341",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900568,
+          "canid": 489,
+          "propid_hex": "0x2140E318",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900608,
+          "canid": 489,
+          "propid_hex": "0x2140E340",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557863040,
+          "canid": 497,
+          "propid_hex": "0x21405080",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557863298,
+          "canid": 497,
+          "propid_hex": "0x21405182",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557900560,
+          "canid": 298,
+          "propid_hex": "0x2140E310",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557900700,
+          "canid": 298,
+          "propid_hex": "0x2140E39C",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 594563186,
+          "canid": 1085,
+          "propid_hex": "0x23705072",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008742,
+          "canid": 1085,
+          "propid_hex": "0x21705066",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863573,
+          "canid": 1085,
+          "propid_hex": "0x21405295",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900438,
+          "canid": 1085,
+          "propid_hex": "0x2140E296",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900439,
+          "canid": 1085,
+          "propid_hex": "0x2140E297",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900440,
+          "canid": 1085,
+          "propid_hex": "0x2140E298",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008752,
+          "canid": 1085,
+          "propid_hex": "0x21705070",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008753,
+          "canid": 1085,
+          "propid_hex": "0x21705071",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900441,
+          "canid": 1085,
+          "propid_hex": "0x2140E299",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863701,
+          "canid": 1085,
+          "propid_hex": "0x21405315",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 591417383,
+          "canid": 1081,
+          "propid_hex": "0x23405027",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591455043,
+          "canid": 1081,
+          "propid_hex": "0x2340E343",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 557900584,
+          "canid": 1081,
+          "propid_hex": "0x2140E328",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591418128,
+          "canid": 320,
+          "propid_hex": "0x23405310",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863478,
+          "canid": 320,
+          "propid_hex": "0x21405236",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008775,
+          "canid": 320,
+          "propid_hex": "0x21705087",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563206,
+          "canid": 320,
+          "propid_hex": "0x23705086",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863284,
+          "canid": 320,
+          "propid_hex": "0x21405174",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863255,
+          "canid": 320,
+          "propid_hex": "0x21405157",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008772,
+          "canid": 320,
+          "propid_hex": "0x21705084",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563205,
+          "canid": 320,
+          "propid_hex": "0x23705085",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863570,
+          "canid": 320,
+          "propid_hex": "0x21405292",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900552,
+          "canid": 320,
+          "propid_hex": "0x2140E308",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900748,
+          "canid": 320,
+          "propid_hex": "0x2140E3CC",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557929080,
+          "canid": 925,
+          "propid_hex": "0x21415278",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 557900616,
+          "canid": 925,
+          "propid_hex": "0x2140E348",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 658563881,
+          "canid": 1322,
+          "propid_hex": "0x2740E329",
+          "canid_hex": "0x052A"
+        },
+        {
+          "propid": 557862937,
+          "canid": 381,
+          "propid_hex": "0x21405019",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008755,
+          "canid": 381,
+          "propid_hex": "0x21705073",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008757,
+          "canid": 381,
+          "propid_hex": "0x21705075",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 559997753,
+          "canid": 381,
+          "propid_hex": "0x2160E339",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900630,
+          "canid": 381,
+          "propid_hex": "0x2140E356",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900600,
+          "canid": 381,
+          "propid_hex": "0x2140E338",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008977,
+          "canid": 225,
+          "propid_hex": "0x21705151",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 557863269,
+          "canid": 225,
+          "propid_hex": "0x21405165",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 559960132,
+          "canid": 1221,
+          "propid_hex": "0x21605044",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960134,
+          "canid": 1221,
+          "propid_hex": "0x21605046",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960152,
+          "canid": 1221,
+          "propid_hex": "0x21605058",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960151,
+          "canid": 1221,
+          "propid_hex": "0x21605057",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 557863572,
+          "canid": 833,
+          "propid_hex": "0x21405294",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862936,
+          "canid": 833,
+          "propid_hex": "0x21405018",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900546,
+          "canid": 833,
+          "propid_hex": "0x2140E302",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 561008709,
+          "canid": 833,
+          "propid_hex": "0x21705045",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900547,
+          "canid": 833,
+          "propid_hex": "0x2140E303",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863043,
+          "canid": 833,
+          "propid_hex": "0x21405083",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862945,
+          "canid": 833,
+          "propid_hex": "0x21405021",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863041,
+          "canid": 441,
+          "propid_hex": "0x21405081",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 557862984,
+          "canid": 1097,
+          "propid_hex": "0x21405048",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904663,
+          "canid": 1097,
+          "propid_hex": "0x2140F317",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 561008721,
+          "canid": 1097,
+          "propid_hex": "0x21705051",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904664,
+          "canid": 1097,
+          "propid_hex": "0x2140F318",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900658,
+          "canid": 1097,
+          "propid_hex": "0x2140E372",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900665,
+          "canid": 1097,
+          "propid_hex": "0x2140E379",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 559997925,
+          "canid": 1097,
+          "propid_hex": "0x2160E3E5",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900544,
+          "canid": 342,
+          "propid_hex": "0x2140E300",
+          "canid_hex": "0x0156"
+        },
+        {
+          "propid": 557863028,
+          "canid": 1116,
+          "propid_hex": "0x21405074",
+          "canid_hex": "0x045C"
+        },
+        {
+          "propid": 557900545,
+          "canid": 1065,
+          "propid_hex": "0x2140E301",
+          "canid_hex": "0x0429"
+        },
+        {
+          "propid": 557863225,
+          "canid": 1335,
+          "propid_hex": "0x21405139",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 557862965,
+          "canid": 1335,
+          "propid_hex": "0x21405035",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 624971796,
+          "canid": 1083,
+          "propid_hex": "0x25405014",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971812,
+          "canid": 1083,
+          "propid_hex": "0x25405024",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971798,
+          "canid": 1083,
+          "propid_hex": "0x25405016",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971799,
+          "canid": 1083,
+          "propid_hex": "0x25405017",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 591417381,
+          "canid": 1083,
+          "propid_hex": "0x23405025",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971797,
+          "canid": 1083,
+          "propid_hex": "0x25405015",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009476,
+          "canid": 1083,
+          "propid_hex": "0x2540E344",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971795,
+          "canid": 1083,
+          "propid_hex": "0x25405013",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557862946,
+          "canid": 1083,
+          "propid_hex": "0x21405022",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009444,
+          "canid": 1083,
+          "propid_hex": "0x2540E324",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557863232,
+          "canid": 1083,
+          "propid_hex": "0x21405140",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 559960361,
+          "canid": 485,
+          "propid_hex": "0x21605129",
+          "canid_hex": "0x01E5"
+        },
+        {
+          "propid": 559997767,
+          "canid": 996,
+          "propid_hex": "0x2160E347",
+          "canid_hex": "0x03E4"
+        },
+        {
+          "propid": 557900548,
+          "canid": 1339,
+          "propid_hex": "0x2140E304",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 557929010,
+          "canid": 1339,
+          "propid_hex": "0x21415232",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 559960376,
+          "canid": 288,
+          "propid_hex": "0x21605138",
+          "canid_hex": "0x0120"
+        },
+        {
+          "propid": 560001814,
+          "canid": 663,
+          "propid_hex": "0x2160F316",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 559960370,
+          "canid": 663,
+          "propid_hex": "0x21605132",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 557863202,
+          "canid": 441,
+          "propid_hex": "0x21405122",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 561008929,
+          "canid": 441,
+          "propid_hex": "0x21705121",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 559996931,
+          "canid": 647,
+          "propid_hex": "0x2160E003",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 559996932,
+          "canid": 647,
+          "propid_hex": "0x2160E004",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 557863296,
+          "canid": 885,
+          "propid_hex": "0x21405180",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863238,
+          "canid": 885,
+          "propid_hex": "0x21405146",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863241,
+          "canid": 885,
+          "propid_hex": "0x21405149",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863240,
+          "canid": 885,
+          "propid_hex": "0x21405148",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863682,
+          "canid": 885,
+          "propid_hex": "0x21405302",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863683,
+          "canid": 885,
+          "propid_hex": "0x21405303",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557900761,
+          "canid": 885,
+          "propid_hex": "0x2140E3D9",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557900762,
+          "canid": 885,
+          "propid_hex": "0x2140E3DA",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557929089,
+          "canid": 927,
+          "propid_hex": "0x21415281",
+          "canid_hex": "0x039F"
+        },
+        {
+          "propid": 561008916,
+          "canid": 895,
+          "propid_hex": "0x21705114",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008917,
+          "canid": 895,
+          "propid_hex": "0x21705115",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863234,
+          "canid": 895,
+          "propid_hex": "0x21405142",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008743,
+          "canid": 895,
+          "propid_hex": "0x21705067",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928807,
+          "canid": 895,
+          "propid_hex": "0x21415167",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928821,
+          "canid": 895,
+          "propid_hex": "0x21415175",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862967,
+          "canid": 895,
+          "propid_hex": "0x21405037",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 555765814,
+          "canid": 895,
+          "propid_hex": "0x21205036",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862968,
+          "canid": 895,
+          "propid_hex": "0x21405038",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862977,
+          "canid": 895,
+          "propid_hex": "0x21405041",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862969,
+          "canid": 895,
+          "propid_hex": "0x21405039",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863257,
+          "canid": 895,
+          "propid_hex": "0x21405159",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928823,
+          "canid": 895,
+          "propid_hex": "0x21415177",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862976,
+          "canid": 895,
+          "propid_hex": "0x21405040",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900678,
+          "canid": 895,
+          "propid_hex": "0x2140E386",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900739,
+          "canid": 895,
+          "propid_hex": "0x2140E3C3",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863170,
+          "canid": 859,
+          "propid_hex": "0x21405102",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557928736,
+          "canid": 859,
+          "propid_hex": "0x21415120",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557863441,
+          "canid": 859,
+          "propid_hex": "0x21405211",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 644894864,
+          "canid": 298,
+          "propid_hex": "0x26705090",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557928500,
+          "canid": 860,
+          "propid_hex": "0x21415034",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 559960375,
+          "canid": 860,
+          "propid_hex": "0x21605137",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 557936647,
+          "canid": 919,
+          "propid_hex": "0x21417007",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557900679,
+          "canid": 919,
+          "propid_hex": "0x2140E387",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557863443,
+          "canid": 918,
+          "propid_hex": "0x21405213",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557928854,
+          "canid": 918,
+          "propid_hex": "0x21415196",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863715,
+          "canid": 918,
+          "propid_hex": "0x21405323",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900599,
+          "canid": 918,
+          "propid_hex": "0x2140E337",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557871120,
+          "canid": 918,
+          "propid_hex": "0x21407010",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900767,
+          "canid": 918,
+          "propid_hex": "0x2140E3DF",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900768,
+          "canid": 918,
+          "propid_hex": "0x2140E3E0",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863689,
+          "canid": 920,
+          "propid_hex": "0x21405309",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863697,
+          "canid": 920,
+          "propid_hex": "0x21405311",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557929253,
+          "canid": 920,
+          "propid_hex": "0x21415325",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863699,
+          "canid": 920,
+          "propid_hex": "0x21405313",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557928464,
+          "canid": 810,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863233,
+          "canid": 810,
+          "propid_hex": "0x21405141",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863239,
+          "canid": 810,
+          "propid_hex": "0x21405147",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863272,
+          "canid": 810,
+          "propid_hex": "0x21405168",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863273,
+          "canid": 810,
+          "propid_hex": "0x21405169",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863280,
+          "canid": 810,
+          "propid_hex": "0x21405170",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863281,
+          "canid": 810,
+          "propid_hex": "0x21405171",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863282,
+          "canid": 810,
+          "propid_hex": "0x21405172",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863681,
+          "canid": 810,
+          "propid_hex": "0x21405301",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863687,
+          "canid": 810,
+          "propid_hex": "0x21405307",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863686,
+          "canid": 810,
+          "propid_hex": "0x21405306",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863577,
+          "canid": 810,
+          "propid_hex": "0x21405299",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863680,
+          "canid": 810,
+          "propid_hex": "0x21405300",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863684,
+          "canid": 810,
+          "propid_hex": "0x21405304",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863685,
+          "canid": 810,
+          "propid_hex": "0x21405305",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557871110,
+          "canid": 810,
+          "propid_hex": "0x21407006",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557900631,
+          "canid": 810,
+          "propid_hex": "0x2140E357",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557929079,
+          "canid": 924,
+          "propid_hex": "0x21415277",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900626,
+          "canid": 924,
+          "propid_hex": "0x2140E352",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900628,
+          "canid": 924,
+          "propid_hex": "0x2140E354",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557929088,
+          "canid": 926,
+          "propid_hex": "0x21415280",
+          "canid_hex": "0x039E"
+        },
+        {
+          "propid": 557929078,
+          "canid": 923,
+          "propid_hex": "0x21415276",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900617,
+          "canid": 923,
+          "propid_hex": "0x2140E349",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900624,
+          "canid": 923,
+          "propid_hex": "0x2140E350",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900625,
+          "canid": 923,
+          "propid_hex": "0x2140E351",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557928498,
+          "canid": 861,
+          "propid_hex": "0x21415032",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928499,
+          "canid": 861,
+          "propid_hex": "0x21415033",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863446,
+          "canid": 861,
+          "propid_hex": "0x21405216",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863447,
+          "canid": 861,
+          "propid_hex": "0x21405217",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863448,
+          "canid": 861,
+          "propid_hex": "0x21405218",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928464,
+          "canid": 861,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557929081,
+          "canid": 893,
+          "propid_hex": "0x21415279",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557928729,
+          "canid": 894,
+          "propid_hex": "0x21415119",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557863430,
+          "canid": 894,
+          "propid_hex": "0x21405206",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557900594,
+          "canid": 837,
+          "propid_hex": "0x2140E332",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557900595,
+          "canid": 837,
+          "propid_hex": "0x2140E333",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557928835,
+          "canid": 1395,
+          "propid_hex": "0x21415183",
+          "canid_hex": "0x0573"
+        },
+        {
+          "propid": 559997750,
+          "canid": 874,
+          "propid_hex": "0x2160E336",
+          "canid_hex": "0x036A"
+        },
+        {
+          "propid": 561008791,
+          "canid": 811,
+          "propid_hex": "0x21705097",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863064,
+          "canid": 811,
+          "propid_hex": "0x21405098",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008793,
+          "canid": 811,
+          "propid_hex": "0x21705099",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008896,
+          "canid": 811,
+          "propid_hex": "0x21705100",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008915,
+          "canid": 811,
+          "propid_hex": "0x21705113",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008914,
+          "canid": 811,
+          "propid_hex": "0x21705112",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863250,
+          "canid": 811,
+          "propid_hex": "0x21405152",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008729,
+          "canid": 811,
+          "propid_hex": "0x21705059",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008736,
+          "canid": 811,
+          "propid_hex": "0x21705060",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008737,
+          "canid": 811,
+          "propid_hex": "0x21705061",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008738,
+          "canid": 811,
+          "propid_hex": "0x21705062",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008739,
+          "canid": 811,
+          "propid_hex": "0x21705063",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008759,
+          "canid": 811,
+          "propid_hex": "0x21705077",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008776,
+          "canid": 811,
+          "propid_hex": "0x21705088",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863313,
+          "canid": 811,
+          "propid_hex": "0x21405191",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863442,
+          "canid": 811,
+          "propid_hex": "0x21405212",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863456,
+          "canid": 811,
+          "propid_hex": "0x21405220",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 555765760,
+          "canid": 811,
+          "propid_hex": "0x21205000",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871105,
+          "canid": 811,
+          "propid_hex": "0x21407001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557899777,
+          "canid": 811,
+          "propid_hex": "0x2140E001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871107,
+          "canid": 811,
+          "propid_hex": "0x21407003",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900627,
+          "canid": 811,
+          "propid_hex": "0x2140E353",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900659,
+          "canid": 811,
+          "propid_hex": "0x2140E373",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900728,
+          "canid": 811,
+          "propid_hex": "0x2140E3B8",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900741,
+          "canid": 811,
+          "propid_hex": "0x2140E3C5",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900742,
+          "canid": 811,
+          "propid_hex": "0x2140E3C6",
+          "canid_hex": "0x032B"
+        }
+      ]
+    },
+    {
+      "name": "EQ100_t2",
+      "offset": "0x1107E8",
+      "capacity": 234,
+      "valid": 234,
+      "entries": [
+        {
+          "propid": 557900610,
+          "canid": 560,
+          "propid_hex": "0x2140E342",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900613,
+          "canid": 560,
+          "propid_hex": "0x2140E345",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900549,
+          "canid": 1087,
+          "propid_hex": "0x2140E305",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900563,
+          "canid": 1087,
+          "propid_hex": "0x2140E313",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900664,
+          "canid": 1087,
+          "propid_hex": "0x2140E378",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900704,
+          "canid": 1101,
+          "propid_hex": "0x2140E3A0",
+          "canid_hex": "0x044D"
+        },
+        {
+          "propid": 557900705,
+          "canid": 1101,
+          "propid_hex": "0x2140E3A1",
+          "canid_hex": "0x044D"
+        },
+        {
+          "propid": 557900730,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BA",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900731,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BB",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900732,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BC",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900725,
+          "canid": 1066,
+          "propid_hex": "0x2140E3B5",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900726,
+          "canid": 1066,
+          "propid_hex": "0x2140E3B6",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900774,
+          "canid": 1066,
+          "propid_hex": "0x2140E3E6",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900757,
+          "canid": 1251,
+          "propid_hex": "0x2140E3D5",
+          "canid_hex": "0x04E3"
+        },
+        {
+          "propid": 557900758,
+          "canid": 1251,
+          "propid_hex": "0x2140E3D6",
+          "canid_hex": "0x04E3"
+        },
+        {
+          "propid": 557900597,
+          "canid": 857,
+          "propid_hex": "0x2140E335",
+          "canid_hex": "0x0359"
+        },
+        {
+          "propid": 557900569,
+          "canid": 1141,
+          "propid_hex": "0x2140E319",
+          "canid_hex": "0x0475"
+        },
+        {
+          "propid": 557966226,
+          "canid": 1084,
+          "propid_hex": "0x2141E392",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 625009555,
+          "canid": 1084,
+          "propid_hex": "0x2540E393",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 625009556,
+          "canid": 1084,
+          "propid_hex": "0x2540E394",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 557966210,
+          "canid": 262,
+          "propid_hex": "0x2141E382",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557900672,
+          "canid": 262,
+          "propid_hex": "0x2140E380",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557863319,
+          "canid": 513,
+          "propid_hex": "0x21405197",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900633,
+          "canid": 513,
+          "propid_hex": "0x2140E359",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900702,
+          "canid": 513,
+          "propid_hex": "0x2140E39E",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900677,
+          "canid": 481,
+          "propid_hex": "0x2140E385",
+          "canid_hex": "0x01E1"
+        },
+        {
+          "propid": 557863220,
+          "canid": 1085,
+          "propid_hex": "0x21405134",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900593,
+          "canid": 306,
+          "propid_hex": "0x2140E331",
+          "canid_hex": "0x0132"
+        },
+        {
+          "propid": 557900609,
+          "canid": 489,
+          "propid_hex": "0x2140E341",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900568,
+          "canid": 489,
+          "propid_hex": "0x2140E318",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900608,
+          "canid": 489,
+          "propid_hex": "0x2140E340",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557863040,
+          "canid": 497,
+          "propid_hex": "0x21405080",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557863298,
+          "canid": 497,
+          "propid_hex": "0x21405182",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557900560,
+          "canid": 298,
+          "propid_hex": "0x2140E310",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557900700,
+          "canid": 298,
+          "propid_hex": "0x2140E39C",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 594563186,
+          "canid": 1085,
+          "propid_hex": "0x23705072",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008742,
+          "canid": 1085,
+          "propid_hex": "0x21705066",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863573,
+          "canid": 1085,
+          "propid_hex": "0x21405295",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900438,
+          "canid": 1085,
+          "propid_hex": "0x2140E296",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900439,
+          "canid": 1085,
+          "propid_hex": "0x2140E297",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900440,
+          "canid": 1085,
+          "propid_hex": "0x2140E298",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008752,
+          "canid": 1085,
+          "propid_hex": "0x21705070",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008753,
+          "canid": 1085,
+          "propid_hex": "0x21705071",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900441,
+          "canid": 1085,
+          "propid_hex": "0x2140E299",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863701,
+          "canid": 1085,
+          "propid_hex": "0x21405315",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900564,
+          "canid": 1085,
+          "propid_hex": "0x2140E314",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 591417383,
+          "canid": 1081,
+          "propid_hex": "0x23405027",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591455043,
+          "canid": 1081,
+          "propid_hex": "0x2340E343",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 557900584,
+          "canid": 1081,
+          "propid_hex": "0x2140E328",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591418128,
+          "canid": 320,
+          "propid_hex": "0x23405310",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863478,
+          "canid": 320,
+          "propid_hex": "0x21405236",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008775,
+          "canid": 320,
+          "propid_hex": "0x21705087",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563206,
+          "canid": 320,
+          "propid_hex": "0x23705086",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863284,
+          "canid": 320,
+          "propid_hex": "0x21405174",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863255,
+          "canid": 320,
+          "propid_hex": "0x21405157",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008772,
+          "canid": 320,
+          "propid_hex": "0x21705084",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563205,
+          "canid": 320,
+          "propid_hex": "0x23705085",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863570,
+          "canid": 320,
+          "propid_hex": "0x21405292",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900552,
+          "canid": 320,
+          "propid_hex": "0x2140E308",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900727,
+          "canid": 320,
+          "propid_hex": "0x2140E3B7",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557929080,
+          "canid": 925,
+          "propid_hex": "0x21415278",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 557900616,
+          "canid": 925,
+          "propid_hex": "0x2140E348",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 658563881,
+          "canid": 1322,
+          "propid_hex": "0x2740E329",
+          "canid_hex": "0x052A"
+        },
+        {
+          "propid": 557862937,
+          "canid": 381,
+          "propid_hex": "0x21405019",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008755,
+          "canid": 381,
+          "propid_hex": "0x21705073",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008757,
+          "canid": 381,
+          "propid_hex": "0x21705075",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 559997753,
+          "canid": 381,
+          "propid_hex": "0x2160E339",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900630,
+          "canid": 381,
+          "propid_hex": "0x2140E356",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900657,
+          "canid": 381,
+          "propid_hex": "0x2140E371",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900600,
+          "canid": 381,
+          "propid_hex": "0x2140E338",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008977,
+          "canid": 225,
+          "propid_hex": "0x21705151",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 557863269,
+          "canid": 225,
+          "propid_hex": "0x21405165",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 559960132,
+          "canid": 1221,
+          "propid_hex": "0x21605044",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960134,
+          "canid": 1221,
+          "propid_hex": "0x21605046",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960152,
+          "canid": 1221,
+          "propid_hex": "0x21605058",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960151,
+          "canid": 1221,
+          "propid_hex": "0x21605057",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 557863572,
+          "canid": 833,
+          "propid_hex": "0x21405294",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862936,
+          "canid": 833,
+          "propid_hex": "0x21405018",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900546,
+          "canid": 833,
+          "propid_hex": "0x2140E302",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 561008709,
+          "canid": 833,
+          "propid_hex": "0x21705045",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900547,
+          "canid": 833,
+          "propid_hex": "0x2140E303",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863043,
+          "canid": 833,
+          "propid_hex": "0x21405083",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862945,
+          "canid": 833,
+          "propid_hex": "0x21405021",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863041,
+          "canid": 441,
+          "propid_hex": "0x21405081",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 557862984,
+          "canid": 1097,
+          "propid_hex": "0x21405048",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904663,
+          "canid": 1097,
+          "propid_hex": "0x2140F317",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 561008721,
+          "canid": 1097,
+          "propid_hex": "0x21705051",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904664,
+          "canid": 1097,
+          "propid_hex": "0x2140F318",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900658,
+          "canid": 1097,
+          "propid_hex": "0x2140E372",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900665,
+          "canid": 1097,
+          "propid_hex": "0x2140E379",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900675,
+          "canid": 1097,
+          "propid_hex": "0x2140E383",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900688,
+          "canid": 1097,
+          "propid_hex": "0x2140E390",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900693,
+          "canid": 1097,
+          "propid_hex": "0x2140E395",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900724,
+          "canid": 1097,
+          "propid_hex": "0x2140E3B4",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900544,
+          "canid": 342,
+          "propid_hex": "0x2140E300",
+          "canid_hex": "0x0156"
+        },
+        {
+          "propid": 557863028,
+          "canid": 1116,
+          "propid_hex": "0x21405074",
+          "canid_hex": "0x045C"
+        },
+        {
+          "propid": 557900545,
+          "canid": 1065,
+          "propid_hex": "0x2140E301",
+          "canid_hex": "0x0429"
+        },
+        {
+          "propid": 557863225,
+          "canid": 1335,
+          "propid_hex": "0x21405139",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 557862965,
+          "canid": 1335,
+          "propid_hex": "0x21405035",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 624971796,
+          "canid": 1083,
+          "propid_hex": "0x25405014",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971812,
+          "canid": 1083,
+          "propid_hex": "0x25405024",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971798,
+          "canid": 1083,
+          "propid_hex": "0x25405016",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971799,
+          "canid": 1083,
+          "propid_hex": "0x25405017",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 591417381,
+          "canid": 1083,
+          "propid_hex": "0x23405025",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971797,
+          "canid": 1083,
+          "propid_hex": "0x25405015",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009476,
+          "canid": 1083,
+          "propid_hex": "0x2540E344",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971795,
+          "canid": 1083,
+          "propid_hex": "0x25405013",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557862946,
+          "canid": 1083,
+          "propid_hex": "0x21405022",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009444,
+          "canid": 1083,
+          "propid_hex": "0x2540E324",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557863232,
+          "canid": 1083,
+          "propid_hex": "0x21405140",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 559960361,
+          "canid": 485,
+          "propid_hex": "0x21605129",
+          "canid_hex": "0x01E5"
+        },
+        {
+          "propid": 559997767,
+          "canid": 996,
+          "propid_hex": "0x2160E347",
+          "canid_hex": "0x03E4"
+        },
+        {
+          "propid": 557900548,
+          "canid": 1339,
+          "propid_hex": "0x2140E304",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 557929010,
+          "canid": 1339,
+          "propid_hex": "0x21415232",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 559960376,
+          "canid": 288,
+          "propid_hex": "0x21605138",
+          "canid_hex": "0x0120"
+        },
+        {
+          "propid": 560001814,
+          "canid": 663,
+          "propid_hex": "0x2160F316",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 559960370,
+          "canid": 663,
+          "propid_hex": "0x21605132",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 557863202,
+          "canid": 441,
+          "propid_hex": "0x21405122",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 561008929,
+          "canid": 441,
+          "propid_hex": "0x21705121",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 559996931,
+          "canid": 647,
+          "propid_hex": "0x2160E003",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 559996932,
+          "canid": 647,
+          "propid_hex": "0x2160E004",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 557863296,
+          "canid": 885,
+          "propid_hex": "0x21405180",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863238,
+          "canid": 885,
+          "propid_hex": "0x21405146",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863241,
+          "canid": 885,
+          "propid_hex": "0x21405149",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863240,
+          "canid": 885,
+          "propid_hex": "0x21405148",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863682,
+          "canid": 885,
+          "propid_hex": "0x21405302",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863683,
+          "canid": 885,
+          "propid_hex": "0x21405303",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557929089,
+          "canid": 927,
+          "propid_hex": "0x21415281",
+          "canid_hex": "0x039F"
+        },
+        {
+          "propid": 561008916,
+          "canid": 895,
+          "propid_hex": "0x21705114",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008917,
+          "canid": 895,
+          "propid_hex": "0x21705115",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863234,
+          "canid": 895,
+          "propid_hex": "0x21405142",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008743,
+          "canid": 895,
+          "propid_hex": "0x21705067",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928807,
+          "canid": 895,
+          "propid_hex": "0x21415167",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928821,
+          "canid": 895,
+          "propid_hex": "0x21415175",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862967,
+          "canid": 895,
+          "propid_hex": "0x21405037",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 555765814,
+          "canid": 895,
+          "propid_hex": "0x21205036",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862968,
+          "canid": 895,
+          "propid_hex": "0x21405038",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862977,
+          "canid": 895,
+          "propid_hex": "0x21405041",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862969,
+          "canid": 895,
+          "propid_hex": "0x21405039",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863257,
+          "canid": 895,
+          "propid_hex": "0x21405159",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928823,
+          "canid": 895,
+          "propid_hex": "0x21415177",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862976,
+          "canid": 895,
+          "propid_hex": "0x21405040",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900678,
+          "canid": 895,
+          "propid_hex": "0x2140E386",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900739,
+          "canid": 895,
+          "propid_hex": "0x2140E3C3",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863170,
+          "canid": 859,
+          "propid_hex": "0x21405102",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557928736,
+          "canid": 859,
+          "propid_hex": "0x21415120",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557863441,
+          "canid": 859,
+          "propid_hex": "0x21405211",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557900734,
+          "canid": 859,
+          "propid_hex": "0x2140E3BE",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 644894864,
+          "canid": 298,
+          "propid_hex": "0x26705090",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557928500,
+          "canid": 860,
+          "propid_hex": "0x21415034",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 559960375,
+          "canid": 860,
+          "propid_hex": "0x21605137",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 557936647,
+          "canid": 919,
+          "propid_hex": "0x21417007",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557863443,
+          "canid": 918,
+          "propid_hex": "0x21405213",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557928854,
+          "canid": 918,
+          "propid_hex": "0x21415196",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863715,
+          "canid": 918,
+          "propid_hex": "0x21405323",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900599,
+          "canid": 918,
+          "propid_hex": "0x2140E337",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557871120,
+          "canid": 918,
+          "propid_hex": "0x21407010",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863689,
+          "canid": 920,
+          "propid_hex": "0x21405309",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863697,
+          "canid": 920,
+          "propid_hex": "0x21405311",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557929253,
+          "canid": 920,
+          "propid_hex": "0x21415325",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863699,
+          "canid": 920,
+          "propid_hex": "0x21405313",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557900736,
+          "canid": 920,
+          "propid_hex": "0x2140E3C0",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557900735,
+          "canid": 920,
+          "propid_hex": "0x2140E3BF",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557928464,
+          "canid": 810,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863233,
+          "canid": 810,
+          "propid_hex": "0x21405141",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863239,
+          "canid": 810,
+          "propid_hex": "0x21405147",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863272,
+          "canid": 810,
+          "propid_hex": "0x21405168",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863273,
+          "canid": 810,
+          "propid_hex": "0x21405169",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863280,
+          "canid": 810,
+          "propid_hex": "0x21405170",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863281,
+          "canid": 810,
+          "propid_hex": "0x21405171",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863282,
+          "canid": 810,
+          "propid_hex": "0x21405172",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863681,
+          "canid": 810,
+          "propid_hex": "0x21405301",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863687,
+          "canid": 810,
+          "propid_hex": "0x21405307",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863686,
+          "canid": 810,
+          "propid_hex": "0x21405306",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863577,
+          "canid": 810,
+          "propid_hex": "0x21405299",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863680,
+          "canid": 810,
+          "propid_hex": "0x21405300",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863684,
+          "canid": 810,
+          "propid_hex": "0x21405304",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863685,
+          "canid": 810,
+          "propid_hex": "0x21405305",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557871110,
+          "canid": 810,
+          "propid_hex": "0x21407006",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557900631,
+          "canid": 810,
+          "propid_hex": "0x2140E357",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557929079,
+          "canid": 924,
+          "propid_hex": "0x21415277",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900626,
+          "canid": 924,
+          "propid_hex": "0x2140E352",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900628,
+          "canid": 924,
+          "propid_hex": "0x2140E354",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557929088,
+          "canid": 926,
+          "propid_hex": "0x21415280",
+          "canid_hex": "0x039E"
+        },
+        {
+          "propid": 557929078,
+          "canid": 923,
+          "propid_hex": "0x21415276",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900617,
+          "canid": 923,
+          "propid_hex": "0x2140E349",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900624,
+          "canid": 923,
+          "propid_hex": "0x2140E350",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900625,
+          "canid": 923,
+          "propid_hex": "0x2140E351",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557928498,
+          "canid": 861,
+          "propid_hex": "0x21415032",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928499,
+          "canid": 861,
+          "propid_hex": "0x21415033",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863446,
+          "canid": 861,
+          "propid_hex": "0x21405216",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863447,
+          "canid": 861,
+          "propid_hex": "0x21405217",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863448,
+          "canid": 861,
+          "propid_hex": "0x21405218",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928464,
+          "canid": 861,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557900680,
+          "canid": 861,
+          "propid_hex": "0x2140E388",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557929081,
+          "canid": 893,
+          "propid_hex": "0x21415279",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557928729,
+          "canid": 894,
+          "propid_hex": "0x21415119",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557863430,
+          "canid": 894,
+          "propid_hex": "0x21405206",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557900594,
+          "canid": 837,
+          "propid_hex": "0x2140E332",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557900595,
+          "canid": 837,
+          "propid_hex": "0x2140E333",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557928835,
+          "canid": 1395,
+          "propid_hex": "0x21415183",
+          "canid_hex": "0x0573"
+        },
+        {
+          "propid": 559997750,
+          "canid": 874,
+          "propid_hex": "0x2160E336",
+          "canid_hex": "0x036A"
+        },
+        {
+          "propid": 561008791,
+          "canid": 811,
+          "propid_hex": "0x21705097",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863064,
+          "canid": 811,
+          "propid_hex": "0x21405098",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008793,
+          "canid": 811,
+          "propid_hex": "0x21705099",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008896,
+          "canid": 811,
+          "propid_hex": "0x21705100",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008915,
+          "canid": 811,
+          "propid_hex": "0x21705113",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008914,
+          "canid": 811,
+          "propid_hex": "0x21705112",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863250,
+          "canid": 811,
+          "propid_hex": "0x21405152",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008729,
+          "canid": 811,
+          "propid_hex": "0x21705059",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008736,
+          "canid": 811,
+          "propid_hex": "0x21705060",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008737,
+          "canid": 811,
+          "propid_hex": "0x21705061",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008738,
+          "canid": 811,
+          "propid_hex": "0x21705062",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008739,
+          "canid": 811,
+          "propid_hex": "0x21705063",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008759,
+          "canid": 811,
+          "propid_hex": "0x21705077",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008776,
+          "canid": 811,
+          "propid_hex": "0x21705088",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863313,
+          "canid": 811,
+          "propid_hex": "0x21405191",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863442,
+          "canid": 811,
+          "propid_hex": "0x21405212",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863456,
+          "canid": 811,
+          "propid_hex": "0x21405220",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 555765760,
+          "canid": 811,
+          "propid_hex": "0x21205000",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871105,
+          "canid": 811,
+          "propid_hex": "0x21407001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557899777,
+          "canid": 811,
+          "propid_hex": "0x2140E001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871107,
+          "canid": 811,
+          "propid_hex": "0x21407003",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900627,
+          "canid": 811,
+          "propid_hex": "0x2140E353",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900659,
+          "canid": 811,
+          "propid_hex": "0x2140E373",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900728,
+          "canid": 811,
+          "propid_hex": "0x2140E3B8",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900741,
+          "canid": 811,
+          "propid_hex": "0x2140E3C5",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900742,
+          "canid": 811,
+          "propid_hex": "0x2140E3C6",
+          "canid_hex": "0x032B"
+        }
+      ]
+    },
+    {
+      "name": "EQ100_t3",
+      "offset": "0x110F38",
+      "capacity": 263,
+      "valid": 263,
+      "entries": [
+        {
+          "propid": 557900610,
+          "canid": 560,
+          "propid_hex": "0x2140E342",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900613,
+          "canid": 560,
+          "propid_hex": "0x2140E345",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557966226,
+          "canid": 1084,
+          "propid_hex": "0x2141E392",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 625009555,
+          "canid": 1084,
+          "propid_hex": "0x2540E393",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 625009556,
+          "canid": 1084,
+          "propid_hex": "0x2540E394",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 557900730,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BA",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900731,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BB",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557900732,
+          "canid": 1067,
+          "propid_hex": "0x2140E3BC",
+          "canid_hex": "0x042B"
+        },
+        {
+          "propid": 557966279,
+          "canid": 1265,
+          "propid_hex": "0x2141E3C7",
+          "canid_hex": "0x04F1"
+        },
+        {
+          "propid": 557900744,
+          "canid": 1265,
+          "propid_hex": "0x2140E3C8",
+          "canid_hex": "0x04F1"
+        },
+        {
+          "propid": 557900745,
+          "canid": 1265,
+          "propid_hex": "0x2140E3C9",
+          "canid_hex": "0x04F1"
+        },
+        {
+          "propid": 557900746,
+          "canid": 1265,
+          "propid_hex": "0x2140E3CA",
+          "canid_hex": "0x04F1"
+        },
+        {
+          "propid": 557900747,
+          "canid": 1265,
+          "propid_hex": "0x2140E3CB",
+          "canid_hex": "0x04F1"
+        },
+        {
+          "propid": 557900694,
+          "canid": 1113,
+          "propid_hex": "0x2140E396",
+          "canid_hex": "0x0459"
+        },
+        {
+          "propid": 557900695,
+          "canid": 1113,
+          "propid_hex": "0x2140E397",
+          "canid_hex": "0x0459"
+        },
+        {
+          "propid": 557900701,
+          "canid": 1113,
+          "propid_hex": "0x2140E39D",
+          "canid_hex": "0x0459"
+        },
+        {
+          "propid": 557900737,
+          "canid": 862,
+          "propid_hex": "0x2140E3C1",
+          "canid_hex": "0x035E"
+        },
+        {
+          "propid": 557900738,
+          "canid": 1002,
+          "propid_hex": "0x2140E3C2",
+          "canid_hex": "0x03EA"
+        },
+        {
+          "propid": 557900725,
+          "canid": 1066,
+          "propid_hex": "0x2140E3B5",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900726,
+          "canid": 1066,
+          "propid_hex": "0x2140E3B6",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900565,
+          "canid": 1096,
+          "propid_hex": "0x2140E315",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900566,
+          "canid": 1096,
+          "propid_hex": "0x2140E316",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900567,
+          "canid": 1096,
+          "propid_hex": "0x2140E317",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900578,
+          "canid": 1096,
+          "propid_hex": "0x2140E322",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900579,
+          "canid": 1096,
+          "propid_hex": "0x2140E323",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900581,
+          "canid": 1096,
+          "propid_hex": "0x2140E325",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900582,
+          "canid": 1096,
+          "propid_hex": "0x2140E326",
+          "canid_hex": "0x0448"
+        },
+        {
+          "propid": 557900708,
+          "canid": 1100,
+          "propid_hex": "0x2140E3A4",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900709,
+          "canid": 1100,
+          "propid_hex": "0x2140E3A5",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900710,
+          "canid": 1100,
+          "propid_hex": "0x2140E3A6",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900711,
+          "canid": 1100,
+          "propid_hex": "0x2140E3A7",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900714,
+          "canid": 1100,
+          "propid_hex": "0x2140E3AA",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900715,
+          "canid": 1100,
+          "propid_hex": "0x2140E3AB",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900716,
+          "canid": 1100,
+          "propid_hex": "0x2140E3AC",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900717,
+          "canid": 1100,
+          "propid_hex": "0x2140E3AD",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900718,
+          "canid": 1100,
+          "propid_hex": "0x2140E3AE",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900719,
+          "canid": 1100,
+          "propid_hex": "0x2140E3AF",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900720,
+          "canid": 1100,
+          "propid_hex": "0x2140E3B0",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557900721,
+          "canid": 1100,
+          "propid_hex": "0x2140E3B1",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 625009577,
+          "canid": 1100,
+          "propid_hex": "0x2540E3A9",
+          "canid_hex": "0x044C"
+        },
+        {
+          "propid": 557966248,
+          "canid": 1103,
+          "propid_hex": "0x2141E3A8",
+          "canid_hex": "0x044F"
+        },
+        {
+          "propid": 557900549,
+          "canid": 1087,
+          "propid_hex": "0x2140E305",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900563,
+          "canid": 1087,
+          "propid_hex": "0x2140E313",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900664,
+          "canid": 1087,
+          "propid_hex": "0x2140E378",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900704,
+          "canid": 1101,
+          "propid_hex": "0x2140E3A0",
+          "canid_hex": "0x044D"
+        },
+        {
+          "propid": 557900705,
+          "canid": 1101,
+          "propid_hex": "0x2140E3A1",
+          "canid_hex": "0x044D"
+        },
+        {
+          "propid": 557900597,
+          "canid": 857,
+          "propid_hex": "0x2140E335",
+          "canid_hex": "0x0359"
+        },
+        {
+          "propid": 557900569,
+          "canid": 1141,
+          "propid_hex": "0x2140E319",
+          "canid_hex": "0x0475"
+        },
+        {
+          "propid": 557966210,
+          "canid": 262,
+          "propid_hex": "0x2141E382",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557900672,
+          "canid": 262,
+          "propid_hex": "0x2140E380",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557900740,
+          "canid": 262,
+          "propid_hex": "0x2140E3C4",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557863319,
+          "canid": 513,
+          "propid_hex": "0x21405197",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900633,
+          "canid": 513,
+          "propid_hex": "0x2140E359",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900702,
+          "canid": 513,
+          "propid_hex": "0x2140E39E",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900677,
+          "canid": 481,
+          "propid_hex": "0x2140E385",
+          "canid_hex": "0x01E1"
+        },
+        {
+          "propid": 557863220,
+          "canid": 1085,
+          "propid_hex": "0x21405134",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900564,
+          "canid": 1085,
+          "propid_hex": "0x2140E314",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900722,
+          "canid": 1085,
+          "propid_hex": "0x2140E3B2",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900707,
+          "canid": 1085,
+          "propid_hex": "0x2140E3A3",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900593,
+          "canid": 306,
+          "propid_hex": "0x2140E331",
+          "canid_hex": "0x0132"
+        },
+        {
+          "propid": 557900609,
+          "canid": 489,
+          "propid_hex": "0x2140E341",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900568,
+          "canid": 489,
+          "propid_hex": "0x2140E318",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900608,
+          "canid": 489,
+          "propid_hex": "0x2140E340",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557863040,
+          "canid": 497,
+          "propid_hex": "0x21405080",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557863298,
+          "canid": 497,
+          "propid_hex": "0x21405182",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557900560,
+          "canid": 298,
+          "propid_hex": "0x2140E310",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557900700,
+          "canid": 298,
+          "propid_hex": "0x2140E39C",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 594563186,
+          "canid": 1085,
+          "propid_hex": "0x23705072",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008742,
+          "canid": 1085,
+          "propid_hex": "0x21705066",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863573,
+          "canid": 1085,
+          "propid_hex": "0x21405295",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900438,
+          "canid": 1085,
+          "propid_hex": "0x2140E296",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900439,
+          "canid": 1085,
+          "propid_hex": "0x2140E297",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900440,
+          "canid": 1085,
+          "propid_hex": "0x2140E298",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008752,
+          "canid": 1085,
+          "propid_hex": "0x21705070",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008753,
+          "canid": 1085,
+          "propid_hex": "0x21705071",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900441,
+          "canid": 1085,
+          "propid_hex": "0x2140E299",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863701,
+          "canid": 1085,
+          "propid_hex": "0x21405315",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 591417383,
+          "canid": 1081,
+          "propid_hex": "0x23405027",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591455043,
+          "canid": 1081,
+          "propid_hex": "0x2340E343",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 557900584,
+          "canid": 1081,
+          "propid_hex": "0x2140E328",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591418128,
+          "canid": 320,
+          "propid_hex": "0x23405310",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863478,
+          "canid": 320,
+          "propid_hex": "0x21405236",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008775,
+          "canid": 320,
+          "propid_hex": "0x21705087",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563206,
+          "canid": 320,
+          "propid_hex": "0x23705086",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863284,
+          "canid": 320,
+          "propid_hex": "0x21405174",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863255,
+          "canid": 320,
+          "propid_hex": "0x21405157",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008772,
+          "canid": 320,
+          "propid_hex": "0x21705084",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563205,
+          "canid": 320,
+          "propid_hex": "0x23705085",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863570,
+          "canid": 320,
+          "propid_hex": "0x21405292",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900552,
+          "canid": 320,
+          "propid_hex": "0x2140E308",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900727,
+          "canid": 320,
+          "propid_hex": "0x2140E3B7",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900748,
+          "canid": 320,
+          "propid_hex": "0x2140E3CC",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557929080,
+          "canid": 925,
+          "propid_hex": "0x21415278",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 557900616,
+          "canid": 925,
+          "propid_hex": "0x2140E348",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 658563881,
+          "canid": 1322,
+          "propid_hex": "0x2740E329",
+          "canid_hex": "0x052A"
+        },
+        {
+          "propid": 557862937,
+          "canid": 381,
+          "propid_hex": "0x21405019",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008755,
+          "canid": 381,
+          "propid_hex": "0x21705073",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008757,
+          "canid": 381,
+          "propid_hex": "0x21705075",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 559997753,
+          "canid": 381,
+          "propid_hex": "0x2160E339",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900630,
+          "canid": 381,
+          "propid_hex": "0x2140E356",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900657,
+          "canid": 381,
+          "propid_hex": "0x2140E371",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900600,
+          "canid": 381,
+          "propid_hex": "0x2140E338",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008977,
+          "canid": 225,
+          "propid_hex": "0x21705151",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 557863269,
+          "canid": 225,
+          "propid_hex": "0x21405165",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 559960132,
+          "canid": 1221,
+          "propid_hex": "0x21605044",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960134,
+          "canid": 1221,
+          "propid_hex": "0x21605046",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960152,
+          "canid": 1221,
+          "propid_hex": "0x21605058",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960151,
+          "canid": 1221,
+          "propid_hex": "0x21605057",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 557863572,
+          "canid": 833,
+          "propid_hex": "0x21405294",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862936,
+          "canid": 833,
+          "propid_hex": "0x21405018",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900546,
+          "canid": 833,
+          "propid_hex": "0x2140E302",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 561008709,
+          "canid": 833,
+          "propid_hex": "0x21705045",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900547,
+          "canid": 833,
+          "propid_hex": "0x2140E303",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863043,
+          "canid": 833,
+          "propid_hex": "0x21405083",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862945,
+          "canid": 833,
+          "propid_hex": "0x21405021",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863041,
+          "canid": 441,
+          "propid_hex": "0x21405081",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 557862984,
+          "canid": 1097,
+          "propid_hex": "0x21405048",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904663,
+          "canid": 1097,
+          "propid_hex": "0x2140F317",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 561008721,
+          "canid": 1097,
+          "propid_hex": "0x21705051",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904664,
+          "canid": 1097,
+          "propid_hex": "0x2140F318",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900658,
+          "canid": 1097,
+          "propid_hex": "0x2140E372",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900665,
+          "canid": 1097,
+          "propid_hex": "0x2140E379",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900675,
+          "canid": 1097,
+          "propid_hex": "0x2140E383",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900688,
+          "canid": 1097,
+          "propid_hex": "0x2140E390",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900693,
+          "canid": 1097,
+          "propid_hex": "0x2140E395",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900724,
+          "canid": 1097,
+          "propid_hex": "0x2140E3B4",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900544,
+          "canid": 342,
+          "propid_hex": "0x2140E300",
+          "canid_hex": "0x0156"
+        },
+        {
+          "propid": 557863028,
+          "canid": 1116,
+          "propid_hex": "0x21405074",
+          "canid_hex": "0x045C"
+        },
+        {
+          "propid": 557900545,
+          "canid": 1065,
+          "propid_hex": "0x2140E301",
+          "canid_hex": "0x0429"
+        },
+        {
+          "propid": 557863225,
+          "canid": 1335,
+          "propid_hex": "0x21405139",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 557862965,
+          "canid": 1335,
+          "propid_hex": "0x21405035",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 624971796,
+          "canid": 1083,
+          "propid_hex": "0x25405014",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971812,
+          "canid": 1083,
+          "propid_hex": "0x25405024",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971798,
+          "canid": 1083,
+          "propid_hex": "0x25405016",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971799,
+          "canid": 1083,
+          "propid_hex": "0x25405017",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 591417381,
+          "canid": 1083,
+          "propid_hex": "0x23405025",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971797,
+          "canid": 1083,
+          "propid_hex": "0x25405015",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009476,
+          "canid": 1083,
+          "propid_hex": "0x2540E344",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971795,
+          "canid": 1083,
+          "propid_hex": "0x25405013",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557862946,
+          "canid": 1083,
+          "propid_hex": "0x21405022",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009444,
+          "canid": 1083,
+          "propid_hex": "0x2540E324",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557863232,
+          "canid": 1083,
+          "propid_hex": "0x21405140",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 559960361,
+          "canid": 485,
+          "propid_hex": "0x21605129",
+          "canid_hex": "0x01E5"
+        },
+        {
+          "propid": 559997767,
+          "canid": 996,
+          "propid_hex": "0x2160E347",
+          "canid_hex": "0x03E4"
+        },
+        {
+          "propid": 557900548,
+          "canid": 1339,
+          "propid_hex": "0x2140E304",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 557929010,
+          "canid": 1339,
+          "propid_hex": "0x21415232",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 559960376,
+          "canid": 288,
+          "propid_hex": "0x21605138",
+          "canid_hex": "0x0120"
+        },
+        {
+          "propid": 560001814,
+          "canid": 663,
+          "propid_hex": "0x2160F316",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 559960370,
+          "canid": 663,
+          "propid_hex": "0x21605132",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 557863202,
+          "canid": 441,
+          "propid_hex": "0x21405122",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 561008929,
+          "canid": 441,
+          "propid_hex": "0x21705121",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 559996931,
+          "canid": 647,
+          "propid_hex": "0x2160E003",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 559996932,
+          "canid": 647,
+          "propid_hex": "0x2160E004",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 557863296,
+          "canid": 885,
+          "propid_hex": "0x21405180",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863238,
+          "canid": 885,
+          "propid_hex": "0x21405146",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863241,
+          "canid": 885,
+          "propid_hex": "0x21405149",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863240,
+          "canid": 885,
+          "propid_hex": "0x21405148",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863682,
+          "canid": 885,
+          "propid_hex": "0x21405302",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863683,
+          "canid": 885,
+          "propid_hex": "0x21405303",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557929089,
+          "canid": 927,
+          "propid_hex": "0x21415281",
+          "canid_hex": "0x039F"
+        },
+        {
+          "propid": 561008916,
+          "canid": 895,
+          "propid_hex": "0x21705114",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008917,
+          "canid": 895,
+          "propid_hex": "0x21705115",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863234,
+          "canid": 895,
+          "propid_hex": "0x21405142",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008743,
+          "canid": 895,
+          "propid_hex": "0x21705067",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928807,
+          "canid": 895,
+          "propid_hex": "0x21415167",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928821,
+          "canid": 895,
+          "propid_hex": "0x21415175",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862967,
+          "canid": 895,
+          "propid_hex": "0x21405037",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 555765814,
+          "canid": 895,
+          "propid_hex": "0x21205036",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862968,
+          "canid": 895,
+          "propid_hex": "0x21405038",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862977,
+          "canid": 895,
+          "propid_hex": "0x21405041",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862969,
+          "canid": 895,
+          "propid_hex": "0x21405039",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863257,
+          "canid": 895,
+          "propid_hex": "0x21405159",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928823,
+          "canid": 895,
+          "propid_hex": "0x21415177",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862976,
+          "canid": 895,
+          "propid_hex": "0x21405040",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900678,
+          "canid": 895,
+          "propid_hex": "0x2140E386",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900739,
+          "canid": 895,
+          "propid_hex": "0x2140E3C3",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863170,
+          "canid": 859,
+          "propid_hex": "0x21405102",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557928736,
+          "canid": 859,
+          "propid_hex": "0x21415120",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557863441,
+          "canid": 859,
+          "propid_hex": "0x21405211",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 644894864,
+          "canid": 298,
+          "propid_hex": "0x26705090",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557928500,
+          "canid": 860,
+          "propid_hex": "0x21415034",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 559960375,
+          "canid": 860,
+          "propid_hex": "0x21605137",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 557936647,
+          "canid": 919,
+          "propid_hex": "0x21417007",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557863443,
+          "canid": 918,
+          "propid_hex": "0x21405213",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557928854,
+          "canid": 918,
+          "propid_hex": "0x21415196",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863715,
+          "canid": 918,
+          "propid_hex": "0x21405323",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900599,
+          "canid": 918,
+          "propid_hex": "0x2140E337",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557871120,
+          "canid": 918,
+          "propid_hex": "0x21407010",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863689,
+          "canid": 920,
+          "propid_hex": "0x21405309",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863697,
+          "canid": 920,
+          "propid_hex": "0x21405311",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557929253,
+          "canid": 920,
+          "propid_hex": "0x21415325",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863699,
+          "canid": 920,
+          "propid_hex": "0x21405313",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557928464,
+          "canid": 810,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863233,
+          "canid": 810,
+          "propid_hex": "0x21405141",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863239,
+          "canid": 810,
+          "propid_hex": "0x21405147",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863272,
+          "canid": 810,
+          "propid_hex": "0x21405168",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863273,
+          "canid": 810,
+          "propid_hex": "0x21405169",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863280,
+          "canid": 810,
+          "propid_hex": "0x21405170",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863281,
+          "canid": 810,
+          "propid_hex": "0x21405171",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863282,
+          "canid": 810,
+          "propid_hex": "0x21405172",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863681,
+          "canid": 810,
+          "propid_hex": "0x21405301",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863687,
+          "canid": 810,
+          "propid_hex": "0x21405307",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863686,
+          "canid": 810,
+          "propid_hex": "0x21405306",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863577,
+          "canid": 810,
+          "propid_hex": "0x21405299",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863680,
+          "canid": 810,
+          "propid_hex": "0x21405300",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863684,
+          "canid": 810,
+          "propid_hex": "0x21405304",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863685,
+          "canid": 810,
+          "propid_hex": "0x21405305",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557871110,
+          "canid": 810,
+          "propid_hex": "0x21407006",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557900631,
+          "canid": 810,
+          "propid_hex": "0x2140E357",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557929079,
+          "canid": 924,
+          "propid_hex": "0x21415277",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900626,
+          "canid": 924,
+          "propid_hex": "0x2140E352",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900628,
+          "canid": 924,
+          "propid_hex": "0x2140E354",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557929088,
+          "canid": 926,
+          "propid_hex": "0x21415280",
+          "canid_hex": "0x039E"
+        },
+        {
+          "propid": 557929078,
+          "canid": 923,
+          "propid_hex": "0x21415276",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900617,
+          "canid": 923,
+          "propid_hex": "0x2140E349",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900624,
+          "canid": 923,
+          "propid_hex": "0x2140E350",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900625,
+          "canid": 923,
+          "propid_hex": "0x2140E351",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557928498,
+          "canid": 861,
+          "propid_hex": "0x21415032",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928499,
+          "canid": 861,
+          "propid_hex": "0x21415033",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863446,
+          "canid": 861,
+          "propid_hex": "0x21405216",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863447,
+          "canid": 861,
+          "propid_hex": "0x21405217",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863448,
+          "canid": 861,
+          "propid_hex": "0x21405218",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928464,
+          "canid": 861,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557900680,
+          "canid": 861,
+          "propid_hex": "0x2140E388",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557929081,
+          "canid": 893,
+          "propid_hex": "0x21415279",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557928729,
+          "canid": 894,
+          "propid_hex": "0x21415119",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557863430,
+          "canid": 894,
+          "propid_hex": "0x21405206",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557900594,
+          "canid": 837,
+          "propid_hex": "0x2140E332",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557900595,
+          "canid": 837,
+          "propid_hex": "0x2140E333",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557928835,
+          "canid": 1395,
+          "propid_hex": "0x21415183",
+          "canid_hex": "0x0573"
+        },
+        {
+          "propid": 559997750,
+          "canid": 874,
+          "propid_hex": "0x2160E336",
+          "canid_hex": "0x036A"
+        },
+        {
+          "propid": 561008791,
+          "canid": 811,
+          "propid_hex": "0x21705097",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863064,
+          "canid": 811,
+          "propid_hex": "0x21405098",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008793,
+          "canid": 811,
+          "propid_hex": "0x21705099",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008896,
+          "canid": 811,
+          "propid_hex": "0x21705100",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008915,
+          "canid": 811,
+          "propid_hex": "0x21705113",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008914,
+          "canid": 811,
+          "propid_hex": "0x21705112",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863250,
+          "canid": 811,
+          "propid_hex": "0x21405152",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008729,
+          "canid": 811,
+          "propid_hex": "0x21705059",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008736,
+          "canid": 811,
+          "propid_hex": "0x21705060",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008737,
+          "canid": 811,
+          "propid_hex": "0x21705061",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008738,
+          "canid": 811,
+          "propid_hex": "0x21705062",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008739,
+          "canid": 811,
+          "propid_hex": "0x21705063",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008759,
+          "canid": 811,
+          "propid_hex": "0x21705077",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008776,
+          "canid": 811,
+          "propid_hex": "0x21705088",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863313,
+          "canid": 811,
+          "propid_hex": "0x21405191",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863442,
+          "canid": 811,
+          "propid_hex": "0x21405212",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863456,
+          "canid": 811,
+          "propid_hex": "0x21405220",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 555765760,
+          "canid": 811,
+          "propid_hex": "0x21205000",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871105,
+          "canid": 811,
+          "propid_hex": "0x21407001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557899777,
+          "canid": 811,
+          "propid_hex": "0x2140E001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871107,
+          "canid": 811,
+          "propid_hex": "0x21407003",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900627,
+          "canid": 811,
+          "propid_hex": "0x2140E353",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900659,
+          "canid": 811,
+          "propid_hex": "0x2140E373",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900728,
+          "canid": 811,
+          "propid_hex": "0x2140E3B8",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900741,
+          "canid": 811,
+          "propid_hex": "0x2140E3C5",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900742,
+          "canid": 811,
+          "propid_hex": "0x2140E3C6",
+          "canid_hex": "0x032B"
+        }
+      ]
+    },
+    {
+      "name": "EQ100_t4",
+      "offset": "0x111770",
+      "capacity": 203,
+      "valid": 203,
+      "entries": [
+        {
+          "propid": 557900610,
+          "canid": 560,
+          "propid_hex": "0x2140E342",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900613,
+          "canid": 560,
+          "propid_hex": "0x2140E345",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900597,
+          "canid": 857,
+          "propid_hex": "0x2140E335",
+          "canid_hex": "0x0359"
+        },
+        {
+          "propid": 557900569,
+          "canid": 1141,
+          "propid_hex": "0x2140E319",
+          "canid_hex": "0x0475"
+        },
+        {
+          "propid": 557863319,
+          "canid": 513,
+          "propid_hex": "0x21405197",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900633,
+          "canid": 513,
+          "propid_hex": "0x2140E359",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900702,
+          "canid": 513,
+          "propid_hex": "0x2140E39E",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557863220,
+          "canid": 1085,
+          "propid_hex": "0x21405134",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900593,
+          "canid": 306,
+          "propid_hex": "0x2140E331",
+          "canid_hex": "0x0132"
+        },
+        {
+          "propid": 557900609,
+          "canid": 489,
+          "propid_hex": "0x2140E341",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900568,
+          "canid": 489,
+          "propid_hex": "0x2140E318",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900608,
+          "canid": 489,
+          "propid_hex": "0x2140E340",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557863040,
+          "canid": 497,
+          "propid_hex": "0x21405080",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557863298,
+          "canid": 497,
+          "propid_hex": "0x21405182",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557900560,
+          "canid": 298,
+          "propid_hex": "0x2140E310",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557900700,
+          "canid": 298,
+          "propid_hex": "0x2140E39C",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 594563186,
+          "canid": 1085,
+          "propid_hex": "0x23705072",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008742,
+          "canid": 1085,
+          "propid_hex": "0x21705066",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863573,
+          "canid": 1085,
+          "propid_hex": "0x21405295",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900438,
+          "canid": 1085,
+          "propid_hex": "0x2140E296",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900439,
+          "canid": 1085,
+          "propid_hex": "0x2140E297",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900440,
+          "canid": 1085,
+          "propid_hex": "0x2140E298",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008752,
+          "canid": 1085,
+          "propid_hex": "0x21705070",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008753,
+          "canid": 1085,
+          "propid_hex": "0x21705071",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900441,
+          "canid": 1085,
+          "propid_hex": "0x2140E299",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863701,
+          "canid": 1085,
+          "propid_hex": "0x21405315",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 591417383,
+          "canid": 1081,
+          "propid_hex": "0x23405027",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591455043,
+          "canid": 1081,
+          "propid_hex": "0x2340E343",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 557900584,
+          "canid": 1081,
+          "propid_hex": "0x2140E328",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591418128,
+          "canid": 320,
+          "propid_hex": "0x23405310",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863478,
+          "canid": 320,
+          "propid_hex": "0x21405236",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008775,
+          "canid": 320,
+          "propid_hex": "0x21705087",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563206,
+          "canid": 320,
+          "propid_hex": "0x23705086",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863284,
+          "canid": 320,
+          "propid_hex": "0x21405174",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863255,
+          "canid": 320,
+          "propid_hex": "0x21405157",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008772,
+          "canid": 320,
+          "propid_hex": "0x21705084",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563205,
+          "canid": 320,
+          "propid_hex": "0x23705085",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863570,
+          "canid": 320,
+          "propid_hex": "0x21405292",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900552,
+          "canid": 320,
+          "propid_hex": "0x2140E308",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557929080,
+          "canid": 925,
+          "propid_hex": "0x21415278",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 557900616,
+          "canid": 925,
+          "propid_hex": "0x2140E348",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 658563881,
+          "canid": 1322,
+          "propid_hex": "0x2740E329",
+          "canid_hex": "0x052A"
+        },
+        {
+          "propid": 557862937,
+          "canid": 381,
+          "propid_hex": "0x21405019",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008755,
+          "canid": 381,
+          "propid_hex": "0x21705073",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008757,
+          "canid": 381,
+          "propid_hex": "0x21705075",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 559997753,
+          "canid": 381,
+          "propid_hex": "0x2160E339",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900630,
+          "canid": 381,
+          "propid_hex": "0x2140E356",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008977,
+          "canid": 225,
+          "propid_hex": "0x21705151",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 557863269,
+          "canid": 225,
+          "propid_hex": "0x21405165",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 559960132,
+          "canid": 1221,
+          "propid_hex": "0x21605044",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960134,
+          "canid": 1221,
+          "propid_hex": "0x21605046",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960152,
+          "canid": 1221,
+          "propid_hex": "0x21605058",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960151,
+          "canid": 1221,
+          "propid_hex": "0x21605057",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 557863572,
+          "canid": 833,
+          "propid_hex": "0x21405294",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862936,
+          "canid": 833,
+          "propid_hex": "0x21405018",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900546,
+          "canid": 833,
+          "propid_hex": "0x2140E302",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 561008709,
+          "canid": 833,
+          "propid_hex": "0x21705045",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900547,
+          "canid": 833,
+          "propid_hex": "0x2140E303",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863043,
+          "canid": 833,
+          "propid_hex": "0x21405083",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862945,
+          "canid": 833,
+          "propid_hex": "0x21405021",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863041,
+          "canid": 441,
+          "propid_hex": "0x21405081",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 557862984,
+          "canid": 1097,
+          "propid_hex": "0x21405048",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904663,
+          "canid": 1097,
+          "propid_hex": "0x2140F317",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 561008721,
+          "canid": 1097,
+          "propid_hex": "0x21705051",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904664,
+          "canid": 1097,
+          "propid_hex": "0x2140F318",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900658,
+          "canid": 1097,
+          "propid_hex": "0x2140E372",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900665,
+          "canid": 1097,
+          "propid_hex": "0x2140E379",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900544,
+          "canid": 342,
+          "propid_hex": "0x2140E300",
+          "canid_hex": "0x0156"
+        },
+        {
+          "propid": 557863028,
+          "canid": 1116,
+          "propid_hex": "0x21405074",
+          "canid_hex": "0x045C"
+        },
+        {
+          "propid": 557900545,
+          "canid": 1065,
+          "propid_hex": "0x2140E301",
+          "canid_hex": "0x0429"
+        },
+        {
+          "propid": 557863225,
+          "canid": 1335,
+          "propid_hex": "0x21405139",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 557862965,
+          "canid": 1335,
+          "propid_hex": "0x21405035",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 624971796,
+          "canid": 1083,
+          "propid_hex": "0x25405014",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971812,
+          "canid": 1083,
+          "propid_hex": "0x25405024",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971798,
+          "canid": 1083,
+          "propid_hex": "0x25405016",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971799,
+          "canid": 1083,
+          "propid_hex": "0x25405017",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 591417381,
+          "canid": 1083,
+          "propid_hex": "0x23405025",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971797,
+          "canid": 1083,
+          "propid_hex": "0x25405015",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009476,
+          "canid": 1083,
+          "propid_hex": "0x2540E344",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971795,
+          "canid": 1083,
+          "propid_hex": "0x25405013",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557862946,
+          "canid": 1083,
+          "propid_hex": "0x21405022",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009444,
+          "canid": 1083,
+          "propid_hex": "0x2540E324",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557863232,
+          "canid": 1083,
+          "propid_hex": "0x21405140",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 559960361,
+          "canid": 485,
+          "propid_hex": "0x21605129",
+          "canid_hex": "0x01E5"
+        },
+        {
+          "propid": 559997767,
+          "canid": 996,
+          "propid_hex": "0x2160E347",
+          "canid_hex": "0x03E4"
+        },
+        {
+          "propid": 557900548,
+          "canid": 1339,
+          "propid_hex": "0x2140E304",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 557929010,
+          "canid": 1339,
+          "propid_hex": "0x21415232",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 559960376,
+          "canid": 288,
+          "propid_hex": "0x21605138",
+          "canid_hex": "0x0120"
+        },
+        {
+          "propid": 560001814,
+          "canid": 663,
+          "propid_hex": "0x2160F316",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 559960370,
+          "canid": 663,
+          "propid_hex": "0x21605132",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 557863202,
+          "canid": 441,
+          "propid_hex": "0x21405122",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 561008929,
+          "canid": 441,
+          "propid_hex": "0x21705121",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 559996931,
+          "canid": 647,
+          "propid_hex": "0x2160E003",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 559996932,
+          "canid": 647,
+          "propid_hex": "0x2160E004",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 557863296,
+          "canid": 885,
+          "propid_hex": "0x21405180",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863238,
+          "canid": 885,
+          "propid_hex": "0x21405146",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863241,
+          "canid": 885,
+          "propid_hex": "0x21405149",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863240,
+          "canid": 885,
+          "propid_hex": "0x21405148",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863682,
+          "canid": 885,
+          "propid_hex": "0x21405302",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863683,
+          "canid": 885,
+          "propid_hex": "0x21405303",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557929089,
+          "canid": 927,
+          "propid_hex": "0x21415281",
+          "canid_hex": "0x039F"
+        },
+        {
+          "propid": 561008916,
+          "canid": 895,
+          "propid_hex": "0x21705114",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008917,
+          "canid": 895,
+          "propid_hex": "0x21705115",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863234,
+          "canid": 895,
+          "propid_hex": "0x21405142",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008743,
+          "canid": 895,
+          "propid_hex": "0x21705067",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928807,
+          "canid": 895,
+          "propid_hex": "0x21415167",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928821,
+          "canid": 895,
+          "propid_hex": "0x21415175",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862967,
+          "canid": 895,
+          "propid_hex": "0x21405037",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 555765814,
+          "canid": 895,
+          "propid_hex": "0x21205036",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862968,
+          "canid": 895,
+          "propid_hex": "0x21405038",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862977,
+          "canid": 895,
+          "propid_hex": "0x21405041",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862969,
+          "canid": 895,
+          "propid_hex": "0x21405039",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863257,
+          "canid": 895,
+          "propid_hex": "0x21405159",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928823,
+          "canid": 895,
+          "propid_hex": "0x21415177",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862976,
+          "canid": 895,
+          "propid_hex": "0x21405040",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900678,
+          "canid": 895,
+          "propid_hex": "0x2140E386",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863170,
+          "canid": 859,
+          "propid_hex": "0x21405102",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557928736,
+          "canid": 859,
+          "propid_hex": "0x21415120",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557863441,
+          "canid": 859,
+          "propid_hex": "0x21405211",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 644894864,
+          "canid": 298,
+          "propid_hex": "0x26705090",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557928500,
+          "canid": 860,
+          "propid_hex": "0x21415034",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 559960375,
+          "canid": 860,
+          "propid_hex": "0x21605137",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 557936647,
+          "canid": 919,
+          "propid_hex": "0x21417007",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557900679,
+          "canid": 919,
+          "propid_hex": "0x2140E387",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557863443,
+          "canid": 918,
+          "propid_hex": "0x21405213",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557928854,
+          "canid": 918,
+          "propid_hex": "0x21415196",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863715,
+          "canid": 918,
+          "propid_hex": "0x21405323",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900599,
+          "canid": 918,
+          "propid_hex": "0x2140E337",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557871120,
+          "canid": 918,
+          "propid_hex": "0x21407010",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863689,
+          "canid": 920,
+          "propid_hex": "0x21405309",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863697,
+          "canid": 920,
+          "propid_hex": "0x21405311",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557929253,
+          "canid": 920,
+          "propid_hex": "0x21415325",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863699,
+          "canid": 920,
+          "propid_hex": "0x21405313",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557928464,
+          "canid": 810,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863233,
+          "canid": 810,
+          "propid_hex": "0x21405141",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863239,
+          "canid": 810,
+          "propid_hex": "0x21405147",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863272,
+          "canid": 810,
+          "propid_hex": "0x21405168",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863273,
+          "canid": 810,
+          "propid_hex": "0x21405169",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863280,
+          "canid": 810,
+          "propid_hex": "0x21405170",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863281,
+          "canid": 810,
+          "propid_hex": "0x21405171",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863282,
+          "canid": 810,
+          "propid_hex": "0x21405172",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863681,
+          "canid": 810,
+          "propid_hex": "0x21405301",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863687,
+          "canid": 810,
+          "propid_hex": "0x21405307",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863686,
+          "canid": 810,
+          "propid_hex": "0x21405306",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863577,
+          "canid": 810,
+          "propid_hex": "0x21405299",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863680,
+          "canid": 810,
+          "propid_hex": "0x21405300",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863684,
+          "canid": 810,
+          "propid_hex": "0x21405304",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863685,
+          "canid": 810,
+          "propid_hex": "0x21405305",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557871110,
+          "canid": 810,
+          "propid_hex": "0x21407006",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557929079,
+          "canid": 924,
+          "propid_hex": "0x21415277",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900626,
+          "canid": 924,
+          "propid_hex": "0x2140E352",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900628,
+          "canid": 924,
+          "propid_hex": "0x2140E354",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557929088,
+          "canid": 926,
+          "propid_hex": "0x21415280",
+          "canid_hex": "0x039E"
+        },
+        {
+          "propid": 557929078,
+          "canid": 923,
+          "propid_hex": "0x21415276",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900617,
+          "canid": 923,
+          "propid_hex": "0x2140E349",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900624,
+          "canid": 923,
+          "propid_hex": "0x2140E350",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900625,
+          "canid": 923,
+          "propid_hex": "0x2140E351",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557928498,
+          "canid": 861,
+          "propid_hex": "0x21415032",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928499,
+          "canid": 861,
+          "propid_hex": "0x21415033",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863446,
+          "canid": 861,
+          "propid_hex": "0x21405216",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863447,
+          "canid": 861,
+          "propid_hex": "0x21405217",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863448,
+          "canid": 861,
+          "propid_hex": "0x21405218",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928464,
+          "canid": 861,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557929081,
+          "canid": 893,
+          "propid_hex": "0x21415279",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557900763,
+          "canid": 893,
+          "propid_hex": "0x2140E3DB",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557900764,
+          "canid": 893,
+          "propid_hex": "0x2140E3DC",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557900765,
+          "canid": 893,
+          "propid_hex": "0x2140E3DD",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557900766,
+          "canid": 893,
+          "propid_hex": "0x2140E3DE",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557928729,
+          "canid": 894,
+          "propid_hex": "0x21415119",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557863430,
+          "canid": 894,
+          "propid_hex": "0x21405206",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557900594,
+          "canid": 837,
+          "propid_hex": "0x2140E332",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557900595,
+          "canid": 837,
+          "propid_hex": "0x2140E333",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557928835,
+          "canid": 1395,
+          "propid_hex": "0x21415183",
+          "canid_hex": "0x0573"
+        },
+        {
+          "propid": 559997750,
+          "canid": 874,
+          "propid_hex": "0x2160E336",
+          "canid_hex": "0x036A"
+        },
+        {
+          "propid": 561008791,
+          "canid": 811,
+          "propid_hex": "0x21705097",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863064,
+          "canid": 811,
+          "propid_hex": "0x21405098",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008793,
+          "canid": 811,
+          "propid_hex": "0x21705099",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008896,
+          "canid": 811,
+          "propid_hex": "0x21705100",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008915,
+          "canid": 811,
+          "propid_hex": "0x21705113",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008914,
+          "canid": 811,
+          "propid_hex": "0x21705112",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863250,
+          "canid": 811,
+          "propid_hex": "0x21405152",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008729,
+          "canid": 811,
+          "propid_hex": "0x21705059",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008736,
+          "canid": 811,
+          "propid_hex": "0x21705060",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008737,
+          "canid": 811,
+          "propid_hex": "0x21705061",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008738,
+          "canid": 811,
+          "propid_hex": "0x21705062",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008739,
+          "canid": 811,
+          "propid_hex": "0x21705063",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008759,
+          "canid": 811,
+          "propid_hex": "0x21705077",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008776,
+          "canid": 811,
+          "propid_hex": "0x21705088",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863313,
+          "canid": 811,
+          "propid_hex": "0x21405191",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863442,
+          "canid": 811,
+          "propid_hex": "0x21405212",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863456,
+          "canid": 811,
+          "propid_hex": "0x21405220",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 555765760,
+          "canid": 811,
+          "propid_hex": "0x21205000",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871105,
+          "canid": 811,
+          "propid_hex": "0x21407001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557899777,
+          "canid": 811,
+          "propid_hex": "0x2140E001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871107,
+          "canid": 811,
+          "propid_hex": "0x21407003",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900627,
+          "canid": 811,
+          "propid_hex": "0x2140E353",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900659,
+          "canid": 811,
+          "propid_hex": "0x2140E373",
+          "canid_hex": "0x032B"
+        }
+      ]
+    },
+    {
+      "name": "EQ100_t5",
+      "offset": "0x111DC8",
+      "capacity": 231,
+      "valid": 231,
+      "entries": [
+        {
+          "propid": 557900610,
+          "canid": 560,
+          "propid_hex": "0x2140E342",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900613,
+          "canid": 560,
+          "propid_hex": "0x2140E345",
+          "canid_hex": "0x0230"
+        },
+        {
+          "propid": 557900550,
+          "canid": 1104,
+          "propid_hex": "0x2140E306",
+          "canid_hex": "0x0450"
+        },
+        {
+          "propid": 557900577,
+          "canid": 1104,
+          "propid_hex": "0x2140E321",
+          "canid_hex": "0x0450"
+        },
+        {
+          "propid": 557900569,
+          "canid": 1141,
+          "propid_hex": "0x2140E319",
+          "canid_hex": "0x0475"
+        },
+        {
+          "propid": 557966226,
+          "canid": 1084,
+          "propid_hex": "0x2141E392",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 625009555,
+          "canid": 1084,
+          "propid_hex": "0x2540E393",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 625009556,
+          "canid": 1084,
+          "propid_hex": "0x2540E394",
+          "canid_hex": "0x043C"
+        },
+        {
+          "propid": 557900672,
+          "canid": 262,
+          "propid_hex": "0x2140E380",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 557966210,
+          "canid": 262,
+          "propid_hex": "0x2141E382",
+          "canid_hex": "0x0106"
+        },
+        {
+          "propid": 559997848,
+          "canid": 840,
+          "propid_hex": "0x2160E398",
+          "canid_hex": "0x0348"
+        },
+        {
+          "propid": 559997849,
+          "canid": 840,
+          "propid_hex": "0x2160E399",
+          "canid_hex": "0x0348"
+        },
+        {
+          "propid": 559997850,
+          "canid": 842,
+          "propid_hex": "0x2160E39A",
+          "canid_hex": "0x034A"
+        },
+        {
+          "propid": 559997851,
+          "canid": 842,
+          "propid_hex": "0x2160E39B",
+          "canid_hex": "0x034A"
+        },
+        {
+          "propid": 557900694,
+          "canid": 1113,
+          "propid_hex": "0x2140E396",
+          "canid_hex": "0x0459"
+        },
+        {
+          "propid": 557900695,
+          "canid": 1113,
+          "propid_hex": "0x2140E397",
+          "canid_hex": "0x0459"
+        },
+        {
+          "propid": 557900701,
+          "canid": 1113,
+          "propid_hex": "0x2140E39D",
+          "canid_hex": "0x0459"
+        },
+        {
+          "propid": 557900549,
+          "canid": 1087,
+          "propid_hex": "0x2140E305",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900563,
+          "canid": 1087,
+          "propid_hex": "0x2140E313",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557900664,
+          "canid": 1087,
+          "propid_hex": "0x2140E378",
+          "canid_hex": "0x043F"
+        },
+        {
+          "propid": 557863319,
+          "canid": 513,
+          "propid_hex": "0x21405197",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900633,
+          "canid": 513,
+          "propid_hex": "0x2140E359",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900702,
+          "canid": 513,
+          "propid_hex": "0x2140E39E",
+          "canid_hex": "0x0201"
+        },
+        {
+          "propid": 557900677,
+          "canid": 481,
+          "propid_hex": "0x2140E385",
+          "canid_hex": "0x01E1"
+        },
+        {
+          "propid": 557863220,
+          "canid": 1085,
+          "propid_hex": "0x21405134",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900564,
+          "canid": 1085,
+          "propid_hex": "0x2140E314",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900593,
+          "canid": 306,
+          "propid_hex": "0x2140E331",
+          "canid_hex": "0x0132"
+        },
+        {
+          "propid": 557900609,
+          "canid": 489,
+          "propid_hex": "0x2140E341",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900568,
+          "canid": 489,
+          "propid_hex": "0x2140E318",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557900608,
+          "canid": 489,
+          "propid_hex": "0x2140E340",
+          "canid_hex": "0x01E9"
+        },
+        {
+          "propid": 557863040,
+          "canid": 497,
+          "propid_hex": "0x21405080",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557863298,
+          "canid": 497,
+          "propid_hex": "0x21405182",
+          "canid_hex": "0x01F1"
+        },
+        {
+          "propid": 557900560,
+          "canid": 298,
+          "propid_hex": "0x2140E310",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557900700,
+          "canid": 298,
+          "propid_hex": "0x2140E39C",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 594563186,
+          "canid": 1085,
+          "propid_hex": "0x23705072",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008742,
+          "canid": 1085,
+          "propid_hex": "0x21705066",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863573,
+          "canid": 1085,
+          "propid_hex": "0x21405295",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900438,
+          "canid": 1085,
+          "propid_hex": "0x2140E296",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900439,
+          "canid": 1085,
+          "propid_hex": "0x2140E297",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900440,
+          "canid": 1085,
+          "propid_hex": "0x2140E298",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008752,
+          "canid": 1085,
+          "propid_hex": "0x21705070",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 561008753,
+          "canid": 1085,
+          "propid_hex": "0x21705071",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557900441,
+          "canid": 1085,
+          "propid_hex": "0x2140E299",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 557863701,
+          "canid": 1085,
+          "propid_hex": "0x21405315",
+          "canid_hex": "0x043D"
+        },
+        {
+          "propid": 591417383,
+          "canid": 1081,
+          "propid_hex": "0x23405027",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591455043,
+          "canid": 1081,
+          "propid_hex": "0x2340E343",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 557900584,
+          "canid": 1081,
+          "propid_hex": "0x2140E328",
+          "canid_hex": "0x0439"
+        },
+        {
+          "propid": 591418128,
+          "canid": 320,
+          "propid_hex": "0x23405310",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863478,
+          "canid": 320,
+          "propid_hex": "0x21405236",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008775,
+          "canid": 320,
+          "propid_hex": "0x21705087",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563206,
+          "canid": 320,
+          "propid_hex": "0x23705086",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863284,
+          "canid": 320,
+          "propid_hex": "0x21405174",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863255,
+          "canid": 320,
+          "propid_hex": "0x21405157",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 561008772,
+          "canid": 320,
+          "propid_hex": "0x21705084",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 594563205,
+          "canid": 320,
+          "propid_hex": "0x23705085",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557863570,
+          "canid": 320,
+          "propid_hex": "0x21405292",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900552,
+          "canid": 320,
+          "propid_hex": "0x2140E308",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557900727,
+          "canid": 320,
+          "propid_hex": "0x2140E3B7",
+          "canid_hex": "0x0140"
+        },
+        {
+          "propid": 557929080,
+          "canid": 925,
+          "propid_hex": "0x21415278",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 557900616,
+          "canid": 925,
+          "propid_hex": "0x2140E348",
+          "canid_hex": "0x039D"
+        },
+        {
+          "propid": 658563881,
+          "canid": 1322,
+          "propid_hex": "0x2740E329",
+          "canid_hex": "0x052A"
+        },
+        {
+          "propid": 557862937,
+          "canid": 381,
+          "propid_hex": "0x21405019",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008755,
+          "canid": 381,
+          "propid_hex": "0x21705073",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008757,
+          "canid": 381,
+          "propid_hex": "0x21705075",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 559997753,
+          "canid": 381,
+          "propid_hex": "0x2160E339",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900630,
+          "canid": 381,
+          "propid_hex": "0x2140E356",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 557900657,
+          "canid": 381,
+          "propid_hex": "0x2140E371",
+          "canid_hex": "0x017D"
+        },
+        {
+          "propid": 561008977,
+          "canid": 225,
+          "propid_hex": "0x21705151",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 557863269,
+          "canid": 225,
+          "propid_hex": "0x21405165",
+          "canid_hex": "0x00E1"
+        },
+        {
+          "propid": 559960132,
+          "canid": 1221,
+          "propid_hex": "0x21605044",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960134,
+          "canid": 1221,
+          "propid_hex": "0x21605046",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960152,
+          "canid": 1221,
+          "propid_hex": "0x21605058",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 559960151,
+          "canid": 1221,
+          "propid_hex": "0x21605057",
+          "canid_hex": "0x04C5"
+        },
+        {
+          "propid": 557863572,
+          "canid": 833,
+          "propid_hex": "0x21405294",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862936,
+          "canid": 833,
+          "propid_hex": "0x21405018",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900546,
+          "canid": 833,
+          "propid_hex": "0x2140E302",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 561008709,
+          "canid": 833,
+          "propid_hex": "0x21705045",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557900547,
+          "canid": 833,
+          "propid_hex": "0x2140E303",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863043,
+          "canid": 833,
+          "propid_hex": "0x21405083",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557862945,
+          "canid": 833,
+          "propid_hex": "0x21405021",
+          "canid_hex": "0x0341"
+        },
+        {
+          "propid": 557863041,
+          "canid": 441,
+          "propid_hex": "0x21405081",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 557862984,
+          "canid": 1097,
+          "propid_hex": "0x21405048",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904663,
+          "canid": 1097,
+          "propid_hex": "0x2140F317",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 561008721,
+          "canid": 1097,
+          "propid_hex": "0x21705051",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557904664,
+          "canid": 1097,
+          "propid_hex": "0x2140F318",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900658,
+          "canid": 1097,
+          "propid_hex": "0x2140E372",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900665,
+          "canid": 1097,
+          "propid_hex": "0x2140E379",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900675,
+          "canid": 1097,
+          "propid_hex": "0x2140E383",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900688,
+          "canid": 1097,
+          "propid_hex": "0x2140E390",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900693,
+          "canid": 1097,
+          "propid_hex": "0x2140E395",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900724,
+          "canid": 1097,
+          "propid_hex": "0x2140E3B4",
+          "canid_hex": "0x0449"
+        },
+        {
+          "propid": 557900725,
+          "canid": 1066,
+          "propid_hex": "0x2140E3B5",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900726,
+          "canid": 1066,
+          "propid_hex": "0x2140E3B6",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900774,
+          "canid": 1066,
+          "propid_hex": "0x2140E3E6",
+          "canid_hex": "0x042A"
+        },
+        {
+          "propid": 557900757,
+          "canid": 1251,
+          "propid_hex": "0x2140E3D5",
+          "canid_hex": "0x04E3"
+        },
+        {
+          "propid": 557900758,
+          "canid": 1251,
+          "propid_hex": "0x2140E3D6",
+          "canid_hex": "0x04E3"
+        },
+        {
+          "propid": 557900544,
+          "canid": 342,
+          "propid_hex": "0x2140E300",
+          "canid_hex": "0x0156"
+        },
+        {
+          "propid": 557863028,
+          "canid": 1116,
+          "propid_hex": "0x21405074",
+          "canid_hex": "0x045C"
+        },
+        {
+          "propid": 557900545,
+          "canid": 1065,
+          "propid_hex": "0x2140E301",
+          "canid_hex": "0x0429"
+        },
+        {
+          "propid": 557863225,
+          "canid": 1335,
+          "propid_hex": "0x21405139",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 557862965,
+          "canid": 1335,
+          "propid_hex": "0x21405035",
+          "canid_hex": "0x0537"
+        },
+        {
+          "propid": 624971796,
+          "canid": 1083,
+          "propid_hex": "0x25405014",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971812,
+          "canid": 1083,
+          "propid_hex": "0x25405024",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971798,
+          "canid": 1083,
+          "propid_hex": "0x25405016",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971799,
+          "canid": 1083,
+          "propid_hex": "0x25405017",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 591417381,
+          "canid": 1083,
+          "propid_hex": "0x23405025",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971797,
+          "canid": 1083,
+          "propid_hex": "0x25405015",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009476,
+          "canid": 1083,
+          "propid_hex": "0x2540E344",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 624971795,
+          "canid": 1083,
+          "propid_hex": "0x25405013",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557862946,
+          "canid": 1083,
+          "propid_hex": "0x21405022",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 625009444,
+          "canid": 1083,
+          "propid_hex": "0x2540E324",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 557863232,
+          "canid": 1083,
+          "propid_hex": "0x21405140",
+          "canid_hex": "0x043B"
+        },
+        {
+          "propid": 559960361,
+          "canid": 485,
+          "propid_hex": "0x21605129",
+          "canid_hex": "0x01E5"
+        },
+        {
+          "propid": 559997767,
+          "canid": 996,
+          "propid_hex": "0x2160E347",
+          "canid_hex": "0x03E4"
+        },
+        {
+          "propid": 557900548,
+          "canid": 1339,
+          "propid_hex": "0x2140E304",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 557929010,
+          "canid": 1339,
+          "propid_hex": "0x21415232",
+          "canid_hex": "0x053B"
+        },
+        {
+          "propid": 559960376,
+          "canid": 288,
+          "propid_hex": "0x21605138",
+          "canid_hex": "0x0120"
+        },
+        {
+          "propid": 560001814,
+          "canid": 663,
+          "propid_hex": "0x2160F316",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 559960370,
+          "canid": 663,
+          "propid_hex": "0x21605132",
+          "canid_hex": "0x0297"
+        },
+        {
+          "propid": 557863202,
+          "canid": 441,
+          "propid_hex": "0x21405122",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 561008929,
+          "canid": 441,
+          "propid_hex": "0x21705121",
+          "canid_hex": "0x01B9"
+        },
+        {
+          "propid": 559996931,
+          "canid": 647,
+          "propid_hex": "0x2160E003",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 559996932,
+          "canid": 647,
+          "propid_hex": "0x2160E004",
+          "canid_hex": "0x0287"
+        },
+        {
+          "propid": 557863296,
+          "canid": 885,
+          "propid_hex": "0x21405180",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863238,
+          "canid": 885,
+          "propid_hex": "0x21405146",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863241,
+          "canid": 885,
+          "propid_hex": "0x21405149",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863240,
+          "canid": 885,
+          "propid_hex": "0x21405148",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863682,
+          "canid": 885,
+          "propid_hex": "0x21405302",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557863683,
+          "canid": 885,
+          "propid_hex": "0x21405303",
+          "canid_hex": "0x0375"
+        },
+        {
+          "propid": 557929089,
+          "canid": 927,
+          "propid_hex": "0x21415281",
+          "canid_hex": "0x039F"
+        },
+        {
+          "propid": 561008916,
+          "canid": 895,
+          "propid_hex": "0x21705114",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008917,
+          "canid": 895,
+          "propid_hex": "0x21705115",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863234,
+          "canid": 895,
+          "propid_hex": "0x21405142",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 561008743,
+          "canid": 895,
+          "propid_hex": "0x21705067",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928807,
+          "canid": 895,
+          "propid_hex": "0x21415167",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928758,
+          "canid": 895,
+          "propid_hex": "0x21415136",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928821,
+          "canid": 895,
+          "propid_hex": "0x21415175",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862967,
+          "canid": 895,
+          "propid_hex": "0x21405037",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 555765814,
+          "canid": 895,
+          "propid_hex": "0x21205036",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862968,
+          "canid": 895,
+          "propid_hex": "0x21405038",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862977,
+          "canid": 895,
+          "propid_hex": "0x21405041",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862969,
+          "canid": 895,
+          "propid_hex": "0x21405039",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863257,
+          "canid": 895,
+          "propid_hex": "0x21405159",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557928823,
+          "canid": 895,
+          "propid_hex": "0x21415177",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557862976,
+          "canid": 895,
+          "propid_hex": "0x21405040",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557900678,
+          "canid": 895,
+          "propid_hex": "0x2140E386",
+          "canid_hex": "0x037F"
+        },
+        {
+          "propid": 557863170,
+          "canid": 859,
+          "propid_hex": "0x21405102",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557928736,
+          "canid": 859,
+          "propid_hex": "0x21415120",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 557863441,
+          "canid": 859,
+          "propid_hex": "0x21405211",
+          "canid_hex": "0x035B"
+        },
+        {
+          "propid": 644894864,
+          "canid": 298,
+          "propid_hex": "0x26705090",
+          "canid_hex": "0x012A"
+        },
+        {
+          "propid": 557928500,
+          "canid": 860,
+          "propid_hex": "0x21415034",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 559960375,
+          "canid": 860,
+          "propid_hex": "0x21605137",
+          "canid_hex": "0x035C"
+        },
+        {
+          "propid": 557936647,
+          "canid": 919,
+          "propid_hex": "0x21417007",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557900679,
+          "canid": 919,
+          "propid_hex": "0x2140E387",
+          "canid_hex": "0x0397"
+        },
+        {
+          "propid": 557863443,
+          "canid": 918,
+          "propid_hex": "0x21405213",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557928854,
+          "canid": 918,
+          "propid_hex": "0x21415196",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863715,
+          "canid": 918,
+          "propid_hex": "0x21405323",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557900599,
+          "canid": 918,
+          "propid_hex": "0x2140E337",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557871120,
+          "canid": 918,
+          "propid_hex": "0x21407010",
+          "canid_hex": "0x0396"
+        },
+        {
+          "propid": 557863689,
+          "canid": 920,
+          "propid_hex": "0x21405309",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863697,
+          "canid": 920,
+          "propid_hex": "0x21405311",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557929253,
+          "canid": 920,
+          "propid_hex": "0x21415325",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557863699,
+          "canid": 920,
+          "propid_hex": "0x21405313",
+          "canid_hex": "0x0398"
+        },
+        {
+          "propid": 557928464,
+          "canid": 810,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863233,
+          "canid": 810,
+          "propid_hex": "0x21405141",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863239,
+          "canid": 810,
+          "propid_hex": "0x21405147",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863272,
+          "canid": 810,
+          "propid_hex": "0x21405168",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863273,
+          "canid": 810,
+          "propid_hex": "0x21405169",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863280,
+          "canid": 810,
+          "propid_hex": "0x21405170",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863281,
+          "canid": 810,
+          "propid_hex": "0x21405171",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863282,
+          "canid": 810,
+          "propid_hex": "0x21405172",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863681,
+          "canid": 810,
+          "propid_hex": "0x21405301",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863687,
+          "canid": 810,
+          "propid_hex": "0x21405307",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863686,
+          "canid": 810,
+          "propid_hex": "0x21405306",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863577,
+          "canid": 810,
+          "propid_hex": "0x21405299",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557900631,
+          "canid": 810,
+          "propid_hex": "0x2140E357",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863680,
+          "canid": 810,
+          "propid_hex": "0x21405300",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863684,
+          "canid": 810,
+          "propid_hex": "0x21405304",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557863685,
+          "canid": 810,
+          "propid_hex": "0x21405305",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557871110,
+          "canid": 810,
+          "propid_hex": "0x21407006",
+          "canid_hex": "0x032A"
+        },
+        {
+          "propid": 557929079,
+          "canid": 924,
+          "propid_hex": "0x21415277",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900626,
+          "canid": 924,
+          "propid_hex": "0x2140E352",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557900628,
+          "canid": 924,
+          "propid_hex": "0x2140E354",
+          "canid_hex": "0x039C"
+        },
+        {
+          "propid": 557929088,
+          "canid": 926,
+          "propid_hex": "0x21415280",
+          "canid_hex": "0x039E"
+        },
+        {
+          "propid": 557929078,
+          "canid": 923,
+          "propid_hex": "0x21415276",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900617,
+          "canid": 923,
+          "propid_hex": "0x2140E349",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900624,
+          "canid": 923,
+          "propid_hex": "0x2140E350",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557900625,
+          "canid": 923,
+          "propid_hex": "0x2140E351",
+          "canid_hex": "0x039B"
+        },
+        {
+          "propid": 557928498,
+          "canid": 861,
+          "propid_hex": "0x21415032",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928499,
+          "canid": 861,
+          "propid_hex": "0x21415033",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863446,
+          "canid": 861,
+          "propid_hex": "0x21405216",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863447,
+          "canid": 861,
+          "propid_hex": "0x21405217",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557863448,
+          "canid": 861,
+          "propid_hex": "0x21405218",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557928464,
+          "canid": 861,
+          "propid_hex": "0x21415010",
+          "canid_hex": "0x035D"
+        },
+        {
+          "propid": 557929081,
+          "canid": 893,
+          "propid_hex": "0x21415279",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557900660,
+          "canid": 893,
+          "propid_hex": "0x2140E374",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557900661,
+          "canid": 893,
+          "propid_hex": "0x2140E375",
+          "canid_hex": "0x037D"
+        },
+        {
+          "propid": 557928729,
+          "canid": 894,
+          "propid_hex": "0x21415119",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557863430,
+          "canid": 894,
+          "propid_hex": "0x21405206",
+          "canid_hex": "0x037E"
+        },
+        {
+          "propid": 557900594,
+          "canid": 837,
+          "propid_hex": "0x2140E332",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557900595,
+          "canid": 837,
+          "propid_hex": "0x2140E333",
+          "canid_hex": "0x0345"
+        },
+        {
+          "propid": 557928835,
+          "canid": 1395,
+          "propid_hex": "0x21415183",
+          "canid_hex": "0x0573"
+        },
+        {
+          "propid": 559997750,
+          "canid": 874,
+          "propid_hex": "0x2160E336",
+          "canid_hex": "0x036A"
+        },
+        {
+          "propid": 561008791,
+          "canid": 811,
+          "propid_hex": "0x21705097",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863064,
+          "canid": 811,
+          "propid_hex": "0x21405098",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008793,
+          "canid": 811,
+          "propid_hex": "0x21705099",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008896,
+          "canid": 811,
+          "propid_hex": "0x21705100",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008915,
+          "canid": 811,
+          "propid_hex": "0x21705113",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008914,
+          "canid": 811,
+          "propid_hex": "0x21705112",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863250,
+          "canid": 811,
+          "propid_hex": "0x21405152",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008729,
+          "canid": 811,
+          "propid_hex": "0x21705059",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008736,
+          "canid": 811,
+          "propid_hex": "0x21705060",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008737,
+          "canid": 811,
+          "propid_hex": "0x21705061",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008738,
+          "canid": 811,
+          "propid_hex": "0x21705062",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008739,
+          "canid": 811,
+          "propid_hex": "0x21705063",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008759,
+          "canid": 811,
+          "propid_hex": "0x21705077",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 561008776,
+          "canid": 811,
+          "propid_hex": "0x21705088",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863289,
+          "canid": 811,
+          "propid_hex": "0x21405179",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863313,
+          "canid": 811,
+          "propid_hex": "0x21405191",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863442,
+          "canid": 811,
+          "propid_hex": "0x21405212",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557863456,
+          "canid": 811,
+          "propid_hex": "0x21405220",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 555765760,
+          "canid": 811,
+          "propid_hex": "0x21205000",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871108,
+          "canid": 811,
+          "propid_hex": "0x21407004",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871105,
+          "canid": 811,
+          "propid_hex": "0x21407001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557899777,
+          "canid": 811,
+          "propid_hex": "0x2140E001",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557871107,
+          "canid": 811,
+          "propid_hex": "0x21407003",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900627,
+          "canid": 811,
+          "propid_hex": "0x2140E353",
+          "canid_hex": "0x032B"
+        },
+        {
+          "propid": 557900659,
+          "canid": 811,
+          "propid_hex": "0x2140E373",
+          "canid_hex": "0x032B"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_entries": 1157,
+    "unique_canids": 69,
+    "canid_range": "0xE1 ~ 0x573",
+    "canids_sorted": [
+      "0x00E1",
+      "0x0106",
+      "0x0120",
+      "0x012A",
+      "0x0132",
+      "0x0140",
+      "0x0156",
+      "0x017D",
+      "0x01B9",
+      "0x01E1",
+      "0x01E5",
+      "0x01E9",
+      "0x01F1",
+      "0x0201",
+      "0x0230",
+      "0x0287",
+      "0x0297",
+      "0x0316",
+      "0x031E",
+      "0x032A",
+      "0x032B",
+      "0x0341",
+      "0x0345",
+      "0x0348",
+      "0x034A",
+      "0x0359",
+      "0x035B",
+      "0x035C",
+      "0x035D",
+      "0x035E",
+      "0x036A",
+      "0x0375",
+      "0x037D",
+      "0x037E",
+      "0x037F",
+      "0x0396",
+      "0x0397",
+      "0x0398",
+      "0x039B",
+      "0x039C",
+      "0x039D",
+      "0x039E",
+      "0x039F",
+      "0x03E4",
+      "0x03EA",
+      "0x0429",
+      "0x042A",
+      "0x042B",
+      "0x0439",
+      "0x043B",
+      "0x043C",
+      "0x043D",
+      "0x043F",
+      "0x0448",
+      "0x0449",
+      "0x044C",
+      "0x044D",
+      "0x044F",
+      "0x0450",
+      "0x0459",
+      "0x045C",
+      "0x0475",
+      "0x04C5",
+      "0x04E3",
+      "0x04F1",
+      "0x052A",
+      "0x0537",
+      "0x053B",
+      "0x0573"
+    ],
+    "dash_overlap": [
+      "0x032A"
+    ],
+    "dash_overlap_count": 1
+  }
+}

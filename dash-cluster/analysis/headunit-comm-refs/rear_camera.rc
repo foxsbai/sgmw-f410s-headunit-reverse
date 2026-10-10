@@ -1,0 +1,38 @@
+service pateo_rear_cam /system/bin/pateo_rear_cam 0
+    class main
+    user root
+    group root
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+service pateo_rear_cam_avm /system/bin/pateo_rear_cam 1
+    class main
+    user root
+    group root
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+service pateo_rear_cam_apa /system/bin/pateo_rear_cam 2
+    class main
+    user root
+    group root
+    seclabel u:r:shell:s0
+    disabled
+    oneshot
+
+
+on property:pateo.rear_camera.start=1
+   start pateo_rear_cam
+
+on property:pateo.rear_camera.start=2
+   start pateo_rear_cam_avm
+
+on property:pateo.rear_camera.start=3
+   start pateo_rear_cam_apa
+
+on property:pateo.rear_camera.start=0
+   stop pateo_rear_cam
+   stop pateo_rear_cam_avm
+   stop pateo_rear_cam_apa
