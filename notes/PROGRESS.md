@@ -68,6 +68,21 @@ python3 scripts/watch_render.py          # 监视模式
 
 让指针随车速转，需改 `update.bin` @0x40000 的 app 代码，在车速更新点插入 `lookup + set_angle`。方案见 [app-code-binding.md](app-code-binding.md) 第五节。
 
+---
+
+### 📌 换 UI 安全须知（已验证：不会"一堆报错"）
+
+换自定义 UI 后会不会崩溃？——**不会**。app 代码每次 `widget_lookup` 后都有 `cmp r0,#0 / beq skip`（NULL-safe），找不到控件就静默跳过，不崩溃。
+
+- 删控件 / 改控件名 → 该功能静默不显示（不崩溃）
+- 保留控件名改位置/样式 → 功能正常
+- 新增控件（新名字）→ 代码无引用，安全无副作用
+- **唯一会崩的**：改了 app 代码 / ROMA 但没重算 CRC → 仪表校验失败拒启动
+
+详细分析 + 安全边界 + 推荐策略：[ui-visible-widgets-analysis.md](ui-visible-widgets-analysis.md)
+
+**没有"代码就绪但未启用"的隐藏功能**：全部 202 个控件都被代码操作，visible=false 只是"等触发条件"的正常初始状态（如报警灯平时不亮、故障时才亮），不是被关闭的功能。
+
 **前置确认**：✅ 已确定。r5 = 车速 km/h（snprintf fmt=`"%d"` 实锤，无缩放），范围 0~180（电子限速 175，下坡滑行 180），`angle = r5×1.5−120`。反汇编 speed update 函数（入口 0x201910f8）prologue 实锤 r5 = r1[0x1c] u16，数据链路：CAN 0x32A → RAM 0x10000730 → AWTK event[0x1c] → r5。无需实机抓包。
 
 ---
