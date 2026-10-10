@@ -101,34 +101,138 @@
 
 ### 三、AWTK XML 语法参考（必须严格遵循）
 
+**语法要点：**
+- 根元素 `<window>`，所有控件平铺在 window 下（AWTK 不支持任意深嵌套，gauge 内部可含 gauge_pointer）
+- 控件定位：`x` `y` `w` `h`（像素），`x="c"` 表示水平居中，`y="c"` 垂直居中
+- `gauge_pointer` 的 `value` 属性 = 旋转角度（12点方向=0度，顺时针为正，负数逆时针）
+- `anchor_x="0.5" anchor_y="1.0"` = 旋转锚点在指针底部中心
+- `progress_circle`：`start_angle` 起始角度，`line_width` 弧宽，`value`/`max` 当前进度
+- 字体样式：`style:normal:font_name="Montserrat_Semi_Bold" style:normal:font_size="44" style:normal:text_align_h="center" style:normal:text_color="#E0E0E0"`
+- 图片引用：`image="名称"`（不含 .png 后缀）
+
+**完整真实示例 1 — 双表盘布局（已验证可渲染）：**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-  <!-- 图片控件 -->
+  <!-- 深色背景 -->
   <image x="0" y="0" w="1280" h="480" image="Bg_1" draw_type="default"/>
 
-  <!-- 指针表盘：gauge 是表盘背景容器，gauge_pointer 是指针 -->
-  <!-- gauge_pointer 的 value 属性 = 旋转角度（12点方向=0度，顺时针为正） -->
-  <!-- anchor_x/anchor_y = 旋转锚点（0.5, 1.0 = 底部中心，指针绕底部转） -->
+  <!-- 左表盘: 转速 (340x340) -->
   <gauge x="60" y="70" w="340" h="340" image="audi_gauge_bg">
     <gauge_pointer x="c" y="c" w="28" h="170" value="-60"
         image="audi_pointer"
         anchor_x="0.5" anchor_y="1.0"/>
   </gauge>
+  <!-- 转速数字 -->
+  <label x="145" y="330" w="150" h="60" text="2.5"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="44"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+  <label x="165" y="375" w="110" h="24" text="x1000"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="18"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"
+        opacity="180"/>
 
-  <!-- 弧形进度条：progress_circle，start_angle=起始角度，line_width=弧宽 -->
-  <progress_circle x="c" y="180" w="120" h="120" value="65" max="100"
-      start_angle="-90" line_width="6"
-      style:normal:fg_color="#3A8AFF"
-      style:normal:bg_color="#2A2A35"
-      style:normal:text_color="#E0E0E0"/>
-
-  <!-- 文字标签：label，x/y/w/h 定位，x="c" 表示水平居中 -->
+  <!-- 中央: 挡位 + 弧形进度条(电量) -->
   <label x="c" y="40" w="120" h="50" text="D"
         style:normal:font_name="Montserrat_Semi_Bold"
         style:normal:font_size="44"
         style:normal:text_align_h="center"
         style:normal:text_color="#E0E0E0"/>
+  <progress_circle x="c" y="180" w="120" h="120" value="65" max="100"
+      start_angle="-90" line_width="6"
+      style:normal:fg_color="#3A8AFF"
+      style:normal:bg_color="#2A2A35"
+      style:normal:text_color="#E0E0E0"/>
+  <label x="c" y="215" w="120" h="36" text="65%"
+        style:normal:font_name="Montserrat_Medium"
+        style:normal:font_size="28"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+
+  <!-- 右表盘: 车速 (340x340) -->
+  <gauge x="880" y="70" w="340" h="340" image="audi_gauge_bg">
+    <gauge_pointer x="c" y="c" w="28" h="170" value="70"
+        image="audi_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <label x="965" y="320" w="170" h="70" text="88"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="56"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#E0E0E0"/>
+  <label x="985" y="375" w="130" h="24" text="km/h"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="18"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"
+        opacity="180"/>
+
+  <!-- 底部信息条 -->
+  <label x="60" y="430" w="200" h="30" text="总里程 12,345 km"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_color="#909098"/>
+  <label x="c" y="430" w="200" h="30" text="小计 128.5 km"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#909098"/>
+  <label x="1020" y="430" w="200" h="30" text="续航 456 km"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="16"
+        style:normal:text_align_h="right"
+        style:normal:text_color="#909098"/>
+</window>
+```
+
+**完整真实示例 2 — 带背景装饰条 + 中央 ADAS 区 + 双表盘（已验证可渲染）：**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+  <!-- 背景层: 全背景 + 左右装饰条 + 底部条 -->
+  <image x="0" y="0" w="1280" h="480" image="Bg_2" draw_type="default"/>
+  <image x="56" y="26" w="388" h="454" image="BgDrivingAdorn_L2" draw_type="default"/>
+  <image x="836" y="26" w="388" h="454" image="BgDrivingAdorn_R2" draw_type="default"/>
+  <image x="0" y="400" w="1280" h="76" image="BgDrivingAdorn_B2" draw_type="default"/>
+
+  <!-- 中央 ADAS 雷达区: 车道线 + 俯视车 + 挡位图 -->
+  <image x="436" y="200" w="449" h="280" image="DrivingBg_Lane2" draw_type="default"/>
+  <image x="583" y="341" w="113" h="84" image="NomCar" draw_type="default"/>
+  <image x="538" y="59" w="208" h="26" image="Gear_N2" draw_type="default"/>
+
+  <!-- 左侧: 转速指针表盘 (gauge 中心约 250,253) -->
+  <gauge x="100" y="100" w="300" h="300" image="gauge_bg">
+    <gauge_pointer x="c" y="44" w="30" h="180" value="-30"
+        image="gauge_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <label x="180" y="245" w="140" h="60" text="2.5"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="48"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+
+  <!-- 右侧: 车速指针表盘 (gauge 中心约 1030,253) -->
+  <gauge x="880" y="100" w="300" h="300" image="gauge_bg">
+    <gauge_pointer x="c" y="44" w="30" h="180" value="45"
+        image="gauge_pointer"
+        anchor_x="0.5" anchor_y="1.0"/>
+  </gauge>
+  <label x="960" y="335" w="140" h="60" text="88"
+        style:normal:font_name="Montserrat_Semi_Bold"
+        style:normal:font_size="48"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"/>
+  <label x="980" y="375" w="100" h="28" text="km/h"
+        style:normal:font_name="Montserrat_Regular"
+        style:normal:font_size="20"
+        style:normal:text_align_h="center"
+        style:normal:text_color="#080D11"
+        opacity="153"/>
 </window>
 ```
 
