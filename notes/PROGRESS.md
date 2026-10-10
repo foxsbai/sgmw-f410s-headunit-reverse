@@ -64,11 +64,11 @@ python3 scripts/watch_render.py          # 监视模式
 
 界面定稿后，封包刷入。此时指针停在初始角度，但能验证"改资源→刷机"真机可用。
 
-### 4. 🟢 指针动态化（改 app 代码，方案已定）
+### 4. 🟢 指针动态化（改 app 代码，方案已定，参数全确定）
 
 让指针随车速转，需改 `update.bin` @0x40000 的 app 代码，在车速更新点插入 `lookup + set_angle`。方案见 [app-code-binding.md](app-code-binding.md) 第五节。
 
-**前置确认**：r5 寄存器（车速值）的单位/范围。可刷过基础版后实机抓包，或继续反汇编 r5 来源。
+**前置确认**：✅ 已确定。r5 = 车速 km/h（snprintf fmt=`"%d"` 实锤，无缩放），范围 0~180（电子限速 175，下坡滑行 180），`angle = r5×1.5−120`。反汇编 speed update 函数（入口 0x201910f8）prologue 实锤 r5 = r1[0x1c] u16，数据链路：CAN 0x32A → RAM 0x10000730 → AWTK event[0x1c] → r5。无需实机抓包。
 
 ---
 

@@ -106,7 +106,7 @@ sgmw-launcher-reverse/
 - **车机 IP = 192.168.2.99**（由 `instrument_network_config.sh` 配置），仪表主动 TCP 连接。
 - **车机 HAL 的 propid↔canid 映射表已逆汇编提取**（1157 条，69 个唯一 CAN ID），脚本 `dash-cluster/scripts/extract_propid_canid.py`，产物 `dash-cluster/analysis/propid_canid_map.json`。
 - **车机 CAN 域（0xE1~0x573）与仪表 CAN 域（0x108~0xF8A）交集仅 1 条（0x32A）→ 两域经网关交汇，非直连。**
-- **改仪表 UI 让指针转起来的唯一卡点 = r5（车速原始值）的单位/范围**，实机抓一次即解，不需要车机侧完整信号映射。
+- **改仪表 UI 让指针转起来的参数已全部确定**：r5 = 车速 km/h（snprintf fmt=`"%d"` 实锤，无缩放），范围 0~180（电子限速 175），`angle = r5×1.5−120`，不需实机抓包。
 
 ---
 
