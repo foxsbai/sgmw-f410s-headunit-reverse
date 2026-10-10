@@ -82,37 +82,89 @@ bl   0x20159fe4                      ; widget_set_prop(widget, "text_color", "#0
 
 ---
 
-## 五、指针动态化改造方案（已明确可行）
+## 五、指针动态化改造方案（参数已全部确定 ✅）
 
-要让新加的 `gauge_pointer`（name=`Speed_Gauge`）随车速转，在 `Speed_dat` 数据更新点（@0x2019116c 之后）插入代码：
+### 5.0 r5 来源与单位（静态反汇编已完全确定）
+
+反汇编 speed update 函数（入口 `0x201910f8`）的完整 prologue，**r5 的来源链路彻底搞清**：
 
 ```arm
-; 此处 r5=车速值, r6=Speed_dat widget, r4=root 仍在可用范围
+0x201910f8:  push  {r4, r5, r6, r7, r8, lr}
+0x201910fc:  movs  r4, r0                 ; r4 = root（函数参数1）
+0x20191100:  ldrh  r0, [r1, #0x1c]        ; 从参数2(r1)的偏移0x1c读 u16 ← r5来源
+0x20191104:  lsls  r0, r0, #0x10
+0x20191108:  lsrs  r5, r0, #0x10          ; r5 = r1[0x1c] 的 u16 值
+0x2019110c:  ldrh  r0, [r4, #0x1c]        ; 读 root 缓存的旧值
+0x20191114:  cmp   r5, r0, lsr #16        ; 脏检查：新值≠旧值才更新
+0x20191118:  beq   0x201911d8             ; 相同则跳过（不刷 UI）
+```
+
+**数据链路（完整）：**
+```
+MCU CAN 收到 0x32A → 写 RAM 0x10000730 (u16)
+  ↓ (mcuapp 代码段 0x34FE8+ 缺失, 逻辑不可见, 但数据表实锤)
+仪表 app 事件循环 → 填入 AWTK value_change_event_t 结构体 [0x1c] 偏移
+  ↓ (通过函数指针/dispatch 间接调用, 无静态 BL)
+speed_update(0x201910f8): r1[0x1c] → r5 → snprintf("%d") → widget_set_text
+```
+
+**关键证据：snprintf 的 fmt = `"%d"`**（literal pool 解析实锤，`add r2,pc,#0x24c` → 字符串 `"%d"`）。
+
+这意味着 **r5 被直接当十进制整数格式化显示，没有缩放、没有单位后缀**。r5 就是仪表盘上显示的那个数字——如果仪表显示"120"，r5=120。
+
+**结论：r5 的单位 = km/h，值范围 = 0~180**（电子限速 175，下坡滑行极限 180）。**无需实机抓包确认。**
+
+### 5.1 换算公式（已确定）
+
+```
+angle = r5 × 1.5 − 120
+```
+
+| r5 (km/h) | 计算 | 角度 |
+|---|---|---|
+| 0 | 0×1.5−120 | −120°（起始） |
+| 60 | 60×1.5−120 | −30° |
+| 120 | 120×1.5−120 | +60° |
+| 175 | 175×1.5−120 | +142.5°（电子限速） |
+| 180 | 180×1.5−120 | +150°（满偏） |
+
+### 5.2 注入代码（最终版，参数全确定）
+
+在 `Speed_dat` 数据更新点（@0x2019116c 的 `widget_set_text` 之后）插入：
+
+```arm
+; 注入点 @0x2019116c 后 (widget_set_text 之后)
+; 此时: r5=车速(km/h, 0~180), r4=root, r0~r3 可用
+; angle = r5 * 1.5 - 120 = r5 * 3 / 2 - 120
+
 ldr  r1, [pc, #off]        ; = "Speed_Gauge" (新指针 name)
 mov  r0, r4                ; root
 bl   0x20151160            ; widget_lookup(root, "Speed_Gauge") → R0=指针widget
 cmp  r0, #0
 beq  skip
-; 车速→角度: angle = speed * 系数 + 偏移 (0km/h=-120°, 180km/h=+150°)
-mov  r1, r5                ; angle 参数 (R1), 需换算
+
+mov  r1, r5                ; r1 = r5 (车速)
+add  r1, r1, r1, lsl #1   ; r1 = r5 × 3
+asr  r1, r1, #1           ; r1 = r5 × 1.5
+sub  r1, r1, #120         ; r1 = r5 × 1.5 − 120 = angle
 bl   0x20263eac            ; gauge_pointer_set_angle(gp, angle)
 skip:
 ```
 
-### 实现要点
+### 5.3 实现要点
 
 1. **插入点**：@0x20191170 附近（Speed_dat set_text 之后），需移动后续代码腾空间或用**跳板**（跳到代码区空隙的 trampoline）。
 2. **literal pool**：需加 `"Speed_Gauge"` 字符串，放在数据区。
 3. **CRC**：改代码区不动 BANI/ROMA，只动 update.bin @0x40000 区，重算 update.bin 头 CRC（@0x0C），`scripts/crc.py patch` 支持。
-4. **换算系数**：r5 的值范围/单位待确认（km/h？可能 CAN 原始值需换算）。可通过实机抓包或反汇编 r5 来源确认。
+4. **~~换算系数：r5 的值范围/单位待确认~~** → ✅ **已确定**：r5=km/h，范围 0~180，`angle = r5×1.5−120`。
 5. **其他控件同理**：`Power_data`/`BatSoc_bar` 等的数据更新点可用同样方法定位（都有 `widget_set_text`/`widget_set_value` 调用模式）。
 
 ### 难度评估
 
 - **反汇编定位**：✅ 已完成（控件名 LDR + BL 调用模式清晰）
 - **插入代码**：⚠️ 需处理代码空间（trampoline）和 literal pool 布局，改裸 ARM 二进制
-- **数据换算**：⚠️ r5 单位/范围待实机确认
-- **整体**：可行，是"改 app 代码让指针动"的唯一可靠路径
+- **数据换算**：✅ 已确定（r5=km/h，范围 0~180，`angle = r5×1.5−120`，snprintf fmt=`"%d"` 实锤）
+- **整体**：可行，是"改 app 代码让指针动"的唯一可靠路径，所有参数已确定
 
 ---
 
