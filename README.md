@@ -102,7 +102,7 @@ sgmw-launcher-reverse/
 
 👉 **[通信架构互相印证](notes/comm-architecture-crosscheck.md)** · **[数据流框架图 + 改 UI 必须信息清单](notes/comm-framework-diagram.md)** —— 从车机 OTA 包提取 vehicle HAL / libxrpc / libRpcData / libelectricdiagnostic / instrument_network_config.sh，与仪表侧 app 代码（FreeRTOS-Plus-TCP）互相印证。核心结论：
 
-- **两条独立通道**：① TCP 10001（仪表←车机 拉取 OTA 固件）/ 10002（仪表→车机 回传日志），帧格式 `type+subtype+data+len`；② CAN 总线（车辆信号），车机经 vehicle HAL→libxrpc→MCU。
+- **两条独立通道**：① TCP 10001/10002（仪表↔车机，OTA 固件拉取 + 日志回传，帧格式 `type+subtype+data+len`；两端口连接字符串在 .rodata 成对出现、与 OTA/日志字符串交错，**端口↔功能的精确分配待实机确认**），② CAN 总线（车辆信号），车机经 vehicle HAL→libxrpc→MCU。
 - **车机 IP = 192.168.2.99**（由 `instrument_network_config.sh` 配置），仪表主动 TCP 连接。
 - **车机 HAL 的 propid↔canid 映射表已逆汇编提取**（1157 条，69 个唯一 CAN ID），脚本 `dash-cluster/scripts/extract_propid_canid.py`，产物 `dash-cluster/analysis/propid_canid_map.json`。
 - **车机 CAN 域（0xE1~0x573）与仪表 CAN 域（0x108~0xF8A）交集仅 1 条（0x32A）→ 两域经网关交汇，非直连。**
@@ -159,7 +159,7 @@ sgmw-launcher-reverse/
 | 车机屏幕 | 1920×1080 横屏（mdpi，1dp≈1px） |
 | 仪表盘 | 独立设备：AMT630H V100 + Cortex-M MCU，FreeRTOS + AWTK，1280×480 |
 | CarPlay | DiPlay 0.2.12 + ap0 的 IPv6 OUTPUT 路由，✅ 无线跑通 |
-| 车机↔仪表通信 | TCP 10001(OTA)/10002(日志) + CAN 总线；两 CAN 域交集仅 0x32A |
+| 车机↔仪表通信 | TCP 10001/10002(OTA+日志) + CAN 总线；两 CAN 域交集仅 0x32A |
 
 详见 `notes/architecture.md`、`notes/rom-analysis.md`、`notes/launcher-analysis.md`、`notes/instrument-cluster.md`、`notes/comm-architecture-crosscheck.md`。
 

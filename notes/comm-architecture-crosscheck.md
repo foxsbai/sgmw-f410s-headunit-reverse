@@ -7,9 +7,9 @@
 
 ## 0. 一句话核心结论
 
-**仪表盘(FreeRTOS + FreeRTOS-Plus-TCP)主动 TCP 连接车机 192.168.2.99 的两个端口，用 `type/subtype/data/len` 帧协议双向通信：10001 = 仪表从车机拉取 OTA 固件更新(net_update.c)，10002 = 仪表向车机回传日志(net_log.c)。** 车机侧 IP 由 `instrument_network_config.sh` 配置为 192.168.2.99/24。
+**仪表盘(FreeRTOS + FreeRTOS-Plus-TCP)主动 TCP 连接车机 192.168.2.99 的两个端口（10001/10002），用 `type/subtype/data/len` 帧协议双向通信，承载 OTA 固件拉取(net_update.c) + 日志回传(net_log.c)。** 注意：10001/10002 两个端口的连接字符串在 .rodata 中成对相邻出现、与 OTA 和日志字符串交错，**仅凭字符串无法可靠确定哪个端口对应哪个功能**——10001=OTA/10002=日志 是一种合理推断但未经实机确认，精确分配待实机 `netstat` 抓取。车机侧 IP 由 `instrument_network_config.sh` 配置为 192.168.2.99/24。
 
-仪表的车辆信号(车速/转速/档位/报警灯)走**另一条独立通道 = CAN 总线**(mcuapp.bin 的 59 条 RAM↔CAN_ID 信号表)，不经 TCP。车机侧的车辆信号则经 vehicle HAL → libxrpc/libRpcData(CRC16) → netlink/`/dev/cis_rpc_node` 到 MCU/CAN。
+仪表的车辆信号(车速/转速/档位/报警灯)走**另一条独立通道 = CAN 总线**(mcuapp.bin 的 58 条有效 RAM↔CAN_ID 信号表 + 1 条哨兵/padding 条目)，不经 TCP。车机侧的车辆信号则经 vehicle HAL → libxrpc/libRpcData(CRC16) → netlink/`/dev/cis_rpc_node` 到 MCU/CAN。
 
 ---
 
@@ -35,9 +35,9 @@
 
 ### 2.1 TCP 连接（主动方）
 ```
-Connect to 192.168.2.99:10001 fail.     # OTA 更新通道
+Connect to 192.168.2.99:10001 fail.     # 端口↔功能分配待实机确认（见§2.3说明）
 Connect to 192.168.2.99:10001 ok.
-Connect to 192.168.2.99:10002 fail.     # 日志回传通道
+Connect to 192.168.2.99:10002 fail.     # 同上
 Connect to 192.168.2.99:10002 ok.
 ```
 TCP 栈源码路径暴露（FreeRTOS-Plus-TCP）：
@@ -65,7 +65,7 @@ rev frame type=0x%x, subtype=0x%x, len=%d.
 
 ### 2.3 两条通道用途（上下文实锤）
 
-**10001 = net_update.c（OTA 固件拉取）：**
+**net_update.c（OTA 固件拉取）：**
 ```
 Connect to 192.168.2.99:10001 ok.
 md5 is same as previous, continue rev.
@@ -78,9 +78,9 @@ Start installing the SOC's update.bin upgrade file.
 Tell the mcu to start the upgrade.
 Successful upgrade, about to restart.
 ```
-源码：`app\net_update.c`。流程：仪表连 10001 → 车机推送 update.bin → 仪表校验 magic/md5 → backup_whole_image → 烧写 SOC(update.bin) + MCU(mcuapp.bin) → checksum → 重启。**这就是车机向仪表推送 OTA 的链路（仪表 OTA 的另一条路是 USB 刷入，两者并存）。**
+源码：`app\net_update.c`。流程：仪表连车机 → 车机推送 update.bin → 仪表校验 magic/md5 → backup_whole_image → 烧写 SOC(update.bin) + MCU(mcuapp.bin) → checksum → 重启。**这就是车机向仪表推送 OTA 的链路（仪表 OTA 的另一条路是 USB 刷入，两者并存）。**
 
-**10002 = net_log.c（日志回传）：**
+**net_log.c（日志回传）：**
 ```
 Connect to 192.168.2.99:10002 ok.
 IPLog%.4d%.2d%.2d%.2d%.2d%.2d.zip          # 日志文件名(时间戳)
@@ -89,6 +89,8 @@ log size is 0x%x, crc is 0x%x.
 %s, net_log timeout: %d
 ```
 源码：`app\net_log.c`。仪表把运行日志(IPLog_时间戳.zip/.txt)回传车机，带 CRC 校验。
+
+> ⚠️ **端口分配的诚实说明**：上面的 net_update.c 代码块里出现 `Connect to ...:10001 ok`，net_log.c 代码块里出现 `Connect to ...:10002 ok` —— 这是按 strings 偏移做的**合理推断**，但**未坐实**。10001/10002 两端口的连接字符串（`fail`/`ok`）在 .rodata 中成对相邻出现（`10001 fail`@偏移2517280 / `10002 fail`@偏移2517320 仅差 40B；`10001 ok`@2533412 / `10002 ok`@2533448 仅差 36B），且 OTA/日志字符串在两个代码区域间交错。仅凭字符串顺序无法可靠确定「10001=OTA，10002=日志」——也可能是两个端口都用于同一种功能（控制流+数据流分离），或分配方式不同。**精确分配待实机 `netstat`/抓包确认。**
 
 ### 2.4 握手/校验
 - `MCU MACHINE_TYPE_8INCH = 0x%x` / `SOC MACHINE_TYPE_8INCH = 0x%x`：仪表(MCU)与车机(SOC)互传机器类型标识，双向握手确认。
@@ -138,18 +140,18 @@ ip ro add 192.168.2.0/24 proto static dev "$1" table legacy_system
 ### 通道 A：TCP 10001/10002（仪表 ↔ 车机，OTA + 日志）
 ```
 仪表(FreeRTOS-Plus-TCP, client)  ──TCP连接──>  车机(192.168.2.99, server)
-  10001: 仪表 ← 车机  拉 OTA 固件(net_update.c: update.bin/mcuapp.bin)
-  10002: 仪表 → 车机  推 日志(net_log.c: IPLog_时间戳.zip)
+  10001/10002: 仪表 ↔ 车机  OTA 固件拉取(net_update.c) + 日志回传(net_log.c)
   帧格式: type + subtype + [rsp_flag] + [data] + len
   握手: 互传 MACHINE_TYPE_8INCH, checksum 校验
 ```
 - **仪表是 TCP 主动方(client)**，车机是 server。
+- **端口↔功能分配（10001=OTA / 10002=日志）是合理推断但未坐实**：两个端口的 `Connect to 192.168.2.99:10001/10002 fail/ok` 字符串在 .rodata 中成对相邻出现（10001 fail@偏移2517280 / 10002 fail@2517320 仅差 40B；ok 字符串同样成对），且与 OTA(net_update.c) 和日志(net_log.c) 字符串区域交错，无法仅凭字符串顺序可靠分配。精确分配待实机 `netstat` 抓取监听进程后确认。
 - 车机侧监听 10001/10002 的进程**未在二进制中以 "subtype"/"192.168.2.99" 明文字符串定位到**——监听者很可能是 Java 服务(车机 server 端用 `htons(10001)` 整数常量，无字符串；"subtype" 是仪表侧调试日志用语)。车机端是 ext2 镜像，无法对 5GB img 做内容级全文 grep 定位。
 - 车机 server 身份待实机 `netstat -tlnp` 抓取确认（见待办）。
 
 ### 通道 B：CAN 总线（仪表 ↔ 车机，车辆信号）
 ```
-仪表(mcuapp.bin, 59条 RAM↔CAN_ID 信号表, 11-bit ID 0x108~0xF8A)
+仪表(mcuapp.bin, 58条有效 RAM↔CAN_ID 信号表 + 1条哨兵, 11-bit ID 0x108~0xF8A)
   ↕ CAN 总线 ↕
 车机(vehicle HAL → libxrpc → /dev/cis_rpc_node + netlink → MCU, CRC16)
   信号: 车速/转速/档位/报警灯/背光同步/主题 等
@@ -183,7 +185,7 @@ r5(车速原始值) → snprintf → widget_set_text(Speed_dat)
 | TCP 帧壳 | `send/rev frame type=0x%x,subtype=0x%x,data=0x%x,len=%d` | (server端无字符串,待实机确认) | ✅ 帧**格式**对得上 |
 | TCP 端口/IP | `Connect to 192.168.2.99:10001/10002` | `instrument_network_config.sh` 配 192.168.2.99 | ✅ |
 | CRC 校验 | 仪表帧 `checksum fail,retry` | 车机 libxrpc `Rpc_add_CRC16`/`CCITT_Crc16PreData_Tbl` | ⚠️ 仪表侧未确认是CRC16还是别的(代码缺失) |
-| 10001=OTA / 10002=日志 | net_update.c / net_log.c | (车机server端逻辑未知) | ✅ 用途对得上 |
+| 10001/10002 用途 | net_update.c(OTA) / net_log.c(日志) 字符串在两个代码区域交错 | (车机server端逻辑未知) | ⚠️ OTA+日志用途对得上，但**端口↔功能精确分配未坐实**（连接字符串成对相邻，无法仅凭字符串顺序确定） |
 
 ### 6.2 对应不上的（信号层）—— 核心缺口
 | 维度 | 仪表侧 | 车机侧 | 缺口 |

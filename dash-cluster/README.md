@@ -27,7 +27,7 @@ dash-cluster/
 │   ├── CRC_NOTES.md             #   CRC32 校验算法逆向结论（三个校验点）
 │   ├── REPACK_NOTES.md          #   ROMA 文件系统重打包 + 静态预览沙盒
 │   ├── AWTK_RENDER_NOTES.md     #   AWTK 真实渲染 driving_page 跑通（3 处改动）
-│   └── mcuapp-can-analysis.md   #   MCU CAN 通讯矩阵逆向（59 条 CAN ID）
+│   └── mcuapp-can-analysis.md   #   MCU CAN 通讯矩阵逆向（58 条有效 CAN ID + 1 哨兵）
 ├── scripts/
 │   ├── parse_ui.py              #   ui_binary 解析/序列化（parse_ui / serialize_ui）
 │   ├── pack_roma.py             #   ROMA 文件系统重打包器
@@ -92,4 +92,4 @@ python3 dash-cluster/scripts/crc.py patch update.bin   # 重算并写回头 CRC
 | CRC32 | **normal（MSB-first）表，无 final XOR**（区别于 zlib.crc32），字段本身清零后参与 |
 | 校验点 | update.bin@0x0C、ROMA@0x0C、BANI@0x24 |
 | 签名 | 无 RSA/SHA，改资源后逐层重算 CRC+MD5 即可刷回 |
-| MCU | Cortex-M（疑 LPC17xx/40xx），CAN 信号表 59 条（CAN ID 0x108~0xF8A） |
+| MCU | Cortex-M（疑 LPC17xx/40xx），CAN 信号表 58 条有效 + 1 哨兵（CAN ID 0x108~0xF8A） |
