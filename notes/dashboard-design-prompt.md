@@ -60,6 +60,13 @@
 ### 中央信息区
 - **顶部**：挡位（Gear_N2 图片 / MainGear 文字 D/P/R）
 - **中部**：ADAS 车辆俯视图（NomCar + DrivingBg_Lane2 车道线）
+- **底部信息条**：总里程 ODO_data / 小计 Trip_data / 续航 BatRange_data / **油量 FuelOil_bar** / 油耗 AvgBatConsp_Dat
+
+> ⚠️ **混动补充**：这车是插混（PHEV/HPEV），有油+电两套能量系统。底部信息条建议同时显示：**电续航 BatRange + 油续航 FuelOilRange + 油量条 FuelOil_bar**，体现混动双能源特性。
+
+### 中央信息区
+- **顶部**：挡位（Gear_N2 图片 / MainGear 文字 D/P/R）
+- **中部**：ADAS 车辆俯视图（NomCar + DrivingBg_Lane2 车道线）
 - **底部**：总里程 ODO_data / 小计 Trip_data / 续航 BatRange_data 一行
 
 ---
@@ -95,7 +102,7 @@
 - **中央区域（x≈440~840）**：
   - 顶部：挡位指示（D/P/R）
   - 中部：ADAS 车辆俯视图 + 车道线
-  - 底部：总里程 / 小计里程 / 续航里程（一行三个信息）
+  - 底部：总里程 / 小计里程 / 电续航 + 油续航 / 油量条（混动双能源，一行多个信息）
 
 - **「指针贴着刻度如进度条」效果**：指针扫过的区域用弧形填充（可用 progress_circle 画填充弧 + gauge_pointer 指针叠加，营造进度条沿刻度填充的视觉效果）
 
@@ -252,6 +259,14 @@
 - `NomCar` — 俯视车辆图
 - `Gear_N2` — 挡位指示图
 
+**混动/油量素材（PHEV 插混，油+电双能源）：**
+- `FuelOil_bar` — 油量进度条
+- `FuelOil_B` / `FuelOil_R` / `FuelOil_Y` — 油量图标（蓝/红/黄状态）
+- `FuelOil_ICON1` / `FuelOil_ICON2` — 油量图标
+- `BatterySoc_bg2` — 电池电量背景
+- `BatterySoc_G` / `BatterySoc_R` / `BatterySoc_Y` — 电池图标（绿/红/黄状态）
+- `DriveModeBg_ECO_EV2` / `DriveModeBg_ECO_HPEV2` — 驱动模式背景（EV/PHEV 切换）
+
 **字体（font_name 引用）：**
 - `Montserrat_Semi_Bold` — 粗体（大数字用）
 - `Montserrat_Medium` — 中等（中号数字用）
@@ -273,14 +288,21 @@
 | `MotorSpeed_unit` | 转速单位 rpm | 左表盘内圈 |
 | `BatSoc_dat` | 电池电量 % | 左表盘中心 |
 | `BatSoc_unit` | 电量单位 % | 左表盘中心 |
-| `BatRange_dat` | 续航里程 | 中央底部 |
-| `BatRange_unit` | 续航单位 km | 中央底部 |
+| `BatRange_dat` | 电续航里程 | 中央底部 |
+| `BatRange_unit` | 电续航单位 km | 中央底部 |
+| `FuelOil_bar` | **油量条**（混动油量进度条） | 中央底部 |
+| `FuelOilRange_dat` | **油续航里程** | 中央底部 |
+| `FuelOilRange_unit` | 油续航单位 km | 中央底部 |
+| `FuelOil_ICON` | 油量图标 | 中央底部油量条旁 |
+| `AvgBatConsp_Dat` | 平均能耗（混动综合能耗） | 中央底部 |
+| `AvgBatConsp_Unit` | 平均能耗单位 | 中央底部 |
 | `ODO_data` | 总里程 | 中央底部 |
 | `ODO_unit` | 总里程单位 km | 中央底部 |
 | `Trip_data` | 小计里程 | 中央底部 |
 | `Trip_unit` | 小计单位 km | 中央底部 |
 | `Voltage_data` | 电压 | 右表盘内圈 |
 | `Voltage_unit` | 电压单位 V | 右表盘内圈 |
+| `DriveMode_EV` / `DriveMode_PHEV` | 驱动模式（EV/PHEV 切换） | 中央顶部挡位旁 |
 | `Gear_N2` | 挡位图 | 中央顶部 |
 
 ### 六、交付要求
