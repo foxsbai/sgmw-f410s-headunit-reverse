@@ -1,170 +1,170 @@
-# sgmw-launcher-reverse
+# F410S 车机逆向工程项目
 
-上汽通用五菱（SGMW）LING OS 车机 —— **灵眸智驾 F410S** 车型的逆向 / 二次开发工程。
+上汽通用五菱宝骏云海 F410S 车机的逆向工程开源项目，包含系统架构分析、HAL 服务清单、CAN 信号映射表等功能。
 
-> 平台：联发科 **MT8666**（`spm8666p2_64_mce`）· Android 9 (API 28) · 厂商固件 V4.03.05 · `userdebug` + `test-keys`
+## 📋 项目概述
 
----
+本项目对 F410S 车机进行全面的逆向工程分析，涵盖：
+- **硬件架构**: MT8666P (Helio P70) SoC 分析
+- **系统层**: Android 9 (SDK 28) 系统分析
+- **HAL 层**: Vehicle HAL、Camera HAL、EVS HAL 等服务分析
+- **驱动层**: GMSL 摄像头、MTK VPU 等驱动分析
+- **通信协议**: CAN 信号映射表、仪表盘通信协议
 
-## 30 秒速览
-
-这台车其实是**两台独立设备**，本仓库按它们拆成**三条逆向线**：
-
-| # | 线 | 目标 | 平台 | 状态 |
-|---|---|---|---|---|
-| **A** | 车机 | 桌面 Launcher / 系统 / 分区 | MT8666 · Android 9 | ✅ 已解包反编译 |
-| **B** | CarPlay | 无线 CarPlay 投屏 | 车机 + iPhone | ✅ 实机跑通 |
-| **C** | 仪表盘 | UI 资源 / 渲染 / 回刷 | AMT630H · FreeRTOS + AWTK | ✅ 官方渲染打通 |
-| **D** | 车机↔仪表通信 | 通信协议 / 信号映射 | TCP + CAN | ✅ 架构印证 + 映射表提取 |
-
-所有结论都在 `notes/` 里，**入口是 [`notes/README.md`](notes/README.md)**（人读它、AI 也读它，是整仓库的知识地图）。
-
----
-
-## 项目全景图
+## 🏗️ 整体架构
 
 ```
-sgmw-launcher-reverse/
-│
-├── README.md               ← 你在这（项目定位 + 快速开始）
-│
-├── notes/                  ★ 核心：全部逆向结论 / 规范 / 复现步骤
-│   ├── README.md           ← 知识地图（三条线 + 阅读顺序，先看这个）
-│   ├── architecture.md       A线：车机硬件/系统/分区 + 8 条逆向猜想
-│   ├── rom-analysis.md       A线：升级包结构/分区/签名
-│   ├── launcher-analysis.md  A线：桌面架构/卡片体系/布局
-│   ├── upgrade-package-vs-device.md  A线：升级包 ↔ 实机对照
-│   ├── diplay-carplay.md     B线：无线 CarPlay 安装调试（✅ 自包含）
-│   ├── instrument-cluster.md C线：仪表盘逆向总入口（✅ 官方渲染）
-│   ├── awtk-ui-binary-format.md  C线：AWTK ui_binary 逐字节格式
-│   ├── roma-fs-repack.md     C线：ROMA 资源 FS + 重打包 + 校验链
-│   ├── comm-architecture-crosscheck.md  D线：车机↔仪表通信架构互相印证
-│   ├── comm-framework-diagram.md        D线：数据流框架图 + 改 UI 必须信息清单
-│   └── instrument-cluster-driving-page.png  C线：渲染效果图
-│
-├── scripts/                ★ 可执行的复现/工具脚本（对照上面三线）
-│   ├── reproduce.sh          A线：一键「解包 → 反编译」
-│   ├── diplay-ap0-route-fix.sh  B线：补 ap0 IPv6 路由（daemon）
-│   ├── diplay-autostart.sh   B线：上面 daemon 的开机自启
-│   ├── vector2svg.py         A线：vector drawable → SVG（桌面 mockup 用）
-│   ├── parse_ui.py           C线：AWTK ui_binary 解析/序列化
-│   ├── pack_roma.py          C线：ROMA 资源 FS 重打包
-│   ├── crc.py                C线：仪表固件 CRC32 计算/修补
-│   ├── preview_ui.py         C线：驾驶页近似渲染沙盒（非官方）
-│   ├── mcuapp_can_extract.py C线：mcuapp.bin CAN 信号提取（只读）
-│   ├── awtk-preview-ui.patch C线：AWTK 官方渲染三处修复
-│   ├── extract_roma.py       C线：从 instrument.zip 一路提取到 ROMA 资源
-│   ├── pack_instrument.py    C线：完整封包（改资源→重打包→重算CRC→封instrument.zip）
-│   ├── inject_gauges.py      C线：原 driving_page 树注入 gauge 指针表盘
-│   ├── gen_audi_assets.py    C线：生成奥迪风格表盘/指针 PNG（PIL）
-│   └── watch_render.py       C线：监视 work/*.xml，保存即 xml_to_ui→渲染→打开
-│
-├── dash-cluster/           ★ 仪表盘逆向子工程（C线 + D线）
-│   ├── README.md             仪表盘固件逆向子工程说明
-│   ├── notes/                逆向笔记（UI 格式 / ROMA / CRC / 渲染 / CAN）
-│   ├── scripts/              解析·打包·CRC·渲染·CAN·propid↔canid 提取脚本
-│   │   └── extract_propid_canid.py  D线：车机 HAL propid↔canid 映射表提取
-│   ├── samples/              4 个 UI .bin 样例（driving_page 等）
-│   ├── analysis/             D线：车机 HAL propid↔canid 映射表 + 通信配置脚本引用
-│   │   ├── propid_canid_map.json     提取的映射表（1157 条）
-│   │   ├── propid_canid_map.csv
-│   │   └── headunit-comm-refs/       通信配置脚本引用（.rc/.sh）
-│   └── render/               AWTK 真实渲染截图（cluster_fixed.png）
-│
-├── work/                   仪表 UI 二次开发：原型 XML + 渲染效果图
-│   ├── prototype_audi_v1.xml   奥迪 Virtual Cockpit 风格（深底+双指针表）
-│   ├── prototype_byd_v1.xml    比亚迪风格（中央大数字+弧形进度环）
-│   ├── prototype_v2_dual_gauge.xml  双表盘原型（AWTK 通用素材）
-│   ├── gauge_test_page.xml     指针表盘最小测试
-│   └── renders/                各原型渲染效果图（1280×480 PNG）
-│
-├── mockup/                 桌面布局可视化还原（浏览器直接打开看效果）
-│   ├── launcher_preview_v2.html  ← 真实资源版（推荐）
-│   ├── launcher_preview.html
-│   └── assets/              预览用真实资源（图标/卡片底）
-│
-├── decompiled/              apktool 反编译产物（体积大，见下）
-│   └── SGMWLauncher/        smali + res + manifest（~1.2 万个文件）
-│
-├── ota-metadata/            升级包抽出的元数据（供参考，不含镜像）
-│   ├── payload_properties.txt
-│   ├── care_map.txt
-│   └── compatibility.zip
-│
-└── .gitignore              忽略大体积镜像 / 含设备唯一标识的私密文件
+┌─────────────────────────────────────────────────────────────────┐
+│                        F410S 车机系统架构                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │                   应用层 (Android 9)                      │  │
+│  │  DJI AutoVi | CarPlay | Launcher | 行车记录仪             │  │
+│  └──────────────────────────────────────────────────────────┘  │
+│                            ↓                                    │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │                   HAL 层                                  │  │
+│  │  Vehicle HAL 2.0 | Camera HAL | EVS HAL (未实现)          │  │
+│  └──────────────────────────────────────────────────────────┘  │
+│                            ↓                                    │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │                   驱动层                                  │  │
+│  │  seninf | camera-isp | camera-dpe | GMSL (max96722)      │  │
+│  └──────────────────────────────────────────────────────────┘  │
+│                            ↓                                    │
+│  ┌──────────────────────────────────────────────────────────┐  │
+│  │                   硬件层                                  │  │
+│  │  MT8666P SoC | GMSL 摄像头 x4 | MTK VPU | GPS | ACC      │  │
+│  └──────────────────────────────────────────────────────────┘  │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-> **关于 `decompiled/`**：里面 ~1.2 万个文件，绝大多数是 APK 自带第三方库的 smali（`androidx/*`、`kotlin/*`、`com/google/gson`、`com/bumptech/glide` 等）。**真正值得看的是 OEM 业务代码**，集中在两个前缀：`com/sgmw/**`（Launcher/主题/语音/导航）和 `com/pateo/**`（媒体控件/通用组件）。反编译结论的解读见 `notes/launcher-analysis.md`，不必逐文件读。
+## 📊 设备信息
 
----
+| 项目 | 值 |
+|------|------|
+| **设备型号** | `spm8666p_64_mce` |
+| **SoC** | MT8666P (Helio P70) |
+| **Android 版本** | Android 9 (SDK 28) |
+| **RAM** | ~4GB |
+| **存储** | 128GB eMMC |
+| **ADB 端口** | TCP 5557 |
 
-## D 线：车机 ↔ 仪表盘 通信架构
+## 📁 目录结构
 
-👉 **[通信架构互相印证](notes/comm-architecture-crosscheck.md)** · **[数据流框架图 + 改 UI 必须信息清单](notes/comm-framework-diagram.md)** —— 从车机 OTA 包提取 vehicle HAL / libxrpc / libRpcData / libelectricdiagnostic / instrument_network_config.sh，与仪表侧 app 代码（FreeRTOS-Plus-TCP）互相印证。核心结论：
+```
+.
+├── README.md                      # 本文件 - 项目总览
+├── ARCHITECTURE.md                # 整体架构详细分析
+├── TODO_LIST.md                   # 待处理任务清单
+│
+├── REVERSE_ENGINEERING/           # 逆向工程信息
+│   ├── firmware/                  # 固件分析
+│   │   ├── ota-analysis.md        # OTA 升级包分析
+│   │   └── partition-map.md       # 系统分区映射
+│   │
+│   ├── hal-services/              # HAL 服务清单
+│   │   ├── vehicle-hal.md         # Vehicle HAL 2.0
+│   │   ├── camera-hal.md          # Camera HAL
+│   │   └── evs-hal.md             # EVS HAL (未实现)
+│   │
+│   ├── kernel-drivers/            # 内核驱动分析
+│   │   ├── camera-drivers.md      # 摄像头驱动
+│   │   └── gmsl-analysis.md       # GMSL 串行器分析
+│   │
+│   └── services/                  # 系统服务分析
+│       ├── carota-services.md     # Carota 服务
+│       └── dji-autoivi.md         # DJI AutoVi 应用
+│
+├── DECODED_INFO/                  # 已解码/反编译信息
+│   ├── can-signals/               # CAN 信号映射表
+│   │   ├── signal-map.md          # CAN 信号映射表
+│   │   └── can-ids.csv            # CAN ID 列表 (CSV)
+│   │
+│   └── adb-scans/                 # ADB 扫描结果
+│       ├── full-scan-report.md    # 完整扫描报告
+│       └── codewhale-crosscheck.md# Codewhale 交叉验证
+│
+├── docs/                          # 技术文档
+│   └── ...                        # 专项技术文档
+│
+└── feature/                       # 功能开发分支
+    ├── sentinel-mode/             # 🚧 哨兵模式功能 (进行中)
+    │   ├── README.md              # 项目概述 + 开发计划
+    │   ├── docs/                  # 架构详解
+    │   └── app/                   # Android 源码
+    └── ...                        # 其他功能
+```
 
-- **两条独立通道**：① TCP 10001/10002（仪表↔车机，OTA 固件拉取 + 日志回传，帧格式 `type+subtype+data+len`；两端口连接字符串在 .rodata 成对出现、与 OTA/日志字符串交错，**端口↔功能的精确分配待实机确认**），② CAN 总线（车辆信号），车机经 vehicle HAL→libxrpc→MCU。
-- **车机 IP = 192.168.2.99**（由 `instrument_network_config.sh` 配置），仪表主动 TCP 连接。
-- **车机 HAL 的 propid↔canid 映射表已逆汇编提取**（1157 条，69 个唯一 CAN ID），脚本 `dash-cluster/scripts/extract_propid_canid.py`，产物 `dash-cluster/analysis/propid_canid_map.json`。
-- **车机 CAN 域（0xE1~0x573）与仪表 CAN 域（0x108~0xF8A）交集仅 1 条（0x32A）→ 两域经网关交汇，非直连。**
-- **改仪表 UI 让指针转起来的参数已全部确定**：r5 = 车速 km/h（snprintf fmt=`"%d"` 实锤，无缩放），范围 0~180（电子限速 175），`angle = r5×1.5−120`，不需实机抓包。
+## 🎯 功能分支状态
 
----
+| 分支 | 功能 | 状态 |
+|------|------|------|
+| `feature/sentinel-mode` | 露营模式哨兵系统 | 🚧 Phase 1 进行中 |
 
-## 从这里开始
+## 🚀 快速开始
 
-1. **先读 [`notes/README.md`](notes/README.md)** —— 三条线的地图和阅读顺序。
-2. **🎯 想接着做仪表 UI 改造** → 读 [`notes/PROGRESS.md`](notes/PROGRESS.md)（进度 + 待办 + 从零恢复环境步骤，新 session/AI 入口）。
-3. **想快速看效果**：浏览器打开 [`mockup/launcher_preview_v2.html`](mockup/launcher_preview_v2.html)（桌面还原）、[`notes/instrument-cluster-driving-page.png`](notes/instrument-cluster-driving-page.png)（仪表渲染图）、[`work/renders/`](work/renders/)（奥迪/比亚迪 UI 原型效果图）。
-4. **按兴趣分叉**：
-   - 车机/桌面 → [`notes/architecture.md`](notes/architecture.md) → [`notes/launcher-analysis.md`](notes/launcher-analysis.md)
-   - CarPlay → [`notes/diplay-carplay.md`](notes/diplay-carplay.md)（自包含）
-   - 仪表盘 UI 改造 → [`notes/instrument-cluster.md`](notes/instrument-cluster.md)（第八节）→ [`notes/app-code-binding.md`](notes/app-code-binding.md)（数据绑定）
-   - 车机↔仪表通信 → [`notes/comm-architecture-crosscheck.md`](notes/comm-architecture-crosscheck.md) → [`notes/comm-framework-diagram.md`](notes/comm-framework-diagram.md)
+### 环境要求
 
----
+- F410S 车机 (MT8666P / Android 9)
+- Root 权限 (SELinux Permissive)
+- ADB 调试已启用 (`ro.adb.secure=0`)
 
-## 快速开始
-
-### 环境依赖
-
-- macOS / Linux
-- Python 3.10+（`pip install --proxy "" protobuf six bsdiff4 brotli zstandard fsspec requests aiohttp`）
-- Java 17（apktool）
-- `7z`（读 ext4 镜像；无则 `unzip`/`p7zip` 或 brew 的 `sevenzip`）
-
-### 复现「解包 → 反编译」
-
-需要本机先有原始升级包 zip（~2.4G，不在仓库内），然后：
+### 访问车机
 
 ```bash
-./scripts/reproduce.sh <外层升级包.zip 的路径>
+# 通过 USB 连接
+adb devices
+
+# 通过 WiFi 连接
+adb connect 10.178.144.128:5557
+
+# 获取 root shell
+adb shell
+su
 ```
 
-脚本自动：装依赖 → 下工具（apktool / payload_dumper）→ 解三层嵌套 → 解 `payload.bin` 分区镜像 → 抽 OEM APK → 反编译 SGMWLauncher。
+## 🎯 已完成的分析
 
-> 注意：`payload.bin` 解包 + 5.9G 镜像生成需要约 **15G 磁盘空间**，耗时数分钟。
+### 1. ADB 只读探测
+
+- ✅ Vehicle HAL 2.0 信号清单
+- ✅ Camera HAL 设备注册状态 (Device 0,1,3,4 可用)
+- ✅ GMSL 摄像头线程 (max96722, max9288)
+- ✅ DJI AutoVi 进程状态
+- ✅ DVR 录制文件分析
+
+### 2. CAN 信号映射
+
+- ✅ 1157 条 CAN 信号记录分析
+- ✅ 仪表盘通信协议交叉验证
+- ✅ 车机 - 仪表双 CAN 域隔离架构确认
+
+### 3. EVS 摄像头分析
+
+- ✅ Device 2 ENOSYS (-38) 错误分析
+- ✅ GMSL 硬件链路验证 (max96722 解串器 + max9288 串行器)
+- ✅ 4 路环视摄像头配置确认
+
+## ⚠️ 已知限制
+
+1. **Device 2 未实现**: EVS HAL 服务缺失，无法使用 Device 2（右视摄像头）
+2. **Android 后台限制**: 需要前台服务 + WakeLock 防止被杀死
+3. **系统签名**: Vehicle HAL 访问需要 SGMW 系统签名（使用 root 绕过）
+
+## 📚 参考资料
+
+- [F410S ADB 只读探测结果汇总](./docs/F410S_ADB_只读探测结果汇总.md)
+- [F410S EVS Device2 问题深度分析](./docs/F410S_EVS_Device2_问题深度分析.md)
+- [OpenViking 车机项目资源索引](./docs/openviking-sync-index.md)
+
+## 📄 许可证
+
+本项目基于 MIT 许可证开源。
 
 ---
 
-## 关键结论速览
-
-| 项 | 值 |
-|---|---|
-| 升级包形态 | 三层嵌套 zip → 标准 **A/B OTA**（`soc_update.zip`，SignApk 签名，`ota-type=AB`） |
-| 分区 | `system`(ext4) / `vendor`(ext4) / `boot` / `dtbo` / `lk` / `md1img` / `spmfw` / `sspm` / `scp` / `cam_vpu*` / `tee`，**无 vbmeta** |
-| 签名 | `test-keys` + `userdebug`，可自由重签刷回 |
-| 桌面应用 | `SGMWLauncher.apk`，包名 `com.sgmw.lingos.launcher`，`android.uid.system` 共享 UID，持 HOME |
-| 桌面结构 | `Launcher`(单例) → `LauncherFragment`；壁纸 + 右上天气卡 + 底部横滑卡片容器 `WidgetContainerView` |
-| 可选卡片（12 类） | 媒体卡（酷我/QQ/喜马拉雅/USB/蓝牙/收音机）、导航、蓝牙电话、天气、座椅加热、无线充电、最近使用、主题、壁纸、出行简报、语音助手 |
-| 车机屏幕 | 1920×1080 横屏（mdpi，1dp≈1px） |
-| 仪表盘 | 独立设备：AMT630H V100 + Cortex-M MCU，FreeRTOS + AWTK，1280×480 |
-| CarPlay | DiPlay 0.2.12 + ap0 的 IPv6 OUTPUT 路由，✅ 无线跑通 |
-| 车机↔仪表通信 | TCP 10001/10002(OTA+日志) + CAN 总线；两 CAN 域交集仅 0x32A |
-
-详见 `notes/architecture.md`、`notes/rom-analysis.md`、`notes/launcher-analysis.md`、`notes/instrument-cluster.md`、`notes/comm-architecture-crosscheck.md`。
-
----
-
-## 免责声明
-
-本项目仅用于对**自有设备**的技术研究、界面自定义与个人二次开发。固件版权归上汽通用五菱 / 博泰（PATEO）所有。请勿将逆向产物用于任何商业分发、侵权或违反当地法律法规的用途。
+**Co-Authored-By**: Claude Code <noreply@anthropic.com>
+🤖 Generated with [Claude Code](https://claude.com/claude-code)

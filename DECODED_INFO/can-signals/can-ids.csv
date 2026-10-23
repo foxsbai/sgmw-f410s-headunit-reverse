@@ -1,0 +1,26 @@
+# CAN ID 列表 (CSV)
+
+## 格式说明
+
+| 列名 | 说明 | 示例 |
+|------|------|------|
+| can_id | CAN ID (十六进制) | 0x123 |
+| signal_name | 信号名称 |车速 |
+| signal_type | 信号类型 | uint16 |
+| scale | 缩放比例 | 0.1 |
+| offset | 偏移量 | 0 |
+| unit | 单位 | km/h |
+| can_domain | CAN 域 | CAN1/CAN2 |
+
+## 数据
+
+```csv
+can_id,signal_name,signal_type,scale,offset,unit,can_domain
+```
+
+> **注意**: 此文件待填充 1157 条 CAN 信号记录
+
+---
+
+**Co-Authored-By**: Claude Code <noreply@anthropic.com>
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
