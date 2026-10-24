@@ -102,7 +102,8 @@
 
 | 分支 | 功能 | 状态 |
 |------|------|------|
-| `feature/sentinel-mode` | 露营模式哨兵系统 | 🚧 Phase 1 进行中 |
+| `verified/carplay-instrument` | ✅ CarPlay + 仪表盘已跑通验证 | ✅ 已推送 GitHub |
+| `feature/sentinel-mode` | 🚧 露营模式哨兵系统 | 🚧 Phase 1 进行中 |
 
 ## 🚀 快速开始
 
