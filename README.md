@@ -157,6 +157,8 @@ su
 
 ## 📚 参考资料
 
+- [功能分支说明](./FEATURE_BRANCHES.md) - **所有已跑通验证和开发中的功能分支介绍**
+- [CarPlay + 仪表盘验证清单](./docs/CARPLAY_INSTRUMENT_CLAIMED.md) - AI Agent 可复现部署指南
 - [F410S ADB 只读探测结果汇总](./docs/F410S_ADB_只读探测结果汇总.md)
 - [F410S EVS Device2 问题深度分析](./docs/F410S_EVS_Device2_问题深度分析.md)
 - [OpenViking 车机项目资源索引](./docs/openviking-sync-index.md)
