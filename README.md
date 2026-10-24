@@ -59,6 +59,7 @@
 ├── README.md                      # 本文件 - 项目总览
 ├── ARCHITECTURE.md                # 整体架构详细分析
 ├── TODO_LIST.md                   # 待处理任务清单
+├── FEATURE_BRANCHES.md            # 功能分支说明 (已跑通验证 + 开发中)
 │
 ├── REVERSE_ENGINEERING/           # 逆向工程信息
 │   ├── firmware/                  # 固件分析
@@ -88,14 +89,41 @@
 │       └── codewhale-crosscheck.md# Codewhale 交叉验证
 │
 ├── docs/                          # 技术文档
-│   └── ...                        # 专项技术文档
+│   ├── carplay-diplay-verified.md          # ✅ CarPlay (DiPlay) 已跑通验证
+│   ├── instrument-awtk-roma-verified.md    # ✅ 仪表盘 UI (AWTK+ROMA) 已跑通验证
+│   ├── phase1-verification-report.md        # Phase 1 EVS HAL 验证报告
+│   ├── phase2-verification-report.md        # Phase 2 NPU 低功耗验证报告
+│   └── ...                                # 其他专项技术文档
 │
-└── feature/                       # 功能开发分支
-    ├── sentinel-mode/             # 🚧 哨兵模式功能 (进行中)
-    │   ├── README.md              # 项目概述 + 开发计划
-    │   ├── docs/                  # 架构详解
-    │   └── app/                   # Android 源码
-    └── ...                        # 其他功能
+├── feature/                       # 功能开发分支
+│   ├── carplay-diplay/            # ✅ CarPlay (DiPlay) - 已跑通验证
+│   │   ├── docs/                  # 验证清单 + 部署指南
+│   │   ├── notes/                 # 技术笔记
+│   │   └── scripts/               # Shell 脚本
+│   │
+│   ├── instrument-awtk-roma/      # ✅ 仪表盘 UI (AWTK+ROMA) - 已跑通验证
+│   │   ├── dash-cluster/          # 仪表盘逆向工程目录
+│   │   │   ├── tools/             # Python 分析工具 (18 个)
+│   │   │   ├── scripts/           # Shell 脚本
+│   │   │   └── samples/           # 样本文件
+│   │   ├── analysis/              # CAN 信号映射表
+│   │   └── docs/                  # 验证清单
+│   │
+│   ├── sentinel-mode/             # 🚧 露营模式哨兵系统 (进行中)
+│   │   ├── README.md              # 项目概述 + 开发计划
+│   │   ├── docs/                  # 架构详解
+│   │   └── app/                   # Android 源码
+│   │
+│   └── ...                        # 其他功能
+│
+└── scripts/                       # 通用工具脚本
+    ├── parse_ui.py                # AWTK UI 二进制解析
+    ├── extract_roma.py            # ROMA 文件系统提取
+    ├── pack_ui.py                 # AWTK UI 重打包
+    ├── pack_roma.py               # ROMA 文件系统重打包
+    ├── crc.py                     # CRC32 校验计算
+    ├── preview_ui.py              # UI 真实渲染
+    └── ...                        # 其他工具
 ```
 
 ## 🎯 功能分支状态
