@@ -102,7 +102,9 @@
 
 | 分支 | 功能 | 状态 |
 |------|------|------|
-| `feature/sentinel-mode` | 露营模式哨兵系统 | 🚧 Phase 1 进行中 |
+| `feature/carplay-diplay` | ✅ CarPlay (DiPlay) 已跑通验证 | ✅ 已推送 GitHub |
+| `feature/instrument-awtk-roma` | ✅ 仪表盘 UI (AWTK+ROMA) 已跑通验证 | ✅ 已推送 GitHub |
+| `feature/sentinel-mode` | 🚧 露营模式哨兵系统 | 🚧 Phase 1 进行中 |
 
 ## 🚀 快速开始
 
@@ -156,6 +158,9 @@ su
 
 ## 📚 参考资料
 
+- [功能分支说明](./FEATURE_BRANCHES.md) - **所有已跑通验证和开发中的功能分支介绍**
+- [CarPlay (DiPlay) 已跑通验证](./docs/carplay-diplay-verified.md) - AI Agent 可复现部署指南
+- [仪表盘 UI (AWTK+ROMA) 已跑通验证](./docs/instrument-awtk-roma-verified.md) - AI Agent 可复现部署指南
 - [F410S ADB 只读探测结果汇总](./docs/F410S_ADB_只读探测结果汇总.md)
 - [F410S EVS Device2 问题深度分析](./docs/F410S_EVS_Device2_问题深度分析.md)
 - [OpenViking 车机项目资源索引](./docs/openviking-sync-index.md)
